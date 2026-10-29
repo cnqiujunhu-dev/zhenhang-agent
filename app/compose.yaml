@@ -1,0 +1,171 @@
+services:
+  knowledge-db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zhenxing_knowledge
+      POSTGRES_USER: zhenxing_knowledge
+      POSTGRES_PASSWORD: ${ZX_KNOWLEDGE_PASSWORD:?Run configure_local.py first}
+    ports:
+      - "127.0.0.1:${ZX_KNOWLEDGE_PORT:-15443}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhenxing_knowledge -d zhenxing_knowledge"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+    volumes:
+      - zhenxing_knowledge_db:/var/lib/postgresql/data
+  embedding:
+    build:
+      context: .
+      dockerfile: deploy/embedding.Dockerfile
+    restart: unless-stopped
+    environment:
+      ZX_EXPECTED_EMBEDDING_REVISION: 59b80eac9d1f603caa00be8b835c8062838cdaa22fd30b1a4dea1219cfd3dda6
+    ports:
+      - "127.0.0.1:${ZX_EMBEDDING_PORT:-18193}:8000"
+    volumes:
+      - zhenxing_embedding_models:/models
+    healthcheck:
+      test: ["CMD", "python", "-c", "import json,os,urllib.request; d=json.load(urllib.request.urlopen('http://127.0.0.1:8000/health',timeout=3)); assert d['status']=='READY' and d['dimension']==384 and d['model_revision']==os.environ['ZX_EXPECTED_EMBEDDING_REVISION']"]
+      interval: 10s
+      timeout: 5s
+      retries: 90
+    mem_limit: 3g
+    cpus: 4
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zhenxing
+      POSTGRES_USER: zhenxing
+      POSTGRES_PASSWORD: ${ZX_DATABASE_PASSWORD:?Run configure_local.py first}
+    ports:
+      - "127.0.0.1:${ZX_POSTGRES_PORT:-15442}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhenxing -d zhenxing"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    volumes:
+      - zhenxing_db:/var/lib/postgresql/data
+  knowledge-worker:
+    image: zhenxing-agent:submission
+    build: .
+    restart: unless-stopped
+    command: ["python", "-m", "zhenxing.knowledge_index_runner"]
+    environment:
+      ZX_KNOWLEDGE_DATABASE_URL: postgresql+psycopg://zhenxing_knowledge:${ZX_KNOWLEDGE_PASSWORD}@knowledge-db:5432/zhenxing_knowledge
+      ZX_EMBEDDING_PROVIDER: local_http
+      ZX_EMBEDDING_BASE_URL: http://embedding:8000/v1
+      ZX_EMBEDDING_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+      ZX_EMBEDDING_MODEL_REVISION: 59b80eac9d1f603caa00be8b835c8062838cdaa22fd30b1a4dea1219cfd3dda6
+      ZX_EMBEDDING_DIMENSION: "384"
+    depends_on:
+      knowledge-db:
+        condition: service_healthy
+      embedding:
+        condition: service_healthy
+  init-data:
+    image: zhenxing-agent:submission
+    build: .
+    restart: "no"
+    command: ["python", "-m", "zhenxing.release_seed"]
+    environment:
+      ZX_DATABASE_URL: postgresql+psycopg://zhenxing:${ZX_DATABASE_PASSWORD}@db:5432/zhenxing
+      ZX_INITIAL_CUSTOMER_SUFFIX: ${ZX_INITIAL_CUSTOMER_SUFFIX:?Run configure_local.py first}
+      ZX_INITIAL_ADMIN_PASSWORD: ${ZX_INITIAL_ADMIN_PASSWORD:?Run configure_local.py first}
+      ZX_SEED_AS_OF: ${ZX_SEED_AS_OF:-}
+      ZX_BOOTSTRAP_NAMED_ACCOUNTS: "0"
+      ZX_ALLOW_DEMO_SESSIONS: "0"
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    image: zhenxing-agent:submission
+    build: .
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      ZX_DATABASE_URL: postgresql+psycopg://zhenxing:${ZX_DATABASE_PASSWORD}@db:5432/zhenxing
+      ZX_MODEL_BASE_URL: ${ZX_MODEL_BASE_URL:-}
+      ZX_MODEL_API_KEY: ${ZX_MODEL_API_KEY:-}
+      ZX_MODEL_NAME: ${ZX_MODEL_NAME:-}
+      ZX_MODEL_PROVIDER: ${ZX_MODEL_PROVIDER:-router}
+      ZX_OLLAMA_BASE_URL: ${ZX_OLLAMA_DOCKER_BASE_URL:-http://host.docker.internal:11434}
+      ZX_OLLAMA_MODEL: ${ZX_OLLAMA_MODEL:-gemma3:12b}
+      ZX_BOOTSTRAP_NAMED_ACCOUNTS: "0"
+      ZX_ALLOW_DEMO_SESSIONS: "0"
+      ZX_ALLOW_PUBLIC_REGISTRATION: ${ZX_ALLOW_PUBLIC_REGISTRATION:-0}
+      ZX_INITIAL_CUSTOMER_SUFFIX: ${ZX_INITIAL_CUSTOMER_SUFFIX:?Run configure_local.py first}
+      ZX_INITIAL_ADMIN_PASSWORD: ${ZX_INITIAL_ADMIN_PASSWORD:?Run configure_local.py first}
+      ZX_ROUTING_MODE: CLOUD_ONLY
+      ZX_ENABLE_LEGACY_COMMANDS: "0"
+      ZX_LAYA_MODE: OFF
+      ZX_DEEPSEEK_MODEL: deepseek-v4-pro
+      ZX_CUSTOMER_REPLY_ENABLED: "1"
+      ZX_MODEL_STREAMING_HTTP: "1"
+      ZX_ATTACHMENTS_DIR: /app/var/attachments
+      ZX_KNOWLEDGE_DATABASE_URL: postgresql+psycopg://zhenxing_knowledge:${ZX_KNOWLEDGE_PASSWORD}@knowledge-db:5432/zhenxing_knowledge
+      ZX_EMBEDDING_PROVIDER: local_http
+      ZX_EMBEDDING_BASE_URL: http://embedding:8000/v1
+      ZX_EMBEDDING_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+      ZX_EMBEDDING_MODEL_REVISION: 59b80eac9d1f603caa00be8b835c8062838cdaa22fd30b1a4dea1219cfd3dda6
+      ZX_EMBEDDING_DIMENSION: "384"
+    volumes:
+      - zhenxing_attachments:/app/var/attachments
+    ports:
+      - "127.0.0.1:${ZX_HTTP_PORT:-18965}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v2/health/ready', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    depends_on:
+      init-data:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+  worker:
+    image: zhenxing-agent:submission
+    build: .
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+    command: ["python", "-m", "zhenxing.worker", "--interval", "0.5"]
+    environment:
+      ZX_DATABASE_URL: postgresql+psycopg://zhenxing:${ZX_DATABASE_PASSWORD}@db:5432/zhenxing
+      ZX_MODEL_BASE_URL: ${ZX_MODEL_BASE_URL:-}
+      ZX_MODEL_API_KEY: ${ZX_MODEL_API_KEY:-}
+      ZX_MODEL_NAME: ${ZX_MODEL_NAME:-}
+      ZX_MODEL_PROVIDER: ${ZX_MODEL_PROVIDER:-router}
+      ZX_OLLAMA_BASE_URL: ${ZX_OLLAMA_DOCKER_BASE_URL:-http://host.docker.internal:11434}
+      ZX_OLLAMA_MODEL: ${ZX_OLLAMA_MODEL:-gemma3:12b}
+      ZX_ROUTING_MODE: CLOUD_ONLY
+      ZX_ENABLE_LEGACY_COMMANDS: "0"
+      ZX_LAYA_MODE: OFF
+      ZX_DEEPSEEK_MODEL: deepseek-v4-pro
+      ZX_CUSTOMER_REPLY_ENABLED: "1"
+      ZX_MODEL_STREAMING_HTTP: "1"
+      ZX_ATTACHMENTS_DIR: /app/var/attachments
+      ZX_KNOWLEDGE_DATABASE_URL: postgresql+psycopg://zhenxing_knowledge:${ZX_KNOWLEDGE_PASSWORD}@knowledge-db:5432/zhenxing_knowledge
+      ZX_EMBEDDING_PROVIDER: local_http
+      ZX_EMBEDDING_BASE_URL: http://embedding:8000/v1
+      ZX_EMBEDDING_MODEL: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+      ZX_EMBEDDING_MODEL_REVISION: 59b80eac9d1f603caa00be8b835c8062838cdaa22fd30b1a4dea1219cfd3dda6
+      ZX_EMBEDDING_DIMENSION: "384"
+    volumes:
+      - zhenxing_attachments:/app/var/attachments
+    depends_on:
+      init-data:
+        condition: service_completed_successfully
+      db:
+        condition: service_healthy
+volumes:
+  zhenxing_knowledge_db:
+  zhenxing_embedding_models:
+  zhenxing_db:
+  zhenxing_attachments:

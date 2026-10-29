@@ -1,0 +1,32 @@
+.conversation-suggestions { margin-top:16px;min-width:0; }
+.conversation-suggestion-heading { margin:0 0 9px;color:var(--navy,#25465c);font-size:14px;font-weight:600; }
+.conversation-suggestion-list { display:flex;flex-wrap:wrap;gap:8px; }
+.conversation-suggestion {
+  display:inline-flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:42px;max-width:100%;padding:10px 14px;border:1px solid #c9ddd9;border-radius:12px;
+  color:#26584d;background:#f8fcfa;font:inherit;font-size:14px;text-align:left;cursor:pointer;
+  white-space:normal;overflow-wrap:anywhere;
+}
+.conversation-suggestion > span { min-width:0; }
+.conversation-suggestion > svg { flex-shrink:0; }
+.conversation-suggestion:hover { background:#eaf5f0;border-color:#8cbbb0; }
+.conversation-suggestion:focus-visible { outline:3px solid #286c5b;outline-offset:3px; }
+.conversation-suggestions small { display:block;margin-top:9px;color:#536e78;font-size:12px;line-height:1.6; }
+.conversation-suggestion-more { margin-top:10px; }
+.conversation-suggestion-more > summary { width:fit-content;min-height:32px;color:#365f70;font-size:13px;cursor:pointer; }
+.conversation-suggestion-more > summary:focus-visible { outline:3px solid #286c5b;outline-offset:3px; }
+@media (max-width:520px) {
+  .conversation-suggestion-list { display:grid;grid-template-columns:minmax(0,1fr); }
+  .conversation-suggestion { width:100%;min-height:44px; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  .conversation-suggestions .customer-motion-boundary[data-customer-motion] > .conversation-suggestion-heading {
+    animation:customer-text-arrive var(--customer-motion-duration,200ms) ease-out var(--customer-motion-delay,0ms) 1 backwards;
+  }
+  /* Interactive labels, focus rings and hit targets remain fully opaque and
+     stationary; only the decorative edge and fixed heading animate. */
+}
+@media (forced-colors:active) {
+  .conversation-suggestion { color:ButtonText;background:ButtonFace;border-color:ButtonText; }
+  .conversation-suggestion:focus-visible,.conversation-suggestion-more > summary:focus-visible { outline-color:Highlight; }
+}

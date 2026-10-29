@@ -1,0 +1,151 @@
+/* Android-only layout. Keep room for the conversation without shrinking facts. */
+@media (max-width:760px) {
+ .login-story {min-height:0!important;padding:16px 24px!important;gap:8px!important}
+ .login-story-content {display:none!important}
+ .login-main {padding:20px 24px!important}
+ .login-title>.eyebrow {display:none!important}
+ .login-title h2 {font-size:25px!important;line-height:1.35!important;margin:0 0 8px!important}
+ .login-title p {margin:0 0 12px!important}
+ .login-tabs {margin-top:12px!important;margin-bottom:16px!important}
+ .login-card {padding:0!important}
+}
+
+@media (max-width:760px) {
+ .app-shell:not(.large-text) {
+  --zx-reading-body:16px!important;
+  --zx-reading-copy:14px!important;
+  --zx-reading-value:15px!important;
+  --zx-reading-label:13px!important;
+  --zx-reading-meta:12px!important;
+  --zx-reading-control:14px!important;
+  --zx-reading-title:17px!important;
+  --zx-reading-section:18px!important;
+  --zx-reading-amount:21px!important;
+ }
+ .app-shell .main-shell > .topbar {
+  min-height:52px!important;
+  padding:2px 10px!important;
+  gap:6px!important;
+ }
+ .app-shell .topbar-title {gap:5px!important;min-width:44px!important}
+ .app-shell .topbar-title strong {font-size:12px!important;max-width:130px!important}
+ .app-shell .topbar-actions {gap:3px!important}
+ .app-shell .language-buttons {padding:1px!important}
+ .app-shell .language-buttons button {padding-inline:6px!important;min-width:44px!important}
+ .app-shell .accessibility-button {padding-inline:6px!important;white-space:nowrap}
+ .app-shell .main-content:has(> .agent-first-workspace) {padding:6px!important}
+ .app-shell .main-content:has(> .agent-first-workspace) > .page-footer {display:none!important}
+ .app-shell .main-shell .agent-first-workspace .conversation-panel {
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:"heading toolbar" "reading reading" "latest latest" "composer composer"!important;
+  grid-template-rows:auto minmax(140px,1fr) auto auto!important;
+  height:calc(var(--agent-visible-height,100dvh) - 64px)!important;
+  min-height:min-content!important;
+  border-radius:10px!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .conversation-panel > .panel-heading {
+  padding:4px 10px!important;
+  align-items:center!important;
+  min-width:0!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .agent-heading {gap:7px!important}
+ .app-shell .main-shell .agent-first-workspace .agent-heading h2 {white-space:nowrap;font-size:var(--zx-reading-section,18px)!important}
+ .app-shell .main-shell .agent-first-workspace .agent-heading .agent-icon {width:26px!important;height:26px!important}
+ .app-shell .main-shell .agent-first-workspace .agent-context-toolbar,
+ .app-shell .main-shell .agent-first-workspace .conversation-panel:has(> .latest-messages-button) > .agent-context-toolbar {
+  grid-area:toolbar!important;
+  grid-column:2!important;
+  padding:3px 8px 3px 0!important;
+  justify-content:flex-end!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .agent-resources-toggle {
+  width:auto!important;
+  min-height:44px!important;
+  padding:4px 8px!important;
+  white-space:nowrap!important;
+  gap:6px!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .conversation-content:not([hidden]) {
+  height:auto!important;
+  min-height:0!important;
+  padding:12px 10px!important;
+  scrollbar-gutter:auto!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .latest-messages-button {
+  grid-area:latest!important;
+  margin:2px 10px!important;
+  min-height:44px!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .composer {padding:4px 10px 6px!important}
+ .app-shell .main-shell .agent-first-workspace .conversation-composer-context {gap:6px!important;margin-bottom:0!important}
+ .app-shell .main-shell .agent-first-workspace .composer-input {padding:6px 8px!important;gap:2px 8px!important}
+ .app-shell .main-shell .agent-first-workspace .composer > .composer-input > textarea {
+  height:44px!important;
+  min-height:44px!important;
+  max-height:140px!important;
+  line-height:1.5!important;
+  overflow-y:auto!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .composer-bottom > span {line-height:1.4!important}
+ .app-shell .main-shell .agent-first-workspace .composer-bottom > .send-button {align-self:center!important}
+ .app-shell .main-shell .agent-first-workspace .composer-hint {display:none!important}
+ .app-shell:not(.large-text) .main-shell .agent-first-workspace :is(
+  .turn-answer,.user-message p,.result-summary,.query-reply-intro,
+  .receipt-description,.assistant-intro p,.structured-message,.customer-material-answer
+ ) {line-height:1.6!important}
+ .app-shell .main-shell .agent-first-workspace .assistant-message {gap:8px!important}
+ .app-shell .main-shell .agent-first-workspace .user-message {margin-left:0!important;gap:8px!important}
+ .app-shell .main-shell .agent-first-workspace .assistant-avatar {width:26px!important;height:26px!important}
+ .app-shell .main-shell .agent-first-workspace .credit-card {padding:10px 12px!important;margin-block:6px!important}
+ .app-shell .main-shell .agent-first-workspace .credit-card dl {margin-block:5px!important}
+ .app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-record {padding:10px 12px!important}
+ .app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-record-grid {gap:8px!important}
+ .app-shell .main-shell .agent-first-workspace :is(.insight-query-card,.personal-result-card) {padding:10px 12px!important}
+ .app-shell .main-shell .agent-first-workspace .conversation-panel:has(> .customer-data-surface) {
+  grid-template-areas:"heading toolbar" "reading reading"!important;
+  grid-template-rows:auto minmax(140px,1fr)!important;
+ }
+ .app-shell .main-shell .agent-first-workspace .customer-data-surface {
+  padding:12px 10px!important;
+  scrollbar-gutter:auto!important;
+ }
+ .app-shell:not(.large-text) .customer-data-home {font-size:16px!important;line-height:1.55!important}
+ .app-shell .data-home-heading {gap:10px!important;margin-bottom:12px!important}
+ .app-shell:not(.large-text) .data-home-heading h2 {font-size:22px!important}
+ .app-shell .data-home-tabs {
+  flex-wrap:nowrap!important;
+  overflow-x:auto!important;
+  gap:6px!important;
+  margin-bottom:12px!important;
+  padding-bottom:4px!important;
+ }
+ .app-shell .data-home-tabs button {flex-shrink:0!important;min-height:44px!important;padding:6px 10px!important}
+ .app-shell .data-home-section {padding:12px!important;margin-bottom:12px!important}
+ .app-shell .data-home-section > header {margin-bottom:12px!important}
+ .app-shell:not(.large-text) .data-home-section > header h3 {font-size:19px!important}
+ .app-shell .data-home-card-grid,.app-shell .data-home-record-grid {gap:12px!important}
+ .app-shell .customer-data-home .data-home-card-grid .bank-card {min-height:220px!important;padding:14px!important}
+ .app-shell .customer-data-home .data-home-card-grid .bank-card .bank-card-bottom {padding-top:12px!important}
+ .app-shell .data-home-record-grid > article,.app-shell .data-home-plan {padding:12px!important}
+ .app-shell.compact-viewport .main-shell .agent-first-workspace .conversation-panel {
+  height:max(300px,calc(var(--agent-visible-height,100dvh) - 64px))!important;
+  grid-template-rows:auto minmax(80px,1fr) auto auto!important;
+ }
+ /* Large text retains its reading scale and wraps the header when needed. */
+ .app-shell.large-text .main-shell .agent-first-workspace .conversation-panel {
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-areas:"heading" "toolbar" "reading" "latest" "composer"!important;
+  grid-template-rows:auto auto minmax(140px,1fr) auto auto!important;
+ }
+ .app-shell.large-text .main-shell .agent-first-workspace .conversation-panel > .agent-context-toolbar,
+ .app-shell.large-text .main-shell .agent-first-workspace .conversation-panel:has(> .latest-messages-button) > .agent-context-toolbar {
+  grid-column:1!important;padding:3px 10px!important;
+ }
+ .app-shell.large-text .main-shell .agent-first-workspace .conversation-panel:has(> .customer-data-surface) {
+  grid-template-areas:"heading" "toolbar" "reading"!important;
+  grid-template-rows:auto auto minmax(140px,1fr)!important;
+ }
+ .app-shell.large-text.compact-viewport .main-shell .agent-first-workspace .conversation-panel:not(:has(> .customer-data-surface)) {
+  grid-template-rows:auto auto minmax(60px,1fr) auto auto!important;
+ }
+}

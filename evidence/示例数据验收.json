@@ -1,0 +1,55 @@
+{
+  "status": "ready_for_integration",
+  "module": "release_seed.py",
+  "test_module": "test_release_seed.py",
+  "documentation": "SEED_DATA.md",
+  "entrypoint": "python -m zhenxing.release_seed",
+  "environment": [
+    "ZX_DATABASE_URL",
+    "ZX_INITIAL_CUSTOMER_SUFFIX",
+    "ZX_INITIAL_ADMIN_PASSWORD",
+    "ZX_SEED_AS_OF"
+  ],
+  "validation": {
+    "fresh_sqlite": true,
+    "as_of": "2026-10-30",
+    "customers": 14,
+    "accounts": 28,
+    "debit_cards": 28,
+    "dual_credit_cards": 14,
+    "credit_statement_rows": 28,
+    "credit_payments": 84,
+    "cash_rows": 10416,
+    "contact_aliases": 28,
+    "birthdays": 28,
+    "subscriptions": 28,
+    "stock_metal_positions": 28,
+    "points_each": 100,
+    "public_knowledge_documents": 54,
+    "public_knowledge_chunks": 342,
+    "tests_passed": 4,
+    "tests_failed": 0,
+    "replay_preserves_business_state": true,
+    "nonempty_unmarked_refused": true,
+    "rollback_on_partial_failure": true,
+    "network_calls": 0,
+    "production_account_access": false
+  },
+  "notes": [
+    "Use one-shot init-data before API and Worker, with service_completed_successfully. Disable original bootstrap on empty production-start path.",
+    "Startup legacy bootstrap replay was separately checked to preserve generated and later-modified state.",
+    "Data generator uses domain posting services. Historical dates are assigned before INSERT on the current Session only; immutable records are not rewritten.",
+    "Initial financial values/dates are reproducible for a fixed anchor. UUID/card numbers/password salts are deliberately random.",
+    "Credit statement sample: settled previous344CNY, current due448CNY, unbilled588CNY, total current debt1036CNY. USD credit debt0.",
+    "Cash USD wallets are provided only for wangwei5000,qiujunhu3500,test10000. Each customer has dual-currency shared credit facility, which is not USD cash.",
+    "No pre-authorized AA, scheduled-transfer, birthday payment or pending transactional tasks are seeded.",
+    "Knowledge indexing still requires configured Embedding service; bootstrap-only probe has0indexed vectors by design."
+  ],
+  "files": {
+    "release_seed.py": "2e42b9c18faca9f8a89ae9aa9b7abb20736d6cbb68c36ac2106d5737f4295c0a",
+    "test_release_seed.py": "de36c2af450ced17a34cd28b7771e7deefabc6bc79c2ced160b511b34d9fdd54",
+    "SEED_DATA.md": "2a80973c0bb3aa6a54f98a78f2c90086da2ca43c4d968ad55e32e88d595100d9",
+    "seed-tests-final.xml": "d79108bdb08dd895d326ef92df175298e380d130135528b76eca0e3c119643a2",
+    "release-validation.json": "25dfb37b3a509edbb8c54c1399eb39a86e5a80fd890f618eeb78a2e51ecd80fd"
+  }
+}

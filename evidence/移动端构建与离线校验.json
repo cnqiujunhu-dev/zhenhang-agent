@@ -1,0 +1,48 @@
+{
+  "apk_sha256": "29cc27a682fc8d0e1978bb5e1a0f90ece38c618bec46374ad0a55a9f8a0cdd4a",
+  "signature_verified": true,
+  "alignment_verified": true,
+  "source_rebuilt": true,
+  "comparison_excludes": [
+    "ZIP timestamps",
+    "APK signature block",
+    "META-INF signatures"
+  ],
+  "payload_entries_compared": 20,
+  "payload_differences": [],
+  "additional_payload_entries": [],
+  "payload_identical": true,
+  "offline_checks": {
+    "local_origin": {
+      "tests": 55,
+      "failures": 0,
+      "uppercase_https_default_port": true
+    },
+    "compatibility": {
+      "tests": 28,
+      "failures": 0,
+      "sha256_vectors": 10,
+      "uuid_samples": 4096,
+      "viewport_tests": 10,
+      "scope": "isolated JavaScript VM, no application data or network"
+    },
+    "network_calls": 0,
+    "database_access": false
+  },
+  "native_test_environment": "Windows JDK 21, SDK Build Tools 35, local locked frontend dependencies",
+  "physical_phone_test_added": false,
+  "gateway": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_memo_tests": {
+    "tests": 20,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "date": "2026-10-29",
+  "scope": "本次交付副本的重建、离线检查及本机受控网关检查；未访问现有业务账户。"
+}

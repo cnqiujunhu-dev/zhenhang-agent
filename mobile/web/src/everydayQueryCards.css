@@ -1,0 +1,275 @@
+.everyday-query-cards {
+  margin: 12px 0;
+  color: #355566;
+  min-width: 0;
+}
+.everyday-query-cards .eqc-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: #255b68;
+}
+.everyday-query-cards .eqc-heading h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+.everyday-query-cards .eqc-record-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+/* One selected subscription uses the available reading space. Separate
+   query nodes keep their own evidence and disclosure identity. */
+.everyday-query-cards .eqc-subscription-grid {
+  container: subscription-records / inline-size;
+}
+.everyday-query-cards .eqc-subscription-grid > .eqc-record:only-child {
+  grid-column: 1 / -1;
+}
+@container subscription-records (min-width: 680px) {
+  .everyday-query-cards .eqc-subscription-grid > .eqc-record:only-child > .eqc-metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .everyday-query-cards .eqc-subscription-grid > .eqc-record:only-child > .eqc-subscription-bank-auto-off {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.everyday-query-cards .eqc-record {
+  padding: 14px;
+  border: 1px solid #dce8ed;
+  border-radius: 10px;
+  background: #fff;
+  min-width: 0;
+}
+.everyday-query-cards .eqc-record > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.everyday-query-cards h4, .everyday-query-cards .eqc-record header h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.everyday-query-cards .eqc-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 7px;
+  border-radius: 5px;
+  color: #526d82;
+  background: #eaf1f7;
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: normal;
+}
+.everyday-query-cards .eqc-status-unknown {
+  color: #956326;
+  background: #fff4dc;
+}
+.everyday-query-cards .eqc-metrics {
+  margin: 6px 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.everyday-query-cards .eqc-metric {
+  min-width: 0;
+}
+.everyday-query-cards .eqc-metric dt {
+  font-size: 10px;
+  color: #71889a;
+  line-height: 1.6;
+  margin: 0 0 5px;
+}
+.everyday-query-cards .eqc-metric dd {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  font-weight: 550;
+  color: #34586b;
+  overflow-wrap: anywhere;
+}
+.everyday-query-cards .eqc-scope,
+.everyday-query-cards .eqc-subtitle {
+  font-size: 11px;
+  line-height: 1.85;
+  color: #708a99;
+  margin: 12px 0 0;
+  overflow-wrap: anywhere;
+}
+.everyday-query-cards .eqc-subtitle {
+  margin: 0 0 12px;
+}
+.everyday-query-cards .eqc-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  background: #f2f8fa;
+  border: 1px solid #e0edf0;
+  border-radius: 7px;
+  font-size: 11px;
+  line-height: 1.85;
+  color: #668596;
+  overflow-wrap: anywhere;
+}
+.everyday-query-cards .eqc-notice svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.everyday-query-cards .eqc-warning {
+  color: #916329;
+  background: #fff9ed;
+  border-color: #f3e6c8;
+}
+.everyday-query-cards .eqc-warning-text {
+  color: #95652b;
+}
+.everyday-query-cards .eqc-reasons {
+  margin: 8px 0;
+  padding-left: 18px;
+  color: #8b6632;
+  font-size: 11px;
+  line-height: 1.85;
+}
+.everyday-query-cards .eqc-draft {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 11px;
+  margin-top: 13px;
+  border: 1px solid #cfe3e2;
+  border-radius: 7px;
+  background: #f0f9f6;
+  color: #24746a;
+  font-size: 11px;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: opacity 140ms ease-out, transform 140ms ease-out;
+}
+.everyday-query-cards .eqc-draft:hover {
+  background: #e5f3ee;
+  border-color: #97c9bd;
+}
+.everyday-query-cards .eqc-draft:focus-visible {
+  outline: 3px solid #8bbfb4;
+  outline-offset: 3px;
+}
+.everyday-query-cards .eqc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.everyday-query-cards .eqc-card-record {
+  border-top: 3px solid #6080a5;
+}
+.everyday-query-cards .eqc-card-limit {
+  margin: 6px 0 16px;
+}
+.everyday-query-cards .eqc-card-limit .eqc-metric dt {
+  font-size: 11px;
+}
+.everyday-query-cards .eqc-card-limit .eqc-metric dd {
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 650;
+  color: #255b68;
+}
+.everyday-query-cards .eqc-card-services {
+  margin-top: 12px;
+  border-top: 1px solid #e4edf0;
+}
+.everyday-query-cards .eqc-card-services > summary {
+  padding: 12px 0;
+  min-height: 44px;
+  box-sizing: border-box;
+  color: #526d82;
+  font-size: 11px;
+  line-height: 1.7;
+  cursor: pointer;
+}
+.everyday-query-cards .eqc-card-services > summary:focus-visible {
+  outline: 3px solid #8bbfb4;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.everyday-query-cards .eqc-card-services .eqc-draft {
+  margin-top: 10px;
+}
+.everyday-query-cards .eqc-reference-price {
+  display: block;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #215e72;
+  font-weight: 650;
+  margin: 2px 0 16px;
+  overflow-wrap: anywhere;
+}
+.everyday-query-cards .eqc-conversion {
+  margin: 15px 0 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #eef6fa;
+}
+.large-text .everyday-query-cards .eqc-heading h3,
+.large-text .everyday-query-cards h4, .large-text .everyday-query-cards .eqc-record header h3 {
+  font-size: 18px;
+}
+.large-text .everyday-query-cards .eqc-metric dt,
+.large-text .everyday-query-cards .eqc-scope,
+.large-text .everyday-query-cards .eqc-subtitle,
+.large-text .everyday-query-cards .eqc-notice,
+.large-text .everyday-query-cards .eqc-reasons,
+.large-text .everyday-query-cards .eqc-status {
+  font-size: 14px;
+  color: #355566;
+}
+.large-text .everyday-query-cards .eqc-metric dd {
+  font-size: 17px;
+}
+.large-text .everyday-query-cards .eqc-card-limit .eqc-metric dd {
+  font-size: 26px;
+}
+.large-text .everyday-query-cards .eqc-card-services > summary {
+  font-size: 15px;
+  min-height: 48px;
+}
+.large-text .everyday-query-cards .eqc-draft {
+  min-height: 48px;
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .everyday-query-cards .eqc-record-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .everyday-query-cards .eqc-record {
+    padding: 14px;
+  }
+  .everyday-query-cards .eqc-reference-price {
+    font-size: 19px;
+  }
+  .everyday-query-cards .eqc-draft {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .everyday-query-cards .eqc-draft {
+    transition: none;
+  }
+}
+.everyday-query-cards .eqc-record-grid.eqc-wealth-comparison {grid-template-columns:minmax(0,1fr);}
+.eqc-wealth-comparison .eqc-record {padding:12px 14px;}
+.eqc-wealth-comparison .eqc-metrics {grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.eqc-wealth-comparison .eqc-metric {padding:7px 8px;}
+.eqc-wealth-comparison .eqc-metric dd {font-size:13px;line-height:1.7;overflow-wrap:anywhere;}
+@media (max-width:700px) {.eqc-wealth-comparison .eqc-metrics {grid-template-columns:repeat(2,minmax(0,1fr));}}

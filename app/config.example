@@ -1,0 +1,13 @@
+# Prefer: python configure_local.py
+# Generated credentials stay only in the local .env. Never commit the real file.
+ZX_HTTP_PORT=18965
+ZX_POSTGRES_PORT=15442
+ZX_KNOWLEDGE_PORT=15443
+ZX_EMBEDDING_PORT=18193
+ZX_DATABASE_PASSWORD=
+ZX_KNOWLEDGE_PASSWORD=
+ZX_INITIAL_CUSTOMER_SUFFIX=
+ZX_INITIAL_ADMIN_PASSWORD=
+ZX_DEEPSEEK_API_KEY=
+# Empty means the local initialization date. Applied only when initializing a fresh bank.
+ZX_SEED_AS_OF=

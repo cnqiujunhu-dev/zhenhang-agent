@@ -1,0 +1,240 @@
+{
+  "schema_version": "birthday-safety-evidence-v1",
+  "date": "2026-10-29",
+  "scope": "ISOLATED_SQLITE_DOMAIN_AND_CONTROLLED_SECURITY_TESTS",
+  "live_model_used": false,
+  "external_bank_or_merchant_used": false,
+  "time_advanced_by_test": true,
+  "main_database_accessed": false,
+  "test_count": 74,
+  "failed": 0,
+  "skipped": 0,
+  "journeys": [
+    {
+      "case": "NORMAL_AND_REPLAY",
+      "stages": [
+        {
+          "stage": "draft",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 0,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "DRAFT",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 0,
+            "spent_minor": 0,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 0,
+            "execution_review": null
+          }
+        },
+        {
+          "stage": "reserved",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 0,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "ACTIVE",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 100000,
+            "spent_minor": 0,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 0,
+            "execution_review": null
+          }
+        },
+        {
+          "stage": "paid",
+          "balance_minor": 100200,
+          "other_balance_minor": 50000,
+          "payment_count": 2,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "ACTIVE",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 200,
+            "spent_minor": 99800,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 99800,
+            "execution_review": null
+          }
+        },
+        {
+          "stage": "fulfilled_and_replayed",
+          "balance_minor": 100200,
+          "other_balance_minor": 50000,
+          "payment_count": 2,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "SUCCEEDED",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 0,
+            "spent_minor": 99800,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 99800,
+            "execution_review": null
+          }
+        }
+      ]
+    },
+    {
+      "case": "PRICE_CHANGED_THEN_CANCEL",
+      "stages": [
+        {
+          "stage": "paused",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 0,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "PAUSED_RECONFIRM",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 100000,
+            "spent_minor": 0,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 0,
+            "execution_review": {
+              "schema_version": "life-execution-review-v1",
+              "plan_version": 1,
+              "plan_status": "PAUSED_RECONFIRM",
+              "reason": "PRICE_CHANGED",
+              "payment_count": 0,
+              "paid_minor": 0,
+              "refunded_minor": 0,
+              "reserved_minor": 100000,
+              "source": "LOCAL_BANK_AND_VIRTUAL_MERCHANT"
+            }
+          }
+        },
+        {
+          "stage": "cancelled",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 0,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "CANCELLED",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 0,
+            "spent_minor": 0,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 0,
+            "execution_review": null
+          }
+        }
+      ]
+    },
+    {
+      "case": "RECIPIENT_TAMPER",
+      "stages": [
+        {
+          "stage": "paused_before_reservation",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 0,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "PAUSED_RECONFIRM",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 0,
+            "spent_minor": 0,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 0,
+            "execution_review": {
+              "schema_version": "life-execution-review-v1",
+              "plan_version": 1,
+              "plan_status": "PAUSED_RECONFIRM",
+              "reason": "AUTHORIZATION_CHANGED",
+              "payment_count": 0,
+              "paid_minor": 0,
+              "refunded_minor": 0,
+              "reserved_minor": 0,
+              "source": "LOCAL_BANK_AND_VIRTUAL_MERCHANT"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "PARTIAL_AND_REFUND",
+      "stages": [
+        {
+          "stage": "partial_before_refund",
+          "balance_minor": 140100,
+          "other_balance_minor": 50000,
+          "payment_count": 1,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "PARTIAL",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 40100,
+            "spent_minor": 59900,
+            "refunded_minor": 0,
+            "net_cash_debit_minor": 59900,
+            "execution_review": {
+              "schema_version": "life-execution-review-v1",
+              "plan_version": 1,
+              "plan_status": "PARTIAL",
+              "reason": "ITEM_UNAVAILABLE",
+              "payment_count": 1,
+              "paid_minor": 59900,
+              "refunded_minor": 0,
+              "reserved_minor": 40100,
+              "source": "LOCAL_BANK_AND_VIRTUAL_MERCHANT"
+            }
+          }
+        },
+        {
+          "stage": "refund_recorded",
+          "balance_minor": 200000,
+          "other_balance_minor": 50000,
+          "payment_count": 1,
+          "ledger_sum_minor": 0,
+          "card_status": "ACTIVE",
+          "plan": {
+            "status": "COMPENSATED",
+            "version": 1,
+            "budget_minor": 100000,
+            "reserved_minor": 0,
+            "spent_minor": 59900,
+            "refunded_minor": 59900,
+            "net_cash_debit_minor": 0,
+            "execution_review": null
+          }
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "src/zhenxing/life_execution_review.py": "4746507a6acd5d253f844d3c587598203dc68686f0a5fe03a50cc21d04845d62",
+    "src/zhenxing/life_plan_service.py": "dd123489fb86e3ff30dda8e15aa02fd0838911d110a1a771ce2c4b9fc5f8e53f",
+    "src/zhenxing/life_plan_worker.py": "65691f236d7a0c0b23e8c5c9bc990cc562ac33577243935911bfd7d31c666a43",
+    "src/zhenxing/merchant_service.py": "2b1212af3347f86afee5640647873df4c1e98d93286d08f5af2860830f19e3ca",
+    "web/src/LifePlanCards.tsx": "0d5bc293b6294223ba73452ace76731ad29f9f7ba888f965774480c99c77580d",
+    "web/src/lifeExecutionReview.ts": "158d8a2883cd9865599fa8ac58ad6108a5a74922df8bec082d4dfe59ab488e82",
+    "tests/test_birthday_safety_journey.py": "d833164c94071029d50666c0c2dfb61961eacf2e47002eec8c3617de88b10a66",
+    "tests/test_life_plan_runtime.py": "6e7151de4f66e9c342fd5106cbd5041985faf67a5888ec25bf7f4669a7d80905",
+    "tests/test_runtime_security.py": "36f399141fe7b436d108f9647598f0080fd23abea86c17d6b7d0c57e29ef9f28",
+    "tests/test_consultation_security.py": "84f9262f438f578abfd74d92801a0109e90e57e8039cbe1b1e67a7e9baba9f32",
+    "scripts/build_birthday_safety_evidence.py": "677721cc87a0cf0be84e52fd9dc7f4b0a1076c07cf2d1561b010a31e2dd0a6b7"
+  },
+  "junit_sha256": "ad98808a7b3bdfc380db6284245ed671d2325b2b758ed944db6435414852b71d"
+}

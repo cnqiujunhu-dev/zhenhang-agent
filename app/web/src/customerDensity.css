@@ -1,0 +1,156 @@
+/* Conversation density is spacing, not a smaller reading scale. Keep financial
+   values, prose, confirmations and touch targets at their existing sizes. */
+.app-shell .main-shell .agent-first-workspace .conversation-panel > .panel-heading {
+  padding: 6px 16px;
+  gap: 10px;
+}
+.app-shell .main-shell .agent-first-workspace .agent-heading {
+  min-width: 0;
+  gap: 9px;
+}
+.app-shell .main-shell .agent-first-workspace .agent-heading .agent-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 9px;
+}
+.app-shell .main-shell .agent-first-workspace .agent-heading p {
+  margin-top: 0;
+}
+.app-shell .main-shell .agent-first-workspace .agent-context-toolbar {
+  padding: 4px 16px;
+  gap: 12px;
+}
+.app-shell .main-shell .agent-first-workspace .agent-resources-toggle {
+  padding: 6px 10px;
+}
+.app-shell .main-shell .agent-first-workspace .latest-messages-button {
+  margin: 4px 16px 4px 0;
+  padding: 6px 12px;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-content {
+  padding: 16px 20px;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-turn {
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-turn .user-message {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.app-shell .main-shell .agent-first-workspace .user-message p {
+  padding: 8px 12px;
+}
+.app-shell .main-shell .agent-first-workspace .assistant-message {
+  gap: 10px;
+}
+.app-shell .main-shell .agent-first-workspace .message-author {
+  margin-bottom: 6px;
+}
+.app-shell .main-shell .agent-first-workspace .result-heading {
+  min-height: 24px;
+  margin-bottom: 4px;
+}
+.app-shell .main-shell .agent-first-workspace .result-heading .message-author {
+  margin-bottom: 0;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-answer > .turn-answer {
+  margin: 8px 0;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-welcome {
+  padding: 6px 0 12px;
+}
+.app-shell .main-shell .agent-first-workspace .composer {
+  padding: 6px 16px 8px;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-composer-context {
+  gap: 8px;
+  margin-bottom: 2px;
+}
+.app-shell .main-shell .agent-first-workspace .conversation-composer-context > .button {
+  padding: 6px 10px;
+}
+.app-shell .main-shell .agent-first-workspace .composer-input {
+  padding: 8px 10px;
+  gap: 4px 10px;
+}
+.app-shell .main-shell .agent-first-workspace .composer-bottom > .send-button {
+  align-self: center;
+}
+.app-shell .main-shell .agent-first-workspace .composer-hint {
+  margin-top: 4px;
+}
+.app-shell .main-shell .agent-first-workspace :is(
+  .agent-resources-toggle, .latest-messages-button,
+  .composer .button, .composer .send-button, .composer .text-button
+) {
+  min-width: 44px;
+  min-height: 44px;
+}
+.app-shell.large-text .main-shell .agent-first-workspace :is(
+  .agent-resources-toggle, .latest-messages-button,
+  .composer .button, .composer .send-button, .composer .text-button
+) {
+  min-width: 48px;
+  min-height: 48px;
+}
+.app-shell.large-text .main-shell .agent-first-workspace .agent-heading .agent-icon {
+  width: 32px;
+  height: 32px;
+}
+
+@media (min-width: 761px) {
+  .app-shell .main-shell:has(.agent-first-workspace) > .topbar {
+    min-height: 64px;
+    padding-inline: 24px;
+  }
+  .app-shell .main-shell .main-content:has(> .agent-first-workspace) {
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+  .app-shell .main-shell .main-content:has(> .agent-first-workspace) > .page-footer {
+    margin-top: 8px;
+  }
+}
+/* The topbar and outer margins now need 108px, not 124px. This is a fluid
+   reading pane; oversized drafts/recovery notices still grow its min-content
+   floor naturally. Short visual viewports retain the existing page reflow. */
+@media (min-width: 761px) and (min-height: 600px) {
+  .app-shell:not(.compact-viewport) .main-shell .agent-first-workspace .conversation-panel {
+    height: calc(var(--agent-visible-height, 100dvh) - 108px);
+  }
+}
+@media (max-height: 819px) {
+  .app-shell .main-shell .agent-first-workspace .agent-heading p {
+    display: none;
+  }
+  .app-shell .main-shell .agent-first-workspace .conversation-content {
+    padding-block: 12px;
+  }
+}
+/* At tablet widths the latest-message action already has its own grid row.
+   Keep that row separate so it never covers a message or the services button. */
+@media (min-width: 761px) and (max-width: 1030px) {
+  .app-shell .main-shell .agent-first-workspace .latest-messages-button {
+    margin: 4px 16px;
+  }
+}
+@media (max-width: 760px) {
+  .app-shell .main-shell .agent-first-workspace .conversation-panel > .panel-heading {
+    padding-inline: 12px;
+  }
+  .app-shell .main-shell .agent-first-workspace .agent-context-toolbar {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .app-shell .main-shell .agent-first-workspace .conversation-content {
+    padding: 12px;
+  }
+  .app-shell .main-shell .agent-first-workspace .composer {
+    padding: 6px 12px 8px;
+  }
+  .app-shell .main-shell .agent-first-workspace .latest-messages-button {
+    margin: 4px 12px;
+  }
+}

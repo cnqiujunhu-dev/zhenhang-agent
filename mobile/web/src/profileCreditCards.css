@@ -1,0 +1,16 @@
+.customer-data-home .data-home-section{container-type:inline-size}
+.customer-data-home .profile-credit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bank-card.bank-card-credit{background:linear-gradient(125deg,#173f45 0%,#356a60 57%,#819576 100%);color:#eff8ed}
+.bank-card-credit .bank-card-top>span{color:#d0e7d5}
+.bank-card-credit .brand-mark svg{color:#b8e7bf}
+.bank-card-credit .card-currency-badges span{border-color:#cee4be50;background:#c1dfa41c;color:#e7efcb}
+.bank-card.bank-card-credit .bank-card-bottom .bank-card-limit small{color:#cde4cc}
+.bank-card.bank-card-credit .bank-card-bottom .bank-card-limit strong{color:#f0f7dc}
+.bank-card.bank-card-credit .bank-card-bottom .credit-shared-reference{font-size:17px}
+.profile-credit-data{min-width:0}
+.profile-credit-sharing{margin:0;color:#54716b;font-size:16px;line-height:1.7}
+.profile-credit-details,.profile-credit-applications{margin-top:16px;border-top:1px solid #dce7e3;padding-top:12px;font-size:15px;color:#52716c}
+.profile-credit-details summary,.profile-credit-applications summary{cursor:pointer}
+.profile-credit-details>.data-home-metrics{margin-top:14px;font-size:15px}
+.profile-credit-applications>p{margin:12px 0}
+@container(max-width:598px){.customer-data-home .profile-credit-grid{grid-template-columns:minmax(0,1fr)}}

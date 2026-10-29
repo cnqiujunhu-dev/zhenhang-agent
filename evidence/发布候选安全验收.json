@@ -1,0 +1,60 @@
+{
+  "schema_version": "release-candidate-security-v1",
+  "date": "2026-10-30",
+  "started_at": "2026-10-30T03:38:06.208008+08:00",
+  "finished_at": "2026-10-30T03:44:40.089525+08:00",
+  "tests": 370,
+  "passed": 370,
+  "failed": 0,
+  "skipped": 0,
+  "warnings": 53,
+  "warning_scope": "依赖弃用和空主键查询提示，未导致用例失败。",
+  "elapsed_seconds": 393.89,
+  "scope": "发布候选源码的固定security选集12个文件；测试与辅助fixture在临时SQLite运行。不是云模型质量、PostgreSQL并发或生产认证。",
+  "selection_manifest": "app/tests/release-suites.json#security",
+  "model_transport": "确定性规划或受控HTTP响应",
+  "external_live_model_calls": 0,
+  "external_network": "测试网络防护禁止外网连接",
+  "existing_account_data_accessed": false,
+  "source_changed_during_run": [],
+  "test_file_hashes": {
+    "tests/test_consultation_security.py": "84f9262f438f578abfd74d92801a0109e90e57e8039cbe1b1e67a7e9baba9f32",
+    "tests/test_consultation_source_trust.py": "f519f5c88a054aceebd8a22e5eba94e4c4667ec92f517df2faf6f5fb522e81cf",
+    "tests/test_semantic_proposal.py": "86d4a750e70d1cb97e9e670eb478c68d13660157e4e4d8725a28e832719d38b9",
+    "tests/test_continuity_security_integration.py": "7a9d7e52a9146d22f54796b2823f6ae9da7a63539aaa14832e717eecb9b419e9",
+    "tests/test_runtime_security.py": "36f399141fe7b436d108f9647598f0080fd23abea86c17d6b7d0c57e29ef9f28",
+    "tests/test_family_context_runtime_security.py": "c6ff07921213b42fc7ec34c893659d0ca428b82e66613e94cc40f6b6a50088d4",
+    "tests/test_recipient_choices_security.py": "bd1a667f9281b40d7ef109598e167233f476aee6407d7552f098a26b1755a629",
+    "tests/test_recipient_credit_privacy.py": "055c4980e6e455dc9f5f61f32dea2fd1e14813688788b630a3611a74a064c638",
+    "tests/test_attachments.py": "c4a813715a5a21926b83d4f0ebfc2bfdf92399be11ea997f86d74336f8e0133d",
+    "tests/test_request_idempotency.py": "07134551c6846ca8c39447b15fb86a56642d9ca55577fd9ca452833232b0d883",
+    "tests/test_idempotency_report_evidence.py": "3c9afc59caa8451d29ca11663d178ed9ee4b75e9f35a24ded9a6e6428d82da8a",
+    "tests/test_transfer_daily_risk.py": "7c77661989ef4575a83024a545e5a169f83ccd687b4f93ef74e97e37ffe30174",
+    "tests/conftest.py": "ca7c5728d86f89b7bcc3340be18a385abc20cdd469cdb83dce5d3f2833aec208"
+  },
+  "application_control_hashes": {
+    "src/zhenxing/attachments.py": "1a5702934ee99fb4bacd40cd9e4ad8ff87ab64c117902cfaaf76992fb2f51ac8",
+    "src/zhenxing/authentication.py": "a339b72634e1f5f7b96c2ab03371373a52dc2c09d540a8e1e3a30798e838656f",
+    "src/zhenxing/consultation_gateway.py": "143761401c62fbcbf7320d61e591f39bbef441e4d2d1842b3f57e075c9dab281",
+    "src/zhenxing/permissions.py": "38602ca6d3b50ac7fa18c6d9752c63eefee6ac17a21b86c4c22f718592fac728",
+    "src/zhenxing/runtime.py": "85c1cdb4bfa58c93a685905479091e15d2db9669b19be5bf3f61e38cfbe52b27",
+    "src/zhenxing/semantic_proposal.py": "6a0ec8eacc406ac596010a4d048120ed13314f3eb19fe59d992473bc34216294",
+    "src/zhenxing/semantic_router.py": "0f9b35e41520ee39f6d78314c84a52083d601653444f7ba547fb507e6cf3f293",
+    "src/zhenxing/transfer_risk.py": "baad051a957f27fe78c123fccb8151adbcfdf8901056a176bdb2fca350b349c1"
+  },
+  "application_source_tree_sha256": "942369e81fefc054c2ba28a762509740d5aac77b674f674d3a38f305b9807212",
+  "raw_junit_sha256": "120320abddcbe7a1f619f821aebf9573ccd24ad4b229f75695e8426622a5c0a1",
+  "public_junit_file": "发布候选安全验收.xml",
+  "public_junit_sha256": "eb5cdef36615505fae585e82e752ca409ba8b9f4acb78bff457579b6dd384495",
+  "public_junit_processing": "仅保留用例名、类名、耗时和状态，删除主机名、本机绝对路径、系统输出和警告文本。",
+  "interrupted_attempt": {
+    "included_in_business_results": false,
+    "reason": "受限本地环境阻止Windows asyncio创建loopback socketpair，TestClient尚未进入业务请求。",
+    "resolution": "同一隔离单例在可用本地执行环境通过后，重新运行完整固定选集。未修改应用代码来绕过测试。"
+  },
+  "windows_mobile_script_check": {
+    "runtime": "Windows PowerShell 5.1",
+    "action": "ParseFile静态解析，未运行服务或修改防火墙",
+    "result": "4个脚本全部0语法错误，UTF-8 BOM修复后复验"
+  }
+}

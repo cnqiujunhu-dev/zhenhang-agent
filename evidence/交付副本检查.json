@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-29",
+  "scope": "INDEPENDENT_DELIVERY_COPY_ISOLATED_VERIFICATION",
+  "backend": {
+    "test_count": 74,
+    "failed": 0,
+    "skipped": 0,
+    "junit_sha256": "46077c9e2e0e80883e083562e711f74e5152a966e61805d317364f4c6c837a97"
+  },
+  "frontend": {
+    "tests_passed": 24,
+    "typescript": "passed",
+    "production_build": "passed",
+    "warning": "large application chunk exceeds 500kB"
+  },
+  "bootstrap": {
+    "accounts": 15,
+    "customer_login": true,
+    "admin_login": true,
+    "source_copy_used": true,
+    "configuration_generation": true,
+    "existing_configuration_not_overwritten": true,
+    "database": "fresh private SQLite",
+    "containers_started": false,
+    "model_calls": 0,
+    "scope": "configuration generation, schema/account bootstrap and two login roles only"
+  },
+  "contract_regression_in_original_workspace": {
+    "test_count": 59,
+    "failed": 0,
+    "skipped": 0,
+    "junit_sha256": "692ab1a19e172ad29248a9cf96c193d7c44098fb87cf305ccd3e898ec6de86fb"
+  },
+  "model_calls": 0,
+  "deployed_to_main_service": false,
+  "limitations": "Selected tests and isolated initialization only. No new live-model, Docker image, PostgreSQL concurrency or external-merchant validation."
+}

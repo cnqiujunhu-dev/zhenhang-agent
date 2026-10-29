@@ -1,0 +1,73 @@
+.customer-motion-boundary { min-width:0; }
+.receipt-card > .customer-motion-heading { display:block!important; }
+.receipt-card .customer-motion-heading > .receipt-title:not(.query-reply-title) {
+  display:flex;gap:7px;align-items:center;color:#4a775f;font-size:11px;font-weight:500;margin:0;
+}
+.receipt-card.receipt-neutral .customer-motion-heading > .receipt-title:not(.query-reply-title) { color:#647b8c; }
+.receipt-card.receipt-info .customer-motion-heading > .receipt-title:not(.query-reply-title) { color:#44748c; }
+.receipt-card.receipt-warning .customer-motion-heading > .receipt-title:not(.query-reply-title) { color:#9c752f; }
+.receipt-card.receipt-danger .customer-motion-heading > .receipt-title:not(.query-reply-title) { color:#a7604a; }
+.customer-query-reply .customer-motion-heading > .query-reply-title {
+  display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:600;font-size:16px;margin:0 0 12px;
+}
+@keyframes customer-content-arrive {
+  from { box-shadow:inset 3px 0 0 rgb(78 153 133 / 65%); }
+  to { box-shadow:inset 0 0 0 rgb(78 153 133 / 0%); }
+}
+@keyframes customer-text-arrive {
+  from { opacity:.72;transform:translateY(3px); }
+  to { opacity:1;transform:translateY(0); }
+}
+@keyframes customer-record-arrive {
+  from { box-shadow:inset 0 0 0 1px rgb(78 153 133 / 30%); }
+  to { box-shadow:inset 0 0 0 1px rgb(78 153 133 / 0%); }
+}
+@media(prefers-reduced-motion:no-preference) {
+  .customer-motion-boundary[data-customer-motion] {
+    animation:customer-content-arrive var(--customer-motion-duration,200ms) ease-out var(--customer-motion-delay,0ms) 1 backwards;
+  }
+  .customer-motion-boundary[data-customer-motion][data-customer-motion-interactive="false"] {
+    animation-name:customer-text-arrive;
+  }
+  /* The shared result layer is decorative only: financial values and controls
+     never inherit opacity/transform. Fixed inner query titles get a short fade. */
+  .customer-motion-boundary[data-customer-motion][data-customer-motion-interactive="true"]
+    :is(.insight-query-card > h3,.eqc-heading > h3) {
+    animation:customer-text-arrive var(--customer-motion-duration,200ms) ease-out var(--customer-motion-delay,0ms) 1 backwards;
+  }
+  .customer-motion-boundary[data-customer-motion][data-customer-motion-interactive="true"]:has(.eqc-warning,.eqc-warning-text,.eqc-status-unknown,.insight-risk,.insight-portfolio-warning,[role="alert"]),
+  .customer-motion-boundary[data-customer-motion][data-customer-motion-interactive="true"]:has(.eqc-warning,.eqc-warning-text,.eqc-status-unknown,.insight-risk,.insight-portfolio-warning,[role="alert"]) :is(.insight-query-card > h3,.eqc-heading > h3) {
+    animation:none;
+  }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li) {
+    --customer-motion-record-index:0;
+    animation:customer-content-arrive var(--customer-motion-duration,200ms) ease-out
+      min(240ms,calc(var(--customer-motion-delay,0ms) + var(--customer-motion-record-index) * 40ms)) 1 backwards;
+  }
+  /* A short decorative edge makes new cards perceptible without shifting or
+     fading their buttons. Warning records remain immediate and unaccented. */
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):not(:has(.eqc-warning,.eqc-warning-text,.eqc-status-unknown,.insight-risk,.insight-portfolio-warning,[role="alert"])) {
+    animation-name:customer-record-arrive;
+  }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):has(.eqc-warning,.eqc-warning-text,.eqc-status-unknown,.insight-risk,.insight-portfolio-warning,[role="alert"]) {
+    animation:none;
+  }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):nth-child(2) { --customer-motion-record-index:1; }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):nth-child(3) { --customer-motion-record-index:2; }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):nth-child(4) { --customer-motion-record-index:3; }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):nth-child(5) { --customer-motion-record-index:4; }
+  .customer-motion-boundary[data-customer-motion] :is(.eqc-record-grid > .eqc-record,.insight-records > li):nth-child(n+6) { --customer-motion-record-index:5; }
+}
+/* Warnings never wait or fade; controls never move or become transparent. */
+.customer-motion-boundary[data-customer-motion-urgent="true"],
+[hidden] .customer-motion-boundary,
+[inert] .customer-motion-boundary,
+.customer-motion-boundary[hidden],.customer-motion-boundary[inert],
+[hidden] .customer-motion-boundary *,[inert] .customer-motion-boundary *,
+.customer-motion-boundary[hidden] *,.customer-motion-boundary[inert] * { animation:none!important;transform:none!important; }
+@media(prefers-reduced-motion:reduce) {
+  .customer-motion-boundary,.customer-motion-boundary * { animation:none!important;transition:none!important;transform:none!important; }
+}
+@media(forced-colors:active) {
+  .customer-motion-boundary[data-customer-motion],.customer-motion-boundary[data-customer-motion] * { animation:none!important;transform:none!important; }
+}

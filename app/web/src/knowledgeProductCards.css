@@ -1,0 +1,23 @@
+.knowledge-products { border: 1px solid #dbe7e9; border-radius: 12px; padding: 16px; color: #304952; background: #fff; margin-top: 14px; }
+.knowledge-products header h3 { margin: 0; font-size: 19px; }
+.knowledge-products p { line-height: 1.65; overflow-wrap: anywhere; }
+.knowledge-products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.knowledge-product-card { border: 1px solid #dbe7e9; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; min-width: 0; }
+.knowledge-product-card h4, .knowledge-product-detail h4 { margin: 0 0 8px; font-size: 17px; }
+.knowledge-product-card span { font-size: 13px; color: #526b75; }
+.knowledge-product-card .button { margin-top: auto; align-self: flex-start; }
+.knowledge-product-risk { font-size: 14px; color: #604c37; }
+.knowledge-product-detail { padding: 20px; border-radius: 12px; border: 1px solid #c9dfd9; background: #f5faf8; margin-top: 18px; }
+.knowledge-product-detail dl { margin: 0; }
+.knowledge-product-detail dl div { margin: 15px 0; }
+.knowledge-product-detail dt { font-weight: 600; font-size: 14px; }
+.knowledge-product-detail dd { margin: 6px 0 0; line-height: 1.65; overflow-wrap: anywhere; }
+.knowledge-product-detail h5 { font-size: 16px; margin: 24px 0 10px; }
+.knowledge-product-terms { white-space: pre-wrap; }
+.knowledge-product-source, .knowledge-product-detail details { color: #526b75; font-size: 13px; line-height: 1.65; overflow-wrap: anywhere; }
+.knowledge-product-detail code { display: block; overflow-wrap: anywhere; margin-top: 10px; }
+.knowledge-products button:focus-visible, .knowledge-products summary:focus-visible { outline: 3px solid #267b6c; outline-offset: 3px; }
+.large-text .knowledge-products p, .large-text .knowledge-product-detail dd, .large-text .knowledge-product-card span { font-size: 17px; }
+.large-text .knowledge-product-card h4 { font-size: 20px; }
+@media(max-width: 640px) { .knowledge-products { padding: 16px; } .knowledge-products-grid { grid-template-columns: 1fr; } .knowledge-product-card, .knowledge-product-detail { padding: 16px; } }
+@media(forced-colors: active) { .knowledge-product-card, .knowledge-product-detail { border-color: CanvasText; } }

@@ -1,0 +1,14 @@
+{
+  "apk": "圳行Agent-本地连接版-v0.1.1.apk",
+  "bytes": 460512,
+  "sha256": "29cc27a682fc8d0e1978bb5e1a0f90ece38c618bec46374ad0a55a9f8a0cdd4a",
+  "package": "com.zhenxing.agent.local",
+  "min_android_api": 28,
+  "target_api": 35,
+  "signature_verified": true,
+  "zip_alignment_verified": true,
+  "frontend_embedded": true,
+  "frontend_files": 13,
+  "backend_embedded": false,
+  "private_signing_key_in_package": false
+}

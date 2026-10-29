@@ -1,0 +1,10 @@
+.capability-health { margin-block:20px; }
+.capability-health > p,.image-diagnostic-content > p { color:#536c7c;line-height:1.7; }
+.ops-health-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:14px;margin-block:16px; }
+.ops-health-grid article { background:#f6f9fb;border:1px solid #dce6ed;border-radius:12px;padding:16px;min-width:0; }
+.ops-health-grid h3 { margin:0 0 12px;font-size:15px; }
+.ops-health-grid strong { color:#234f64; }.ops-health-grid [data-health="DEGRADED"] strong { color:#a84d34; }
+.ops-health-grid p { margin:10px 0;line-height:1.65;font-size:13px; }
+.ops-health-grid code,.image-diagnostic-content code { overflow-wrap:anywhere;font-size:11px; }
+.ops-diagnostic-events { line-height:1.9;padding-left:20px; }
+.ops-pagination { display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px; }

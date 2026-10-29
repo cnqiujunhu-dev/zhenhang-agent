@@ -1,0 +1,26 @@
+.unified-history {background:#fff;border:1px solid #e0e9ee;border-radius:12px;padding:22px;color:#355566;min-width:0;}
+.unified-history > header {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px;}
+.unified-history h2 {font-size:19px;margin:0;color:#254b5c;}
+.unified-history-search {display:flex;gap:9px;margin:0 0 16px;}
+.unified-history-search input {flex:1;min-width:0;border:1px solid #dbe6eb;border-radius:8px;padding:10px 12px;font:inherit;font-size:14px;background:#fbfdfe;}
+.unified-history-note,.unified-history-empty {font-size:13px;line-height:1.8;color:#68818d;}
+.unified-history-error {font-size:13px;line-height:1.8;background:#fff8ec;color:#876733;padding:12px;border-radius:8px;margin-bottom:12px;}
+.unified-history-error p {margin:0 0 5px;}
+.unified-history-list {display:grid;gap:4px;}
+.unified-history-row {display:flex;align-items:center;gap:12px;min-width:0;width:100%;min-height:76px;padding:14px 10px;border:0;border-bottom:1px solid #edf1f4;border-radius:6px;background:transparent;text-align:left;color:#456773;font:inherit;cursor:pointer;}
+.unified-history-row:hover:not(:disabled) {background:#f4f9f7;}
+.unified-history-row:disabled {cursor:default;opacity:.74;}
+.unified-history-row > svg {flex-shrink:0;}
+.unified-history-row-text {display:grid;gap:5px;flex:1;min-width:0;}
+.unified-history-row-text strong {font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.unified-history-row-text > span {font-size:12px;color:#6d8390;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.unified-history-row-text small {font-size:11px;color:#7a8e98;}
+.unified-history-state {color:#477b70;background:#eef6f2;border-radius:5px;padding:4px 7px;font-size:11px;white-space:nowrap;}
+.unified-history-state.is-attention {color:#886432;background:#fff5e5;}
+.unified-history-state.is-neutral {color:#617b87;background:#f0f4f6;}
+.unified-history-more {display:block;min-height:44px;margin:14px auto 0;}
+.unified-history :is(input,button):focus-visible {outline:3px solid #8dc4b5;outline-offset:3px;}
+.large-text .unified-history-row-text strong,.large-text .unified-history-search input {font-size:17px;}
+.large-text .unified-history-row-text > span,.large-text .unified-history-row-text small,.large-text .unified-history-state,.large-text .unified-history-note,.large-text .unified-history-empty {font-size:14px;}
+@media(max-width:600px){.unified-history{padding:16px;}.unified-history-row{gap:8px;padding:13px 0;}.unified-history-state{white-space:normal;max-width:80px;}.unified-history-search{gap:6px;}}
+@media(forced-colors:active){.unified-history,.unified-history-search input{border-color:CanvasText;}.unified-history-state{outline:1px solid CanvasText;}}

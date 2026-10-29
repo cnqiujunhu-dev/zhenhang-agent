@@ -1,0 +1,26 @@
+.judge-evidence-picker {max-height:360px;overflow:auto;scrollbar-gutter:stable;overscroll-behavior:contain;}
+.judge-evidence-picker table :is(th,td) {font-size:13px;line-height:1.6;}
+.judge-evidence-picker .text-button {min-height:44px;font-size:13px;}
+.judge-evidence-picker:focus-visible,.judge-evidence-detail-heading:focus-visible {outline:3px solid #238b79;outline-offset:3px;}
+.judge-evidence-detail-heading {scroll-margin-top:24px;}
+
+/* Reading hierarchy only: coverage, attempts and participant evidence stay separate. */
+.acceptance-collector-body {font-size:14px;line-height:1.65;overflow-wrap:anywhere;}
+.acceptance-collector-body > :is(p,details,label) {margin-block:16px;}
+.acceptance-collector-body .acceptance-boundary {border-inline-start:3px solid #6c8986;padding-inline-start:14px;}
+.acceptance-summary-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-block:18px;}
+.acceptance-summary-grid > p {margin:0;padding:14px 16px;border:1px solid #d8e4e2;border-radius:12px;background:#f7faf9;}
+.acceptance-collector-body label:has(select) {display:grid;gap:7px;max-width:620px;font-weight:600;}
+.acceptance-collector-body select {min-height:44px;padding:8px 12px;border:1px solid #b9cdca;border-radius:8px;background:#fff;color:inherit;font:inherit;font-weight:400;max-width:100%;}
+.acceptance-collector-body label:has(input[type="checkbox"]) {display:flex;align-items:flex-start;gap:10px;font-weight:400;}
+.acceptance-collector-body input[type="checkbox"] {flex:none;margin-top:5px;}
+.acceptance-collector-body select:focus-visible {outline:3px solid #238b79;outline-offset:3px;}
+.acceptance-collector-body > details > summary {font-size:14px;min-height:44px;display:list-item;align-content:center;cursor:pointer;}
+.acceptance-attempt-history ol {display:grid;gap:12px;margin-block:12px;padding-inline-start:28px;}
+.acceptance-attempt-history li {padding:10px 14px;border:1px solid #d8e4e2;border-radius:8px;}
+@media (max-width:760px) {.acceptance-summary-grid {grid-template-columns:1fr;}}
+@media (forced-colors:active) {
+  .acceptance-summary-grid > p,.acceptance-attempt-history li,.acceptance-collector-body select {border-color:CanvasText;background:Canvas;}
+  .acceptance-collector-body .acceptance-boundary {border-color:CanvasText;}
+  .acceptance-collector-body select:focus-visible {outline-color:Highlight;}
+}

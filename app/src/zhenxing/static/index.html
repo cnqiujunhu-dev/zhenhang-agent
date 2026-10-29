@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>圳行Agent · 本地演示</title>
+  <style>
+    :root { font-family: system-ui, "Microsoft YaHei", sans-serif; color: #16233e; background: #f4f6fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { background: linear-gradient(110deg, #172d63, #54318c); color: white; padding: 28px max(20px, calc((100vw - 980px)/2)); }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    header p { margin: 0; opacity: .86; }
+    main { max-width: 980px; margin: 24px auto; padding: 0 16px 36px; display: grid; gap: 16px; }
+    section { background: white; border-radius: 14px; padding: 22px; box-shadow: 0 3px 16px #22305110; }
+    h2 { margin: 0 0 14px; font-size: 20px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; }
+    input { flex: 1; min-width: 220px; padding: 12px; border: 1px solid #c5cee0; border-radius: 8px; font-size: 16px; }
+    button { border: 0; border-radius: 8px; padding: 11px 15px; background: #3158a7; color: white; cursor: pointer; font-size: 15px; }
+    button:disabled { background: #a7b2c7; cursor: not-allowed; }
+    button.secondary { background: #e7ecf8; color: #20356e; }
+    .hint { color: #61718f; font-size: 14px; }
+    .status { padding: 12px; border-radius: 8px; background: #f0f4ff; margin: 12px 0; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #f7f9fd; border-radius: 8px; padding: 12px; font-size: 13px; max-height: 340px; overflow: auto; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>圳行Agent</h1>
+    <p>本地模型辅助理解 · 受控工作流 · 独立模拟沙箱 · 可核验审计</p>
+  </header>
+  <main>
+    <section>
+      <h2>独立演示沙箱</h2>
+      <p class="hint">每次创建的是合成用户与模拟卡，不连接真实银行。</p>
+      <button id="start">创建演示会话</button>
+      <div id="session" class="status hidden"></div>
+    </section>
+    <section>
+      <h2>发起任务</h2>
+      <div class="row">
+        <input id="message" value="这笔扣款我不认识，先保护我的卡" aria-label="任务内容">
+        <button id="send" disabled>发送</button>
+      </div>
+      <p class="hint">点击示例填入输入框，也可以自由提问。首次本地模型推理可能较慢。</p>
+      <div class="row" id="examples">
+        <button class="secondary" data-message="帮我分析最近账单">账单分析</button>
+        <button class="secondary" data-message="给房东转4200元，备注房租">智能转账</button>
+        <button class="secondary" data-message="申购稳健现金管理200元">理财操作</button>
+        <button class="secondary" data-message="临时锁卡，尾号4321">卡片管理</button>
+        <button class="secondary" data-message="取消视频会员自动续费">订阅代扣</button>
+        <button class="secondary" data-message="这笔扣款不认识，先锁卡，并取消视频会员自动续费">跨场景联动</button>
+      </div>
+      <div id="task" class="hidden">
+        <div id="task-status" class="status"></div>
+        <pre id="analysis"></pre>
+        <h3>待执行计划</h3>
+        <pre id="plan"></pre>
+        <div id="clarifications" class="row"></div>
+        <div id="clarify-input" class="row hidden">
+          <input id="clarification" aria-label="补充任务信息" placeholder="补充金额、名称或其他缺失信息">
+          <button id="clarify">补充信息</button>
+        </div>
+        <button id="confirm" class="hidden">确认执行模拟操作</button>
+        <button id="cancel" class="secondary hidden">撤销未完成任务</button>
+        <button id="evidence-button" class="secondary">查看证据</button>
+        <pre id="evidence" class="hidden"></pre>
+      </div>
+    </section>
+    <section>
+      <h2>任务中心</h2>
+      <p class="hint">可重新打开当前演示沙箱中的任务，查看状态或继续操作。</p>
+      <button id="refresh-tasks" class="secondary">刷新任务</button>
+      <div id="task-list" class="row status">创建会话后显示。</div>
+    </section>
+    <section>
+      <h2>卡片状态</h2>
+      <div id="cards" class="status">创建会话后显示。</div>
+    </section>
+    <section>
+      <h2>模拟业务状态</h2>
+      <pre id="resources">创建会话后显示账户、订阅与持仓。</pre>
+    </section>
+    <section>
+      <h2>任务通知</h2>
+      <button id="refresh-notifications" class="secondary">刷新通知</button>
+      <pre id="notifications">完成写操作后，独立 Worker 会将通知送入这里。</pre>
+    </section>
+  </main>
+  <script>
+    let token = sessionStorage.getItem("zx_demo_token") || "";
+    let task = null;
+    const byId = id => document.getElementById(id);
+    async function api(path, options = {}) {
+      const headers = {"Content-Type":"application/json", ...(options.headers || {})};
+      if (token) headers.Authorization = "Bearer " + token;
+      const response = await fetch(path, {...options, headers});
+      const data = await response.json();
+      if (!response.ok) throw new Error((data.error && data.error.message) || "HTTP " + response.status);
+      return data;
+    }
+    async function refreshCards() {
+      const cards = await api("/api/v1/cards");
+      byId("cards").textContent = cards.map(c => "尾号 " + c.last4 + "：" + c.status + "，限额 " + (c.limit_minor / 100).toFixed(2) + " 元（版本 " + c.version + "）").join("；");
+    }
+    async function refreshResources() {
+      const [accounts, subscriptions, investments] = await Promise.all([
+        api("/api/v1/accounts"), api("/api/v1/subscriptions"), api("/api/v1/investments")
+      ]);
+      byId("resources").textContent = JSON.stringify({accounts, subscriptions, investments}, null, 2);
+    }
+    async function refreshNotifications() {
+      if (!token) return;
+      const items = await api("/api/v1/notifications");
+      byId("notifications").textContent = items.length ? JSON.stringify(items, null, 2) : "当前没有已投递通知。";
+    }
+    async function refreshTaskList() {
+      if (!token) return;
+      const items = await api("/api/v1/tasks");
+      byId("task-list").replaceChildren();
+      if (!items.length) { byId("task-list").textContent = "当前没有任务。"; return; }
+      for (const item of items) {
+        const button = document.createElement("button");
+        button.className = "secondary";
+        button.textContent = item.state + " · " + item.message.slice(0, 28);
+        button.onclick = async () => {
+          try { renderTask(await api("/api/v1/tasks/" + item.task_id)); }
+          catch (error) { alert(error.message); }
+        };
+        byId("task-list").append(button);
+      }
+    }
+    const actionNames = {
+      "card.lock.v1":"临时锁卡", "card.manage.v1":"卡片管理",
+      "transfer.commit.v1":"模拟转账", "subscription.cancel.v1":"取消模拟代扣",
+      "wealth.order.v1":"模拟理财交易"
+    };
+    function renderTask(data) {
+      task = data;
+      byId("task").classList.remove("hidden");
+      byId("task-status").textContent = "状态：" + data.state + "。 " + ((data.result && data.result.message) || "");
+      byId("analysis").textContent = data.analysis ? JSON.stringify(data.analysis, null, 2) : JSON.stringify(data.result || {}, null, 2);
+      byId("plan").textContent = Object.keys(data.plan || {}).length ? JSON.stringify(data.plan, null, 2) : "当前没有待执行写操作。";
+      byId("confirm").classList.toggle("hidden", !data.confirmation_id || !["AWAITING_CONFIRMATION", "PARTIAL"].includes(data.state));
+      byId("cancel").classList.toggle("hidden", !["NEED_CLARIFICATION", "AWAITING_CONFIRMATION", "PARTIAL"].includes(data.state));
+      byId("clarify-input").classList.toggle("hidden", data.state !== "NEED_CLARIFICATION");
+      byId("clarification").value = "";
+      const actionNode = (data.plan && data.plan.nodes || []).find(n => n.node_id === data.confirmation_node_key);
+      byId("confirm").textContent = actionNode ? "确认执行：" + (actionNames[actionNode.tool_name] || actionNode.tool_name) : "确认执行模拟操作";
+      byId("clarifications").replaceChildren();
+      for (const candidate of (data.result && data.result.payee_candidates || [])) {
+        const button = document.createElement("button");
+        button.className = "secondary";
+        button.textContent = "选择 " + candidate.name + "（尾号 " + candidate.account_last4 + "）";
+        button.onclick = async () => {
+          button.disabled = true;
+          try {
+            renderTask(await api("/api/v1/tasks/" + data.task_id + "/clarify-payee", {
+              method:"POST", body:JSON.stringify({
+                payee_id:candidate.payee_id, expected_task_version:data.version
+              })
+            }));
+          } catch (error) { alert(error.message); button.disabled = false; }
+        };
+        byId("clarifications").append(button);
+      }
+      sessionStorage.setItem("zx_task_id", data.task_id);
+    }
+    byId("start").onclick = async () => {
+      try {
+        const data = await api("/api/v1/demo/sessions", {method:"POST"});
+        token = data.token;
+        task = null;
+        sessionStorage.setItem("zx_demo_token", token);
+        sessionStorage.removeItem("zx_task_id");
+        byId("task").classList.add("hidden");
+        byId("evidence").classList.add("hidden");
+        byId("session").textContent = "演示沙箱：" + data.sandbox_id + "（仅当前会话）";
+        byId("session").classList.remove("hidden");
+        byId("send").disabled = false;
+        await refreshCards();
+        await refreshResources();
+        await refreshNotifications();
+        await refreshTaskList();
+      } catch (error) { alert(error.message); }
+    };
+    byId("send").onclick = async () => {
+      byId("send").disabled = true;
+      byId("task-status").textContent = "正在理解请求并校验计划…";
+      byId("task").classList.remove("hidden");
+      try {
+        const data = await api("/api/v1/tasks", {
+          method:"POST", body:JSON.stringify({message:byId("message").value})
+        });
+        renderTask(data);
+        await refreshTaskList().catch(() => {});
+      } catch (error) {
+        byId("task-status").textContent = "请求失败：" + error.message;
+        await refreshTaskList().catch(() => {});
+      }
+      finally { byId("send").disabled = false; }
+    };
+    byId("confirm").onclick = async () => {
+      const actionNode = task && task.plan && task.plan.nodes && task.plan.nodes.find(n => n.node_id === task.confirmation_node_key);
+      if (!task || !actionNode || !confirm("确认执行 " + actionNode.tool_name + "？\n" +
+          (actionNode.merchant || actionNode.product_name || actionNode.card_last4 || actionNode.payee_last4 || "") +
+          "\n这只改变当前合成沙箱。")) return;
+      byId("confirm").disabled = true;
+      const taskId = task.task_id;
+      const executionKey = crypto.randomUUID();
+      try {
+        const data = await api("/api/v1/tasks/" + taskId + "/confirm", {
+          method:"POST",
+          headers:{"Idempotency-Key":executionKey},
+          body:JSON.stringify({
+            confirmation_id:task.confirmation_id,
+            plan_hash:task.plan_hash,
+            expected_task_version:task.version
+          })
+        });
+        renderTask(data);
+        await refreshCards();
+        await refreshResources();
+        await refreshTaskList();
+        setTimeout(() => refreshNotifications().catch(() => {}), 1000);
+      } catch (error) {
+        try {
+          const execution = await api("/api/v1/tasks/" + taskId + "/executions/" + encodeURIComponent(executionKey));
+          renderTask(await api("/api/v1/tasks/" + taskId));
+          await refreshCards();
+          await refreshResources();
+          await refreshTaskList();
+          alert(execution.status === "RECORDED"
+            ? "响应中断，但已查到执行回执；页面状态已恢复。"
+            : "未查到执行回执，任务状态已刷新。请核对后再决定是否重新确认。\n" + error.message);
+        } catch (recoveryError) { alert("确认结果仍不确定，请勿重复提交。查询失败：" + recoveryError.message); }
+      }
+      finally { byId("confirm").disabled = false; }
+    };
+    byId("clarify").onclick = async () => {
+      if (!task || task.state !== "NEED_CLARIFICATION") return;
+      const message = byId("clarification").value.trim();
+      if (!message) return;
+      byId("clarify").disabled = true;
+      try {
+        renderTask(await api("/api/v1/tasks/" + task.task_id + "/clarify", {
+          method:"POST", body:JSON.stringify({message, expected_task_version:task.version})
+        }));
+        await refreshTaskList();
+      } catch (error) { alert(error.message); }
+      finally { byId("clarify").disabled = false; }
+    };
+    byId("cancel").onclick = async () => {
+      if (!task || !confirm("撤销任务中尚未执行的动作？已完成的模拟操作不会自动撤回。")) return;
+      byId("cancel").disabled = true;
+      try {
+        renderTask(await api("/api/v1/tasks/" + task.task_id + "/cancel", {
+          method:"POST", body:JSON.stringify({expected_task_version:task.version})
+        }));
+        await refreshCards();
+        await refreshResources();
+        await refreshNotifications();
+        await refreshTaskList();
+      } catch (error) { alert(error.message); }
+      finally { byId("cancel").disabled = false; }
+    };
+    byId("evidence-button").onclick = async () => {
+      if (!task) return;
+      try {
+        const data = await api("/api/v1/tasks/" + task.task_id + "/evidence");
+        byId("evidence").textContent = JSON.stringify(data, null, 2);
+        byId("evidence").classList.remove("hidden");
+      } catch (error) { alert(error.message); }
+    };
+    byId("refresh-notifications").onclick = () => refreshNotifications().catch(error => alert(error.message));
+    byId("refresh-tasks").onclick = () => refreshTaskList().catch(error => alert(error.message));
+    (async () => {
+      if (!token) return;
+      try {
+        const me = await api("/api/v1/cards");
+        byId("cards").textContent = me.map(c => "尾号 " + c.last4 + "：" + c.status + "，限额 " + (c.limit_minor / 100).toFixed(2) + " 元（版本 " + c.version + "）").join("；");
+        byId("session").textContent = "已恢复当前标签页的演示会话";
+        byId("session").classList.remove("hidden");
+        byId("send").disabled = false;
+        await refreshResources();
+        await refreshNotifications();
+        await refreshTaskList();
+        const taskId = sessionStorage.getItem("zx_task_id");
+        if (taskId) renderTask(await api("/api/v1/tasks/" + taskId));
+      } catch (_error) {
+        token = "";
+        sessionStorage.removeItem("zx_demo_token");
+        sessionStorage.removeItem("zx_task_id");
+      }
+    })();
+    for (const button of byId("examples").querySelectorAll("button")) {
+      button.onclick = () => { byId("message").value = button.dataset.message; byId("message").focus(); };
+    }
+  </script>
+</body>
+</html>

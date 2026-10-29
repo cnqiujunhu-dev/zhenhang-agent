@@ -1,0 +1,7 @@
+# Preserve audited bytes, including the UTF-8 BOM for Windows PowerShell 5.1.
+* -text
+*.apk binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary

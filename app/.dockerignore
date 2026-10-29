@@ -1,0 +1,16 @@
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+var/
+tests/
+*.db
+*.bak
+.git/
+.env
+web/node_modules/
+qa/node_modules/
+src/zhenxing/static/ui/
+**/.env
+**/.env.*
+!.env.example

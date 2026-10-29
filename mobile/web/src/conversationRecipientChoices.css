@@ -1,0 +1,10 @@
+.conversation-recipient-choices{margin:12px 0 18px 50px;max-width:780px}
+.conversation-recipient-choices>p{margin:0 0 10px;color:var(--text-secondary,#547180);font-size:1rem}
+.recipient-choice-list{display:flex;flex-wrap:wrap;gap:10px}
+.recipient-choice-list>button{display:flex;align-items:center;gap:12px;min-width:220px;padding:13px 16px;border:1px solid #cfe1df;border-radius:13px;background:#f7fbfa;color:#285859;cursor:pointer;text-align:left;transition:background .16s,transform .16s}
+.recipient-choice-list>button:hover:not(:disabled){background:#eaf6f1;transform:translateY(-1px)}
+.recipient-choice-list>button:focus-visible{outline:2px solid #238d7b;outline-offset:3px}
+.recipient-choice-list>button:disabled{opacity:.6;cursor:default}
+.recipient-choice-list>button span{display:grid;gap:4px;flex:1}.recipient-choice-list strong{font-size:1rem}.recipient-choice-list small{font-size:.9rem;font-variant-numeric:tabular-nums}
+@media(max-width:600px){.conversation-recipient-choices{margin-left:0}.recipient-choice-list>button{width:100%}}
+@media(prefers-reduced-motion:reduce){.recipient-choice-list>button{transition:none}.recipient-choice-list>button:hover:not(:disabled){transform:none}}

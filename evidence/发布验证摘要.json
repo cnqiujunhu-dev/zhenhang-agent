@@ -1,0 +1,114 @@
+{
+  "release": "submission-2026-10-30-r1",
+  "date": "2026-10-30",
+  "environment": "Windows host, independent Docker Compose project, new PostgreSQL volumes; no existing runtime export",
+  "deployment": {
+    "web_http": 200,
+    "api": "ready",
+    "worker": "online",
+    "embedding": "READY",
+    "embedding_revision": "59b80eac9d1f603caa00be8b835c8062838cdaa22fd30b1a4dea1219cfd3dda6",
+    "documents": 54,
+    "indexed_chunks": 342,
+    "retrieval": "HYBRID",
+    "init_data_exit": 0,
+    "initialization_replay_preserved_business_fingerprints": true,
+    "anonymous_demo_endpoint_http": 403
+  },
+  "data": {
+    "login_accounts": 15,
+    "cash_accounts": 28,
+    "debit_cards": 28,
+    "credit_cards": 14,
+    "cash_transactions": 10418,
+    "subscriptions": 28,
+    "credit_statements": 28,
+    "credit_payments": 84,
+    "credit_repayments": 14,
+    "contact_aliases": 28,
+    "family_occasions": 28,
+    "holdings": 14,
+    "transfers": 1,
+    "cash_transactions_before_smoke_transfer": 10416,
+    "business_time": "2026-10-29T19:34:05+00:00",
+    "cash_accounts_per_customer": 2,
+    "credit_cards_per_customer": 1,
+    "subscriptions_per_customer": 2,
+    "initial_credit_due_minor": 44800,
+    "initial_credit_unbilled_minor": 58800,
+    "generated_at_initialization": true,
+    "contains_existing_runtime_database": false
+  },
+  "tests": {
+    "security": {
+      "total": 370,
+      "passed": 370,
+      "failed": 0,
+      "skipped": 0,
+      "source_stable_during_run": true
+    },
+    "bootstrap": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0,
+      "skipped": 0,
+      "sha256": "984270e419452b9ea7c661f94aca07d92d6dbbfccd2a93d6313c821dbd224df2"
+    },
+    "frontend": {
+      "total": 101,
+      "passed": 101,
+      "failed": 0,
+      "skipped": 0,
+      "sha256": "561da91df1727a1f6e3537393c429a0e0da3983a10de3ad0d430b559be229ae4"
+    },
+    "core_initial_run": {
+      "total": 455,
+      "passed": 454,
+      "failed": 1,
+      "skipped": 0,
+      "sha256": "b84da5cc6a97894477936541a9f688567c11993fb56ade788a02294043856837"
+    },
+    "core_targeted_recheck": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "sha256": "f672a5e2ce7d039327c666d85d76bc1fcaa1cc8a2d247315353b15720ba2c7b9"
+    },
+    "core_recheck_explanation": "The only initial failure was a stale assumption that the catalog contains one fact. The current contract contains one price and one terms fact. The revised test checks exact 2500 CNY minor units, 1-12 months, default one month and automatic renewal off, same source and invalidation after a terms change. Production code was unchanged. The initial failed result is retained; the 455 cases were not rerun as a new full cohort."
+  },
+  "live_smoke": {
+    "turns": 11,
+    "all_answered": true,
+    "all_have_verified_pro_call_metadata": true,
+    "model": "deepseek-v4-pro",
+    "query_and_consultation_turns": 9,
+    "transfer": {
+      "state": "SUCCEEDED",
+      "amount_minor": 103,
+      "sender_delta_minor": -103,
+      "recipient_delta_minor": 103,
+      "repeat_confirmation_http": 409,
+      "extra_debit_minor": 0
+    },
+    "receipt_followup": true,
+    "english_operation_verification_answer": "No. The app does not use an independent second factor for transfer verification. The current verification is an operation verification shown on the same page; it is not a separate second factor, MFA, SMS code, or biometric check.\n\nThis reply explains the available information; it did not execute a bank operation.",
+    "scope": "New-deployment smoke journeys, not an independent intent or task-completion-rate dataset. Nested copies of model metadata are not summed as HTTP calls."
+  },
+  "mobile": {
+    "version": "0.1.1",
+    "powershell_5_1_scripts_parsed": 4,
+    "signature_and_payload_evidence": "移动端构建与离线校验.json",
+    "third_party_notices": "../THIRD_PARTY_NOTICES.md"
+  },
+  "source_integrity": {
+    "identifiers_preserved": true,
+    "investment_order_class": "InvestmentOrder",
+    "private_configuration_and_runtime_excluded": true
+  },
+  "limitations": [
+    "No new physical-phone or other-host verification",
+    "Independent MFA, public HTTPS and external bank/merchant integration remain outside this release",
+    "Historical model and idempotency results retain their own dates and denominators"
+  ]
+}

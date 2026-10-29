@@ -1,0 +1,11 @@
+/* Full-size source text reserves the final layout. Revealing prose cannot
+   push a ready card or confirmation button down on every animation frame. */
+.reply-text { display:block;position:relative;min-width:0;white-space:inherit;overflow-wrap:inherit; }
+.reply-text-source { white-space:inherit; }
+.reply-text[data-reply-revealing="true"] > .reply-text-source { color:transparent; }
+.reply-text-visual { position:absolute;inset:0;pointer-events:none;user-select:none;white-space:inherit;overflow-wrap:inherit; }
+.reply-text-visual::after { content:"";display:inline-block;width:2px;height:.9em;margin-inline-start:3px;background:currentColor;opacity:.5;vertical-align:-.05em; }
+@media(prefers-reduced-motion:reduce),(forced-colors:active) {
+  .reply-text[data-reply-revealing="true"] > .reply-text-source { color:inherit; }
+  .reply-text-visual { display:none; }
+}

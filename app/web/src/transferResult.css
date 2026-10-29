@@ -1,0 +1,41 @@
+/* Four receipt facts only. Reading-scale variables still own all text sizes. */
+.receipt-card.receipt-transfer-compact {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.receipt-transfer-compact > .transfer-result-card {
+  margin-block: 0;
+}
+.business-result-card.transfer-result-card {
+  max-inline-size: 580px;
+  margin-block: 8px;
+  padding: 13px 16px;
+  border: 1px solid #d8e5e2;
+  border-radius: 10px;
+  background: #fbfdfc;
+}
+.business-result-card.transfer-result-card .business-result-facts {
+  margin: 0;
+  gap: 7px;
+}
+.business-result-card.transfer-result-card .business-result-facts > div {
+  grid-template-columns: minmax(104px, 0.35fr) minmax(0, 1fr);
+  gap: 12px;
+}
+.transfer-result-card .transfer-result-status-success { color: #28785d; }
+.transfer-result-card .transfer-result-status-failed { color: #a13636; }
+.transfer-result-card .transfer-result-status-unknown { color: #855919; }
+.transfer-result-card .transfer-result-memo { white-space: pre-wrap; }
+@media (max-width: 600px) {
+  .business-result-card.transfer-result-card { padding: 12px; }
+  .business-result-card.transfer-result-card .business-result-facts > div {
+    grid-template-columns: minmax(88px, 0.35fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+@media (forced-colors: active) {
+  .business-result-card.transfer-result-card { border-color: CanvasText; background: Canvas; }
+  .transfer-result-card [class*="transfer-result-status-"] { color: CanvasText; }
+}

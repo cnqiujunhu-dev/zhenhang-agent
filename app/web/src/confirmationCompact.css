@@ -1,0 +1,155 @@
+/* Keep critical review values first and readable without clipping customer data. */
+.confirmation-card.confirmation-compact {
+  padding: 14px 16px;
+}
+.confirmation-compact .confirmation-heading {
+  padding-bottom: 9px;
+  align-items: flex-start;
+}
+.confirmation-compact .confirmation-heading > div {
+  min-width: 0;
+}
+.confirmation-compact .confirmation-heading h3 {
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.confirmation-compact .confirmation-tag {
+  font-size: 11px;
+}
+.confirmation-compact .structured-confirmation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+.confirmation-compact .structured-confirmation > div {
+  min-width: 0;
+  gap: 12px;
+  padding: 4px 0;
+}
+.confirmation-compact .structured-confirmation dd {
+  min-width: 0;
+  max-width: none;
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+}
+.confirmation-compact .structured-confirmation dt {
+  font-size: 13px;
+  line-height: 1.65;
+}
+.confirmation-compact [data-confirmation-field="amount_minor"] dd,
+.confirmation-compact [data-confirmation-field="requested_amount_minor"] dd,
+.confirmation-compact [data-confirmation-field="debit_minor"] dd,
+.confirmation-compact [data-confirmation-field="credit_minor"] dd {
+  font-weight: 600;
+  color: #285c50;
+}
+.confirmation-compact [data-confirmation-field="memo"] {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(65px, auto) minmax(0, 1fr);
+}
+.confirmation-compact [data-confirmation-field="memo"] dd {
+  text-align: left;
+  white-space: pre-wrap;
+}
+.confirmation-compact .structured-message,
+.confirmation-compact #current-confirmation-status {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.confirmation-compact .confirmation-meta {
+  padding-top: 8px;
+  justify-content: flex-start;
+  gap: 4px 16px;
+  line-height: 1.65;
+  font-size: 12px;
+}
+.confirmation-compact .auth-section {
+  margin-top: 10px;
+  padding: 10px 12px;
+}
+.confirmation-compact .confirmation-actions {
+  margin-top: 12px;
+}
+.confirmation-compact #current-confirmation-status:empty { margin: 0; }
+.confirmation-compact .banking-workflow-review > dl {
+  display: grid;
+  grid-template-columns: minmax(120px, .25fr) minmax(0, 1fr);
+  gap: 8px 18px;
+  margin: 12px 0;
+  line-height: 1.65;
+}
+.confirmation-compact .banking-workflow-review > dl > dt { color: #617986; }
+.confirmation-compact .banking-workflow-review > dl > dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.confirmation-compact .banking-participants-heading { margin: 12px 0 6px; }
+.confirmation-compact .banking-workflow-review > ul { margin: 6px 0 12px; padding-left: 20px; }
+.confirmation-compact .banking-workflow-review > ul > li { margin: 4px 0; overflow-wrap: anywhere; }
+.confirmation-compact .transfer-confirmation-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 22px;
+  margin: 14px 0;
+  font-size: 18px;
+}
+.confirmation-compact .transfer-confirmation-fields > div {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: baseline;
+}
+.confirmation-compact .transfer-confirmation-fields dt { color: #617986; font-size: 15px; margin-bottom: 3px; }
+.confirmation-compact .transfer-confirmation-fields dd { margin: 0; overflow-wrap: anywhere; line-height: 1.6; }
+.confirmation-compact .transfer-confirmation-fields code { font: 18px/1.6 Consolas, monospace; overflow-wrap: anywhere; }
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="recipient_display_name"],
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="amount"],
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="memo"] { grid-column: 1 / -1; }
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="recipient_display_name"] dd,
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="amount"] dd { font-weight: 600; }
+.confirmation-compact .transfer-confirmation-fields [data-transfer-confirmation-field="memo"] dd { white-space: pre-wrap; }
+.confirmation-compact .transfer-confirmation-notices { margin: 12px 0; color: #93601d; font-size: 16px; }
+.confirmation-compact .transfer-confirmation-notices p { margin: 5px 0; }
+.confirmation-compact :is(.confirmation-field-details,.confirmation-extra-details) {
+  margin-top: 10px;
+  border-top: 1px solid #dceae7;
+  padding-top: 9px;
+}
+.confirmation-compact :is(.confirmation-field-details,.confirmation-extra-details) > summary {
+  color: #507781;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.confirmation-compact :is(.confirmation-field-details,.confirmation-extra-details) > summary:focus-visible {
+  outline: 2px solid #248b76;
+  outline-offset: 3px;
+}
+.large-text .confirmation-compact .structured-confirmation {
+  font-size: 15px;
+}
+.large-text .confirmation-compact .structured-confirmation dt {
+  font-size: 13px;
+}
+.large-text .confirmation-compact #current-confirmation-status,
+.large-text .confirmation-compact .structured-message {
+  font-size: 15px;
+}
+@media (max-width: 600px) {
+  .confirmation-card.confirmation-compact {
+    padding: 12px;
+  }
+  .confirmation-compact .structured-confirmation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .confirmation-compact .transfer-confirmation-fields { grid-template-columns: minmax(0, 1fr); }
+}
+@media (forced-colors: active) {
+  .confirmation-compact .structured-confirmation dd {
+    color: CanvasText;
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-26",
+  "examples": [
+    {
+      "id": "challenge-04",
+      "user_message": "给qa1026_peer转1.2到1.5万元人民币，先核对。",
+      "actual_model_proposal": {
+        "mode": "REQUEST",
+        "confidence": 0.96,
+        "action_kinds": [
+          "TRANSFER"
+        ],
+        "dependencies": [
+          []
+        ],
+        "changes": [
+          {
+            "action_ref": "new:0",
+            "field": "payee_name",
+            "source_span": {
+              "text": "qa1026_peer",
+              "occurrence": 1
+            },
+            "source_text": "qa1026_peer"
+          },
+          {
+            "action_ref": "new:0",
+            "field": "amount_minor",
+            "source_span": {
+              "text": "1.2到1.5万元人民币",
+              "occurrence": 1
+            },
+            "source_text": "1.2到1.5万元人民币"
+          },
+          {
+            "action_ref": "new:0",
+            "field": "currency",
+            "source_span": {
+              "text": "人民币",
+              "occurrence": 1
+            },
+            "source_text": "人民币",
+            "selected_options": [
+              "CNY"
+            ]
+          }
+        ],
+        "entity_refs": [],
+        "focus_ref": null,
+        "query_base": "INDEPENDENT",
+        "query_base_source": null,
+        "query_reference": null,
+        "read_targets": [],
+        "read_subjects": [],
+        "knowledge_topics": [],
+        "question_aspects": [],
+        "rule_aspects": [],
+        "retrieval_query": null,
+        "scope_frame_refs": [],
+        "operation_scope": null,
+        "clarification": "",
+        "memory_updates": [],
+        "preference_rebase_ref": null
+      },
+      "rejected_parameter": {
+        "action_ref": "new:0",
+        "field": "amount_minor",
+        "source_span": {
+          "text": "1.2到1.5万元人民币",
+          "occurrence": 1
+        },
+        "source_text": "1.2到1.5万元人民币"
+      },
+      "validator_code": "SEMANTIC_MONEY_NOT_EXACT",
+      "compiled_actions": [],
+      "bank_writes": 0,
+      "scope": "Actual cloud output rejected by source literal/typed field compiler; no output injection or bank limit rejection. Both paired arms are nonexecuting proposal observations."
+    },
+    {
+      "id": "composition-08",
+      "user_message": "先查询尾号29e7信用卡欠款，再用尾号9a62借记卡全部还清，最后查看这张信用卡的欠款和可用额度。",
+      "actual_model_proposal": {
+        "mode": "REQUEST",
+        "action_kinds": [
+          "CREDIT_STATEMENT",
+          "CREDIT_REPAY",
+          "CREDIT_VIEW"
+        ],
+        "dependencies": [
+          [],
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "changes": [
+          {
+            "action_ref": "new:0",
+            "field": "card_last4",
+            "source_span": {
+              "text": "29e7",
+              "occurrence": 1
+            },
+            "source_text": "29e7"
+          },
+          {
+            "action_ref": "new:1",
+            "field": "card_reference",
+            "source_span": {
+              "text": "29e7",
+              "occurrence": 1
+            },
+            "source_text": "29e7"
+          },
+          {
+            "action_ref": "new:1",
+            "field": "source_card",
+            "source_span": {
+              "text": "9a62",
+              "occurrence": 1
+            },
+            "source_text": "9a62"
+          },
+          {
+            "action_ref": "new:1",
+            "field": "repayment_mode",
+            "source_span": {
+              "text": "全部还清",
+              "occurrence": 1
+            },
+            "source_text": "全部还清",
+            "selected_options": [
+              "FULL"
+            ]
+          },
+          {
+            "action_ref": "new:2",
+            "field": "card_reference",
+            "source_span": {
+              "text": "这张信用卡",
+              "occurrence": 1
+            },
+            "source_text": "这张信用卡"
+          }
+        ],
+        "confidence": 0.96
+      },
+      "rejected_parameter": {
+        "action_ref": "new:2",
+        "field": "card_reference",
+        "source_span": {
+          "text": "这张信用卡",
+          "occurrence": 1
+        },
+        "source_text": "这张信用卡"
+      },
+      "validator_code": "SEMANTIC_FIELD_NOT_EXACT",
+      "compiled_actions": [],
+      "bank_writes": 0,
+      "scope": "Actual cloud output rejected by source literal/typed field compiler; no output injection or bank limit rejection. Both paired arms are nonexecuting proposal observations."
+    }
+  ],
+  "source_sha256": "c2d123c0a787aedd1ce54b3b0b40233fc403c157ce5828d55291ca4c89c43f65",
+  "later_repair": "composition-08句内指代编译已定向修复，旧拦截记录保持原样。"
+}

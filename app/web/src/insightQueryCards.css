@@ -1,0 +1,99 @@
+.insight-query-card { margin: 12px 0; padding: 16px; border: 1px solid #d9e7e6; border-radius: 10px; background: #fff; color: #173d4b; overflow-wrap: anywhere; }
+.insight-query-card h3 { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; font-size: 17px; color: #176d66; }
+.insight-query-card h4 { margin: 0 0 10px; font-size: 14px; }
+.insight-query-card p { margin: 8px 0; line-height: 1.7; }
+.insight-query-card .insight-subtitle { color: #577582; font-size: 13px; }
+.insight-query-card .insight-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 12px 0 16px; }
+.insight-query-card .insight-metric { padding: 8px 0; border-radius: 0; background: transparent; }
+.insight-query-card .insight-metric dt { font-size: 12px; color: #627f89; }
+.insight-query-card .insight-metric dd { margin: 6px 0 0; font-size: 20px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.insight-query-card .insight-section { margin-top: 14px; }
+.insight-query-card .insight-records { display: grid; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.insight-query-card .insight-records li { padding: 13px 14px; border: 1px solid #e3ecec; border-radius: 12px; }
+.insight-query-card .insight-records li > div:first-child { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.insight-query-card .insight-records li > div:first-child > span { color: #54717e; font-size: 12px; flex-shrink: 0; }
+.insight-query-card .insight-records small { display: block; color: #617b86; line-height: 1.65; }
+.insight-query-card .insight-notice { display: flex; align-items: start; gap: 7px; padding: 11px 12px; background: #f7f9fc; border-radius: 10px; color: #536d7b; font-size: 12px; }
+.insight-query-card .insight-notice svg { flex-shrink: 0; margin-top: 4px; }
+.insight-query-card .insight-draft-button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; border: 1px solid #cee1de; border-radius: 8px; padding: 8px 12px; margin-top: 10px; background: #f2f8f6; color: #16665e; font: inherit; font-size: 12px; cursor: pointer; transition: opacity 140ms ease-out, transform 140ms ease-out; }
+.insight-query-card .insight-draft-button:focus-visible { outline: 3px solid #89c9c1; outline-offset: 3px; }
+.insight-query-card .insight-risk { padding: 12px 14px; border-radius: 10px; font-weight: 650; }
+.insight-query-card .insight-risk.is-blocked { background: #fff2ec; color: #9b4432; }
+.insight-query-card .insight-risk.is-unknown { background: #fff8e8; color: #846425; }
+.insight-query-card .insight-risk.is-checked { background: #edf7f4; color: #286c61; }
+.insight-query-card .insight-bullets { margin: 10px 0; padding-left: 22px; line-height: 1.8; }
+.insight-query-card .insight-active { color: #187369 !important; }
+.insight-query-card .insight-muted { color: #7a858b !important; }
+.insight-query-card .family-answer { margin: 10px 0 14px; }
+.insight-query-card .family-answer .insight-records li { padding: 10px 12px; }
+.insight-query-card .family-answer .insight-records p { margin: 5px 0; }
+.insight-query-card .insight-goal-progress { height: 7px; margin: 10px 0; border-radius: 8px; background: #edf2f3; overflow: hidden; }
+.insight-query-card .insight-goal-progress > span { display: block; height: 100%; background: #399b8c; border-radius: inherit; }
+.insight-query-card .insight-goal-portfolio { margin-bottom: 18px; padding: 14px; border: 1px solid #e4d8bf; border-radius: 10px; background: #fffaf0; }
+.insight-query-card .insight-goal-portfolio > p { font-size: 13px; color: #5e6c73; }
+.insight-query-card .insight-goal-portfolio .insight-portfolio-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 10px; }
+.insight-query-card .insight-goal-portfolio .insight-metric { min-width: 0; }
+.insight-query-card .insight-goal-portfolio .insight-metric dd { color: #815f27; }
+.insight-query-card .insight-goal-portfolio .insight-portfolio-warning { color: #815f27; }
+.insight-query-card .insight-goal-portfolio > small { display: block; font-size: 12px; color: #6f7472; line-height: 1.7; }
+.insight-query-card .insight-goal-records li > div:first-child { flex-wrap: wrap; }
+.insight-query-card .insight-goal-records li > div:first-child > span { flex-shrink: 1; max-width: 100%; line-height: 1.6; }
+.large-text .insight-query-card .insight-goal-portfolio > p,
+.large-text .insight-query-card .insight-goal-portfolio > small,
+.large-text .insight-query-card .insight-goal-portfolio .insight-metric dt,
+.large-text .insight-query-card .insight-goal-cash .insight-metric dt,
+.large-text .insight-query-card .insight-goal-scenarios .insight-metric dt,
+.large-text .insight-query-card .insight-goal-records small,
+.large-text .insight-query-card .insight-goal-records li > div:first-child > span { font-size: 15px; }
+.large-text .insight-query-card .insight-goal-portfolio .insight-metric dd { font-size: 24px; }
+@media (max-width: 560px) { .insight-query-card { padding: 14px; border-radius: 12px; } .insight-query-card .insight-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } .insight-query-card .insight-metric { padding: 10px; } .insight-query-card .insight-metric dd { font-size: 17px; } .insight-query-card .insight-records li > div:first-child { flex-wrap: wrap; gap: 5px; } .insight-query-card .insight-draft-button { width: 100%; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .insight-query-card .insight-draft-button { transition: none; } }
+.bill-coverage { display:grid;gap:5px;margin:0 0 12px; }
+.insight-compact-records {list-style:none;margin:6px 0 12px;padding:0;display:grid;gap:7px;}
+.insight-compact-records > li {display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 16px;padding:10px 12px;background:#f5f9f8;border-radius:8px;font-size:13px;}
+.insight-compact-records strong {flex:1 0 160px;overflow-wrap:anywhere;}
+.insight-compact-records span {color:#42666c;font-variant-numeric:tabular-nums;}
+.insight-risk-next {color:#834630;line-height:1.85;font-size:14px;}
+.large-text .insight-compact-records > li,.large-text .insight-risk-next {font-size:16px;}
+.bill-coverage > small { color:#607b84;line-height:1.6;overflow-wrap:anywhere; }
+.bill-key-insight { display:grid;gap:6px;padding:12px 14px;background:#f2f8f6;border-radius:8px;margin-bottom:12px; }
+.bill-key-insight > span { font-size:20px;color:#176d66;font-variant-numeric:tabular-nums; }
+.bill-key-insight > small { color:#5c7982;line-height:1.7; }
+.bill-review-candidates { margin:0 0 15px;padding:12px 14px;border:1px solid #e0eae7;border-radius:8px; }
+.bill-review-candidates ul { padding:0;margin:8px 0;list-style:none; }
+.bill-review-candidates li { display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:13px; }
+.bill-review-candidates small { color:#607984;line-height:1.7; }
+.bill-helpful-intro { color:#355566;font-size:14px;line-height:1.85; }
+.bill-period-label { color:#315965;font-size:14px;font-weight:600; }
+.bill-requested-activity { color:#607b84;font-size:12px;line-height:1.75;margin:4px 0 12px;overflow-wrap:anywhere; }
+.large-text .bill-requested-activity { font-size:15px; }
+.bill-period-label > small,.bill-availability-note { color:#607b84;font-size:12px;font-weight:400; }
+.bill-review-preview { list-style:none; padding:0; display:grid; gap:.5rem; }
+.bill-review-preview > li { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.35rem 1rem; padding:.55rem .7rem; border:1px solid #e1e9ee; border-radius:9px; }
+.bill-category-summary { display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;list-style:none;margin:4px 0 12px;padding:0; }
+.bill-category-summary > li { display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:9px 11px;background:#f5f9f8;border-radius:7px;font-size:12px;min-width:0; }
+.bill-category-summary span { overflow-wrap:anywhere; }
+.bill-category-summary strong { color:#275e57;font-variant-numeric:tabular-nums;white-space:nowrap; }
+.large-text .bill-helpful-intro,.large-text .bill-period-label {font-size:17px;}
+.large-text .bill-category-summary > li,.large-text .bill-period-label > small,.large-text .bill-availability-note {font-size:15px;}
+.bill-transaction-list {list-style:none;margin:0;padding:0;display:grid;gap:0;}
+.bill-transaction-list > li {display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #edf1f1;font-size:13px;}
+.bill-transaction-list > li > div {min-width:0;}
+.bill-transaction-list strong {font-weight:550;overflow-wrap:anywhere;}
+.bill-transaction-list small {display:block;color:#6c838c;font-size:11px;line-height:1.7;}
+.bill-transaction-list > li > span {flex-shrink:0;font-variant-numeric:tabular-nums;color:#315d67;font-size:13px;}
+.bill-transaction-preview,.bill-transaction-more {margin:8px 0 12px;}
+.large-text .bill-transaction-list > li,.large-text .bill-transaction-list > li > span {font-size:16px;}
+.large-text .bill-transaction-list small {font-size:14px;}
+@media (max-width:400px) {.bill-transaction-list > li {flex-wrap:wrap;gap:4px;}.bill-transaction-list > li > span {margin-left:auto;}}
+.bill-instrument-breakdown { margin:12px 0; padding:12px 14px; border:1px solid #dfebe8; border-radius:10px; background:#f8fbfa; overflow-x:auto; }
+.bill-instrument-breakdown > summary { color:#2c665c; font-weight:550; cursor:pointer; }
+.bill-instrument-breakdown table { width:100%; margin:12px 0; border-collapse:collapse; font-size:14px; line-height:1.65; font-variant-numeric:tabular-nums; }
+.bill-instrument-breakdown th,.bill-instrument-breakdown td { padding:9px 12px; text-align:left; border-bottom:1px solid #e3ece9; white-space:nowrap; }
+.bill-instrument-breakdown th { color:#5c7479; font-size:13px; font-weight:550; background:#f0f6f3; }
+.bill-instrument-breakdown th:nth-child(n+3),.bill-instrument-breakdown td:nth-child(n+3) { text-align:right; }
+.bill-instrument-breakdown tbody tr:last-child td { border-bottom:0; }
+.bill-instrument-breakdown > p { color:#607b84; margin:7px 0 0; font-size:13px; line-height:1.7; }
+.large-text .bill-instrument-breakdown table { font-size:17px; }
+.large-text .bill-instrument-breakdown th,.large-text .bill-instrument-breakdown > p { font-size:16px; }
+@media (max-width:600px) { .bill-instrument-breakdown { padding:10px; }.bill-instrument-breakdown table { min-width:520px; }.bill-instrument-breakdown th,.bill-instrument-breakdown td { padding:8px; } }

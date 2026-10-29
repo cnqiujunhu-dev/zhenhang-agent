@@ -1,0 +1,18 @@
+@keyframes resource-record-arrive {
+  from { box-shadow:inset 0 0 0 2px rgb(74 112 139 / 35%); }
+  to { box-shadow:inset 0 0 0 2px rgb(74 112 139 / 0%); }
+}
+.resource-read-arrival { min-width:0; }
+@media(prefers-reduced-motion:no-preference) and (forced-colors:none) {
+  .resource-read-arrival[data-resource-arrival] :is(.bank-card,.wealth-product):not([data-resource-warning="true"]):not(:has(.state-badge.warning,.state-badge.danger,[role="alert"])) {
+    animation:resource-record-arrive 200ms ease-out 0ms 1 backwards;
+  }
+  .resource-read-arrival[data-resource-arrival] > .wealth-product:nth-child(2) { animation-delay:40ms; }
+  .resource-read-arrival[data-resource-arrival] > .wealth-product:nth-child(3) { animation-delay:80ms; }
+  .resource-read-arrival[data-resource-arrival] > .wealth-product:nth-child(n+4) { animation-delay:120ms; }
+}
+[hidden] .resource-read-arrival *, [inert] .resource-read-arrival *,
+.resource-read-arrival[hidden] *, .resource-read-arrival[inert] * { animation:none!important; }
+@media(prefers-reduced-motion:reduce), (forced-colors:active) {
+  .resource-read-arrival, .resource-read-arrival * { animation:none!important;transition:none!important;transform:none!important; }
+}

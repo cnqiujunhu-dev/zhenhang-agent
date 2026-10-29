@@ -1,0 +1,20 @@
+{
+  "source_files": 1047,
+  "python_parsed": 438,
+  "configuration_non_overwrite": true,
+  "compose_config_valid": true,
+  "containers_started": false,
+  "findings": [],
+  "powershell_scripts_parsed": 4,
+  "frontend": {
+    "tests": 24,
+    "failures": 0,
+    "typescript": "passed",
+    "production_build": "passed",
+    "warning": "application chunk over 500 kB"
+  },
+  "frontend_rebuild_matches_packaged_assets": true,
+  "scope": "2026-10-29多端交付副本；本轮仅重建和定向检查，旧评测成绩不变。",
+  "recording_accounts_accessed": false,
+  "new_model_evaluation": false
+}

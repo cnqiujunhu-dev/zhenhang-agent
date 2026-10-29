@@ -1,0 +1,16 @@
+**/.env
+**/.env.*
+!**/.env.example
+**/var/
+**/.venv/
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+**/*.pyc
+**/*.db
+**/*.sqlite*
+**/*.log
+**/*.p12
+**/*.jks
+**/*.keystore
+app/src/zhenxing/static/ui/

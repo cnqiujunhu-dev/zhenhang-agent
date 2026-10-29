@@ -1,0 +1,1 @@
+function e(e){let t=e.trim();if(!/^-?(?:0|[1-9]\d*)(?:\.\d{1,2})?$/.test(t))throw Error(`金额请使用最多两位小数的元数值。`);let n=t.startsWith(`-`),[r,i=``]=t.replace(/^-/,``).split(`.`),a=BigInt(r)*100n+BigInt(i.padEnd(2,`0`));if(a>BigInt(2**53-1))throw Error(`金额超出可准确表示的范围。`);return Number(n?-a:a)}export{e as t};

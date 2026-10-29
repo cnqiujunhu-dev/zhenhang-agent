@@ -1,0 +1,24 @@
+/* Customer controls keep their hit area fixed through hover, press and focus. */
+.app-shell .agent-first-workspace :is(button,[role="button"]) {
+  transform:none!important;
+  transition-property:color,background-color,border-color;
+  transition-duration:140ms;
+  transition-timing-function:ease-out;
+}
+/* Recovery and warning content, including its controls, remains immediate. */
+.app-shell .agent-first-workspace :is([role="alert"],.unknown-note,.task-recovery-note,
+  [data-task-state="UNKNOWN"],[data-task-state="FAILED"],[data-task-state="PARTIAL"])
+  :is(button,[role="button"]) { transition:none!important; }
+@media(prefers-reduced-motion:reduce) {
+  .app-shell .agent-first-workspace :is(button,[role="button"]) { transition:none!important; }
+}
+@media(forced-colors:active) {
+  .app-shell .agent-first-workspace :is(button,[role="button"]) { transition:none!important; }
+}
+.conversation-recovery-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.conversation-recovery-panel > p { flex: 1 1 260px; margin: 0; }
+.conversation-recovery-options { flex-basis: 100%; }
+.conversation-recovery-options > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.conversation-recovery-options > p { margin: 4px 0 8px; }
+.conversation-recovery-options > button { display: block; min-height: 44px; }
+.conversation-recovery-options > summary:focus-visible { outline: 3px solid #89c9c1; outline-offset: 2px; }

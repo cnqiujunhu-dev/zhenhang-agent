@@ -1,0 +1,22 @@
+{
+  "status": "AVAILABLE",
+  "scope": "SMALL_SYNTHETIC_CONTROLLED_AB_NOT_CURRENT_USER_COUNTERFACTUAL",
+  "candidate_variant": "EXACT_READ_COMPILER",
+  "baseline_model_calls": 6,
+  "candidate_model_calls": 3,
+  "call_difference": 3,
+  "latency_difference_ms": 2638.62,
+  "quality_guard_passed": true,
+  "cases_per_variant": 6,
+  "quality_passed_across_three_variants": 18,
+  "laya_incremental_http_reduction": 0,
+  "laya_adoption_enabled": false,
+  "note": "六条合成开发输入、同上下文、轮换顺序的提案层对照：18/18预期动作通过；只读编译器使HTTP从6次降至3次，p50提案耗时差约2639ms。Laya影子模式增量节省为0。不是当前用户累计节省、独立隐藏集、全流程延迟或Laya中文校准准确率。",
+  "evidence_reference": "0.10.0-efficiency-ab.json",
+  "source_sha256": {
+    "model_gateway": "3ef2b20577a4100c2223cccee8206d7dee15593c8414888ba24167419e07d0b4",
+    "intelligence": "1aa8752a7771172bb3555e3cad4fc081a877dc4613a53f66322662d18236065e",
+    "standard_read": "dd128f1238bab0b5ee151956d927060166a182d33c3c78cec7e9035c5fb8ad44",
+    "decision_advisor": "863c2e7b5e766bec911c3e2a4dab92a1bc50547281b964d28c0a38825c0f3608"
+  }
+}

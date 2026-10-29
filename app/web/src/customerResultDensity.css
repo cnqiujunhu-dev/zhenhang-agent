@@ -1,0 +1,135 @@
+/* Compact facts, unchanged reading sizes. Scoped above lazy-loaded component
+   sheets; amounts, warnings and confirmations are never clipped or scaled. */
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards {
+  margin-block: 8px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-heading {
+  margin-bottom: 8px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-record-grid {
+  gap: 10px;
+  align-items: start;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  max-inline-size: 940px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-card-grid > .eqc-card-record:only-child {
+  inline-size: 100%;
+  max-inline-size: 500px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-record {
+  padding: 11px 13px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-record > header {
+  align-items: baseline;
+  gap: 6px 10px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards :is(h4, .eqc-record header h3) {
+  margin-bottom: 4px;
+}
+.app-shell .main-shell .agent-first-workspace .eqc-card-record :is(h4, header h3) {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+.app-shell .main-shell .agent-first-workspace .eqc-card-tier {
+  display: inline-block;
+  font-size: var(--zx-reading-meta, 13px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--zx-reading-secondary, #52697a);
+  padding-inline-start: 4px;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-metrics {
+  margin-block: 5px;
+  gap: 6px 12px;
+}
+.app-shell .main-shell .agent-first-workspace .eqc-card-record .eqc-card-balances {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  margin-block: 5px 2px;
+}
+.app-shell.large-text .main-shell .agent-first-workspace .eqc-card-record .eqc-card-balances {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 215px), 1fr));
+}
+.app-shell .main-shell .agent-first-workspace .eqc-card-record[data-balance-currency-count="1"] .eqc-card-balances {
+  grid-template-columns: minmax(0, 1fr);
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-metric dt {
+  margin-bottom: 2px;
+  line-height: 1.5;
+}
+.app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-card-limit {
+  margin-block: 4px 8px;
+}
+.app-shell .main-shell .agent-first-workspace .customer-result-disclosure {
+  margin-top: 6px;
+}
+.app-shell .main-shell .agent-first-workspace .customer-result-disclosure > summary {
+  padding-block: 7px;
+}
+/* Keep 44px / large-text 48px disclosure hit areas from the shared contract. */
+.app-shell .main-shell .agent-first-workspace .customer-result-disclosure-body {
+  padding-bottom: 2px;
+}
+.app-shell .main-shell .agent-first-workspace .credit-card {
+  padding: 12px 14px;
+  margin-block: 8px;
+}
+.app-shell .main-shell .agent-first-workspace .credit-card dl {
+  margin-block: 6px;
+}
+.app-shell .main-shell .agent-first-workspace .credit-card dl > div {
+  margin-block: 2px;
+}
+.app-shell .main-shell .agent-first-workspace .credit-card-summary {
+  gap: 5px 14px;
+}
+.app-shell .main-shell .agent-first-workspace .credit-card-details {
+  padding-top: 4px;
+}
+.app-shell .main-shell .agent-first-workspace .personal-result-card {
+  padding: 12px 14px;
+}
+.app-shell .main-shell .agent-first-workspace .personal-result-grid {
+  gap: 10px;
+  align-items: start;
+}
+.app-shell .main-shell .agent-first-workspace .personal-result-card dl {
+  gap: 7px;
+  margin-top: 9px;
+}
+.app-shell .main-shell .agent-first-workspace .personal-asset-totals {
+  padding: 11px 14px;
+  gap: 12px 24px;
+  margin-bottom: 10px;
+}
+.app-shell .main-shell .agent-first-workspace .personal-asset-totals > div {
+  gap: 3px;
+}
+.app-shell .main-shell .agent-first-workspace .insight-query-card {
+  padding: 12px 14px;
+  margin-block: 8px;
+}
+.app-shell .main-shell .agent-first-workspace .insight-query-card h3 {
+  margin-bottom: 9px;
+}
+.app-shell .main-shell .agent-first-workspace .insight-query-card .insight-metrics {
+  margin-block: 7px 10px;
+  gap: 7px;
+}
+.app-shell .main-shell .agent-first-workspace .insight-query-card .insight-metric {
+  padding-block: 3px;
+}
+.app-shell .main-shell .agent-first-workspace .insight-query-card .insight-metric dd {
+  margin-top: 3px;
+}
+@media (max-width: 600px) {
+  .app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-shell .main-shell .agent-first-workspace .everyday-query-cards .eqc-card-grid > .eqc-card-record:only-child {
+    max-inline-size: none;
+  }
+}

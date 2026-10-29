@@ -1,0 +1,104 @@
+/* Narrow and short desktop reading space comes from idle chrome, not smaller controls or clipped drafts. */
+@media (max-width: 760px), (min-width: 761px) and (max-height: 819px) {
+  .app-shell:not(.large-text) .agent-first-workspace .conversation-panel > .panel-heading {
+    padding: 8px 14px;
+    gap: 8px;
+  }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-heading {
+    gap: 8px;
+    min-width: 0;
+  }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-heading p { display: none; }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-icon { width: 28px; height: 28px; }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-state {
+    min-height: 44px;
+    padding: 6px 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-context-toolbar { padding: 5px 14px; }
+  .app-shell:not(.large-text) .agent-first-workspace .agent-resources-toggle { min-height: 44px; }
+
+  /* Font and empty-composer geometry do not depend on focus. A pointer press
+     must not move New/Images/Send when it takes focus from the textarea. */
+  .app-shell:not(.large-text) .agent-first-workspace .composer > .composer-input > textarea {
+    font-size: var(--zx-reading-body, 16px);
+    line-height: 1.5;
+  }
+  .app-shell:not(.large-text) .agent-first-workspace .composer:has(> .composer-input > textarea:placeholder-shown):not(:has(.pending-request-note, .reviewed-document-chip, .composer-continuation, .conversation-options[open])) {
+    padding: 8px 14px;
+
+    & > .composer-input {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 4px 10px;
+      padding: 8px 10px;
+    }
+    & > .composer-input > textarea {
+      grid-column: 1;
+      grid-row: 1;
+      height: 48px;
+      min-height: 48px;
+      font-size: var(--zx-reading-body, 16px);
+      line-height: 1.5;
+    }
+    & .composer-bottom { display: contents; }
+    & .composer-bottom > .send-button {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 44px;
+      min-height: 44px;
+    }
+    & .composer-bottom > span {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      font-size: var(--zx-reading-meta, 12px);
+      line-height: 1.4;
+      color: #52697a;
+    }
+    & > .composer-hint { display: none; }
+  }
+}
+
+/* The desktop panel reserves 124px outside itself. Include the actual topbar,
+   main padding and footer, with 2px slack for fractional font/device rounding.
+   Keep the panel's reading height intact.
+   Long drafts/options still grow the panel naturally through its min-content floor. */
+@media (min-width: 761px) {
+  .app-shell:not(.large-text) .main-content:has(> .agent-first-workspace) {
+    padding-top: 18px;
+    padding-bottom: 10px;
+  }
+  .app-shell:not(.large-text) .main-content:has(> .agent-first-workspace) > .page-footer {
+    margin-top: 10px;
+  }
+}
+
+/* Typing focus must not shrink the send target after the idle layout releases. */
+.app-shell:not(.large-text) .agent-first-workspace .composer .send-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+@media (max-width: 760px) {
+  /* The visual viewport may be short while a keyboard or enlarged controls are present.
+     Natural panel height lets the page scroll instead of cutting off the composer. */
+  .app-shell.compact-viewport .agent-first-workspace .conversation-panel {
+    height: auto;
+    min-height: 0;
+  }
+  .app-shell.compact-viewport .agent-first-workspace .conversation-panel:has(> .conversation-content:not([hidden])) {
+    grid-template-rows: auto auto clamp(120px, calc(var(--agent-visible-height, 100dvh) - 340px), 300px) auto auto;
+  }
+  .app-shell.compact-viewport .agent-first-workspace .conversation-content:not([hidden]) {
+    flex: 0 0 auto;
+    height: clamp(120px, calc(var(--agent-visible-height, 100dvh) - 340px), 300px);
+    min-height: 120px;
+  }
+  .app-shell.compact-viewport .agent-first-workspace .resource-column.embedded-agent-resources {
+    flex: 0 0 auto;
+    max-height: clamp(160px, calc(var(--agent-visible-height, 100dvh) - 280px), 360px);
+  }
+}

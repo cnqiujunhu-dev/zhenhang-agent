@@ -1,0 +1,290 @@
+/* Shared reading scale. Customer, login and operations surfaces use the same
+   hierarchy; only the existing large-text preference changes these tokens.
+   App is lazy-loaded, so customer rules are scoped to its real ancestors and
+   remain authoritative even when older component CSS arrives afterwards. */
+:root {
+  --zx-reading-body: 17px;
+  --zx-reading-copy: 15px;
+  --zx-reading-value: 16px;
+  --zx-reading-label: 14px;
+  --zx-reading-meta: 13px;
+  --zx-reading-control: 15px;
+  --zx-reading-title: 18px;
+  --zx-reading-section: 20px;
+  --zx-reading-amount: 22px;
+  --zx-reading-ink: #294258;
+  --zx-reading-secondary: #52697a;
+  --zx-reading-accent: #176b60;
+}
+.app-shell.large-text {
+  --zx-reading-body: 19px;
+  --zx-reading-copy: 17px;
+  --zx-reading-value: 18px;
+  --zx-reading-label: 16px;
+  --zx-reading-meta: 15px;
+  --zx-reading-control: 17px;
+  --zx-reading-title: 20px;
+  --zx-reading-section: 22px;
+  --zx-reading-amount: 25px;
+}
+:is(.app-shell, .admin-shell, .login-shell, .password-modal) {
+  font-size: var(--zx-reading-body);
+  line-height: 1.7;
+}
+
+/* Conversation prose has the same readable size on a phone and a desktop. */
+.app-shell .main-shell .agent-first-workspace :is(
+  .turn-answer, .user-message p, .result-summary, .query-reply-intro,
+  .receipt-description, .assistant-intro p, .structured-message,
+  .customer-material-answer
+) {
+  font-size: var(--zx-reading-body);
+  line-height: 1.8;
+  color: var(--zx-reading-ink);
+  overflow-wrap: anywhere;
+}
+.app-shell .main-shell .agent-first-workspace :is(
+  .query-reply-detail, .business-result-note, .outcome-next-step,
+  .bill-helpful-intro, .bill-period-label, .task-recovery-note p,
+  .customer-result-preparing, .turn-processing, .query-reveal-wait
+) {
+  font-size: var(--zx-reading-copy);
+  line-height: 1.75;
+  color: var(--zx-reading-secondary);
+  overflow-wrap: anywhere;
+}
+.app-shell .main-shell :is(
+  .message-author, .query-reply-asof, .business-receipt-reference,
+  .history-result-note, .turn-boundary, .conversation-mode,
+  .composer-hint, .composer-bottom > span, .agent-heading p,
+  .agent-context-toolbar > span, .agent-resources-toggle span,
+  .reviewed-document-chip, .attachment-limit-note, .attachment-list small,
+  .attachment-state, .attachment-panel header p, .subscription-data-through,
+  .business-receipt-reference p
+) {
+  font-size: var(--zx-reading-meta);
+  line-height: 1.65;
+  color: var(--zx-reading-secondary);
+}
+.app-shell .main-shell .agent-first-workspace :is(
+  .query-reply-title, .receipt-title, .query-result-section > h4,
+  .business-result-title, .business-result-card h4,
+  .everyday-query-cards .eqc-heading h3, .insight-query-card h3,
+  .personal-service-results h3, .credit-results h3,
+  .conversation-suggestion-heading, .confirmation-heading h3,
+  .attachment-panel h3
+) {
+  font-size: var(--zx-reading-title);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.app-shell .main-shell .agent-first-workspace .agent-heading h2 {
+  font-size: var(--zx-reading-section);
+  line-height: 1.4;
+}
+
+/* Compact result cards: names, facts, labels and secondary text have distinct
+   levels. No card is auto-expanded and no status/amount is hidden by styling. */
+.app-shell .main-shell .agent-first-workspace :is(
+  .everyday-query-cards, .insight-query-card, .credit-results,
+  .personal-service-results, .business-result-facts, .structured-confirmation
+) { font-size: var(--zx-reading-value); line-height: 1.65; }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-record h4, .eqc-record header h3, .insight-query-card h4,
+  .personal-result-card h4, .credit-card h4, .credit-card h5,
+  .knowledge-product-card h4, .knowledge-product-detail h4
+) { font-size: var(--zx-reading-body); line-height: 1.6; }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-metric dt, .insight-metric dt, .owned-billing-cards > article > .insight-metrics dt, .personal-result-card dt,
+  .personal-asset-totals span, .credit-card dt, .business-result-facts dt,
+  .structured-confirmation dt, .knowledge-product-detail dt,
+  .bill-category-summary > li, .insight-compact-records > li,
+  .bill-review-candidates li, .document-field-review > label,
+  .attachment-consent, .attachment-upload-form label
+) { font-size: var(--zx-reading-label); line-height: 1.65; }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-metric dt, .insight-metric dt, .owned-billing-cards > article > .insight-metrics dt, .personal-result-card dt,
+  .personal-asset-totals span, .credit-card dt, .business-result-facts dt,
+  .structured-confirmation dt
+) { color: var(--zx-reading-secondary); }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-metric dd, .personal-result-card dd, .credit-card dd,
+  .business-result-facts dd, .structured-confirmation dd,
+  .personal-result-card p, .personal-result-card ul,
+  .bill-transaction-list > li, .bill-transaction-list > li > span,
+  .insight-records, .knowledge-products p, .knowledge-product-detail dd
+) { font-size: var(--zx-reading-value); line-height: 1.7; }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-card-balances .eqc-metric dd, .eqc-card-limit .eqc-metric dd, .eqc-reference-price,
+  .owned-billing-cards > article > .insight-metrics dd,
+  .insight-metric dd, .personal-primary-value, .personal-asset-totals strong,
+  .credit-card-summary dd, .credit-metrics dd, .bill-key-insight > span
+) {
+  font-size: var(--zx-reading-amount);
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-scope, .eqc-subtitle, .eqc-notice, .eqc-reasons, .eqc-status,
+  .insight-subtitle, .insight-notice, .insight-records small,
+  .insight-records li > div:first-child > span, .bill-coverage > small,
+  .bill-key-insight > small, .bill-review-candidates small,
+  .bill-requested-activity, .bill-availability-note, .bill-period-label > small,
+  .bill-transaction-list small, .personal-kind, .credit-card-currency,
+  .confirmation-meta, .confirmation-tag, .receipt-record-status,
+  .knowledge-product-card span, .knowledge-product-source,
+  .conversation-suggestions small, .document-field-review > label small
+) { font-size: var(--zx-reading-meta); line-height: 1.65; }
+.app-shell .main-shell .agent-first-workspace :is(
+  .eqc-scope, .eqc-subtitle, .insight-subtitle, .insight-records small,
+  .bill-coverage > small, .bill-key-insight > small, .bill-review-candidates small,
+  .bill-requested-activity, .bill-availability-note, .bill-period-label > small,
+  .bill-transaction-list small, .credit-card-currency,
+  .knowledge-product-card span, .knowledge-product-source,
+  .document-field-review > label small
+) { color: var(--zx-reading-secondary); }
+/* The legacy personal-card sheet has one !important caption size. Limit the
+   compatibility override to that caption; never force descendant styles. */
+.app-shell .main-shell .agent-first-workspace .personal-asof {
+  font-size: var(--zx-reading-meta) !important;
+  color: var(--zx-reading-secondary);
+}
+.app-shell .main-shell .agent-first-workspace :is(
+  .customer-result-disclosure > summary, .eqc-card-services > summary,
+  .credit-card-details > summary, .confirmation-field-details > summary,
+  .confirmation-extra-details > summary, .conversation-suggestion-more > summary,
+  .customer-workflow-disclosure > summary
+) {
+  font-size: var(--zx-reading-label);
+  line-height: 1.7;
+  min-height: 44px;
+  color: var(--zx-reading-secondary);
+  overflow-wrap: anywhere;
+}
+.app-shell.large-text .main-shell .agent-first-workspace :is(
+  .customer-result-disclosure > summary, .eqc-card-services > summary,
+  .credit-card-details > summary, .confirmation-field-details > summary,
+  .confirmation-extra-details > summary, .conversation-suggestion-more > summary,
+  .customer-workflow-disclosure > summary
+) {
+  min-height: 48px;
+}
+.app-shell .main-shell .agent-first-workspace .wealth-products-panel {
+  --wealth-reading-size: var(--zx-reading-copy);
+}
+.app-shell .main-shell .agent-first-workspace .wealth-product-price strong {
+  font-size: var(--zx-reading-amount);
+}
+
+/* Entry controls and form fields retain their geometry, focus rings and IME
+   behavior. Font changes must not depend on focus, hover or draft length. */
+:is(.app-shell, .admin-shell, .login-shell) :is(
+  .main-shell, .sidebar, .admin-main, .admin-sidebar, .login-card
+) :is(.button, .text-button, .nav-item, .send-button, .accessibility-button,
+  .agent-resources-toggle, .agent-capability-picker button, .latest-messages-button,
+  .conversation-suggestion, .eqc-draft, .insight-draft-button, .language-buttons button
+) {
+  font-size: var(--zx-reading-control);
+  line-height: 1.55;
+  min-height: 44px;
+}
+.app-shell .main-shell .agent-first-workspace .composer > .composer-input > textarea {
+  font-size: var(--zx-reading-body);
+  line-height: 1.65;
+  color: var(--zx-reading-ink);
+}
+.app-shell .main-shell .agent-first-workspace .composer textarea::placeholder {
+  color: var(--zx-reading-secondary);
+  opacity: 1;
+}
+.app-shell .main-shell .agent-first-workspace :is(.state-badge, .agent-state) {
+  font-size: var(--zx-reading-meta);
+  line-height: 1.55;
+  white-space: normal;
+}
+.app-shell .main-shell .agent-first-workspace .state-badge.success {
+  color: #28634f;
+}
+.app-shell .main-shell .agent-first-workspace .state-badge.warning {
+  color: #785a21;
+}
+.app-shell .main-shell :is(.topbar-title, .profile-button, .profile-popover label,
+  .profile-popover p, .notification-popover p, .unified-history-row-text > span) {
+  font-size: var(--zx-reading-label);
+}
+.app-shell .main-shell :is(.profile-popover > small, .unified-history-row-text small,
+  .unified-history-state, .unified-history-note, .unified-history-empty) {
+  font-size: var(--zx-reading-meta);
+}
+.app-shell .main-shell :is(.profile-popover p, .profile-popover label,
+  .profile-popover > small, .unified-history-row-text > span,
+  .unified-history-row-text small, .unified-history-note, .unified-history-empty) {
+  color: var(--zx-reading-secondary);
+}
+.app-shell .main-shell :is(.unified-history-row-text strong, .unified-history-search input,
+  .profile-popover select, .attachment-upload-form input, .attachment-upload-form select,
+  .document-field-review input:not([type="checkbox"]), .document-field-review select) {
+  font-size: var(--zx-reading-value);
+}
+.app-shell .sidebar :is(.nav-label, .sidebar-label, .sidebar-user small,
+  .conversation-thread-list small, .conversation-thread-list p) {
+  font-size: var(--zx-reading-meta);
+  color: #b5cad7;
+}
+
+/* Login and operational forms are reading surfaces too. Dense tables keep
+   their existing horizontal scroll container rather than shrinking text. */
+.login-shell .login-card :is(label, .login-title p, .login-tabs button),
+.password-modal label, .password-modal > p {
+  font-size: var(--zx-reading-label);
+  line-height: 1.65;
+}
+.login-shell .login-card :is(input, select), .password-modal input {
+  font-size: var(--zx-reading-body);
+  min-height: 44px;
+}
+.login-shell .login-card :is(.login-persistence, .login-development,
+  .login-development > summary, .login-development > p, .login-error, .login-notice) {
+  font-size: var(--zx-reading-meta);
+  line-height: 1.75;
+}
+.login-shell .login-card input::placeholder { color: var(--zx-reading-secondary); opacity: 1; }
+.admin-shell .admin-main :is(.admin-table-scroll table, .admin-table-scroll th,
+  .admin-table-scroll td, .admin-form label,
+  .admin-row-details > summary, .admin-section-title, .admin-change-review > strong) {
+  font-size: var(--zx-reading-label);
+  line-height: 1.7;
+}
+.admin-shell .admin-main .admin-form :is(input, select, textarea) {
+  font-size: var(--zx-reading-value);
+  line-height: 1.6;
+}
+.admin-shell .admin-main :is(.admin-small-note, .admin-page-title p,
+  .admin-job-scope-note, .admin-readonly-boundary p, .admin-event-timeline time) {
+  font-size: var(--zx-reading-meta);
+  line-height: 1.75;
+  color: var(--zx-reading-secondary);
+}
+.admin-shell .admin-main :is(.admin-table-scroll th, .admin-table-scroll td,
+  .admin-row-details > summary) { color: var(--zx-reading-secondary); }
+
+@media (max-width: 600px) {
+  .app-shell .main-shell .agent-first-workspace :is(
+    .personal-result-card header, .credit-card header, .agent-context-toolbar
+  ) { flex-wrap: wrap; }
+  .app-shell .main-shell .agent-first-workspace :is(
+    .personal-result-card dt, .personal-result-card dd, .credit-card dt, .credit-card dd,
+    .structured-confirmation dt, .structured-confirmation dd
+  ) { min-width: 0; overflow-wrap: anywhere; }
+  .app-shell .main-shell .agent-first-workspace .personal-kind {
+    white-space: normal;
+    max-width: 100%;
+  }
+}
+@media (forced-colors: active) {
+  :root { --zx-reading-ink: CanvasText; --zx-reading-secondary: CanvasText; --zx-reading-accent: LinkText; }
+  .app-shell .main-shell .agent-first-workspace :is(.state-badge.success, .state-badge.warning),
+  .app-shell .sidebar :is(.nav-label, .sidebar-label, .sidebar-user small,
+    .conversation-thread-list small, .conversation-thread-list p) { color: CanvasText; }
+}

@@ -1,0 +1,14 @@
+.conversation-recipient-choices{margin:14px 0 16px 50px;max-width:760px}
+.conversation-recipient-choices>p{margin:0 0 9px;color:#698077;font-size:14px;line-height:1.5}
+.recipient-choice-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:10px;max-width:760px}
+.recipient-choice-list:has(>button:only-child){max-width:390px}
+.recipient-choice-list>button{display:flex;align-items:center;gap:12px;min-width:0;padding:15px 16px;border:1px solid #d4e4dc;border-radius:14px;background:#fff;color:#244e40;cursor:pointer;text-align:left;box-shadow:0 2px 7px #214c3705;transition:background .18s,border-color .18s,box-shadow .18s}
+.recipient-choice-list>button:hover:not(:disabled){background:#f4faf6;border-color:#90bda8;box-shadow:0 4px 12px #214c370b}
+.recipient-choice-list>button:focus-visible{outline:2px solid #238d7b;outline-offset:3px}
+.recipient-choice-list>button:disabled{opacity:.6;cursor:default}
+.recipient-choice-icon{display:grid;place-items:center;width:42px;height:44px;flex:0 0 42px;border-radius:12px;background:#eaf4ee;color:#39785b}
+.recipient-choice-person{display:grid;gap:5px;min-width:0;flex:1}.recipient-choice-person strong{font-size:17px;font-weight:600;line-height:1.35;overflow-wrap:anywhere}.recipient-choice-person small{font-size:13px;color:#70837a;line-height:1.4}.recipient-choice-person b{font-weight:550;color:#3c6351;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.recipient-choice-currency{flex:none;font-size:12px;padding:3px 7px;border-radius:5px;background:#f2f6f3;color:#6c8275}.recipient-choice-arrow{display:grid;place-items:center;color:#7c9b89}
+@media(max-width:600px){.conversation-recipient-choices{margin-left:0}.recipient-choice-list{grid-template-columns:minmax(0,1fr)}.recipient-choice-list:has(>button:only-child){max-width:none}.recipient-choice-list>button{padding:13px}}
+@media(prefers-reduced-motion:reduce){.recipient-choice-list>button{transition:none}}
+@media(forced-colors:active){.recipient-choice-list>button{border-color:ButtonText}.recipient-choice-person b{color:ButtonText}}

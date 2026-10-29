@@ -1,0 +1,2363 @@
+{
+  "schema_version": "evaluation-report-audit-v2",
+  "review_date": "2026-10-29",
+  "new_live_inference": false,
+  "source_files": {
+    "quality": {
+      "path": "before9.28/var/acceptance/2026-10-26/quality-assessment/analysis.json",
+      "sha256": "c2d123c0a787aedd1ce54b3b0b40233fc403c157ce5828d55291ca4c89c43f65"
+    },
+    "semantic": {
+      "path": "before9.28/var/acceptance/2026-10-26/quality-assessment/semantic-results.json",
+      "sha256": "60a972453a9c1a952f0bc4959c2fb05ed381997bf068377ed4e41ec5eb0f1aa4"
+    },
+    "dataset": {
+      "path": "before9.28/var/acceptance/2026-10-26/quality-assessment/frozen-dataset.json",
+      "sha256": "5d260e69ec0559d6a1109b7b77de77937bd6d31488ce711a77d20e05a9f4cf75"
+    },
+    "repair": {
+      "path": "before9.28/var/acceptance/2026-10-26/quality-repair/public-recheck.json",
+      "sha256": "5668b1caa5f21bd0884c1b1ec9f90c4ef6ca89fdb7d1dfe0fd097888997fb33e"
+    },
+    "laya": {
+      "path": "before9.28/var/acceptance/2026-10-20/final-eval22-recovery-01/laya-four-arm/00085-report.json",
+      "sha256": "024ed8cfc9b5bf61deb956dad50c0f60d84804c48e81d6fc0918f8a688035fc4"
+    },
+    "earlier": {
+      "path": "before9.28/var/acceptance/2026-10-19/laya-live-paired-01/summary.json",
+      "sha256": "a4759369cf8eead51a05e3ed7d90a4d730e9f57c5b07675c8e03821cb2fee39f"
+    },
+    "runtime": {
+      "path": "before9.28/var/acceptance/2026-10-20/final-eval22-recovery-01/laya-four-arm/00004-runtime.json",
+      "sha256": "e7149850d2f30ceb7cd322d4c37acd3b55f52570c5c60ae6e72664d5e8d05d1b"
+    }
+  },
+  "quality": {
+    "date": "2026-10-26",
+    "model": "deepseek-v4-pro",
+    "ordinary_intent": {
+      "correct": 44,
+      "total": 48,
+      "percent": 91.67,
+      "wilson95": [
+        80.45,
+        96.71
+      ]
+    },
+    "ordinary_key_parameters": {
+      "correct": 37,
+      "total": 37,
+      "percent": 100.0,
+      "wilson95": [
+        90.59,
+        100.0
+      ]
+    },
+    "ordinary_parameter_case_count": 18,
+    "scenes": [
+      {
+        "scene": "transfer",
+        "intent": {
+          "correct": 6,
+          "total": 8,
+          "percent": 75.0,
+          "wilson95": [
+            40.93,
+            92.85
+          ]
+        },
+        "parameters": {
+          "correct": 13,
+          "total": 13,
+          "percent": 100.0,
+          "wilson95": [
+            77.19,
+            100.0
+          ]
+        }
+      },
+      {
+        "scene": "bills",
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "percent": 100.0,
+          "wilson95": [
+            67.56,
+            100.0
+          ]
+        },
+        "parameters": {
+          "correct": 3,
+          "total": 3,
+          "percent": 100.0,
+          "wilson95": [
+            43.85,
+            100.0
+          ]
+        }
+      },
+      {
+        "scene": "wealth",
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "percent": 87.5,
+          "wilson95": [
+            52.91,
+            97.76
+          ]
+        },
+        "parameters": {
+          "correct": 5,
+          "total": 5,
+          "percent": 100.0,
+          "wilson95": [
+            56.55,
+            100.0
+          ]
+        }
+      },
+      {
+        "scene": "cards",
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "percent": 100.0,
+          "wilson95": [
+            67.56,
+            100.0
+          ]
+        },
+        "parameters": {
+          "correct": 6,
+          "total": 6,
+          "percent": 100.0,
+          "wilson95": [
+            60.97,
+            100.0
+          ]
+        }
+      },
+      {
+        "scene": "subscriptions",
+        "intent": {
+          "correct": 8,
+          "total": 8,
+          "percent": 100.0,
+          "wilson95": [
+            67.56,
+            100.0
+          ]
+        },
+        "parameters": {
+          "correct": 10,
+          "total": 10,
+          "percent": 100.0,
+          "wilson95": [
+            72.25,
+            100.0
+          ]
+        }
+      },
+      {
+        "scene": "composition",
+        "intent": {
+          "correct": 7,
+          "total": 8,
+          "percent": 87.5,
+          "wilson95": [
+            52.91,
+            97.76
+          ]
+        },
+        "parameters": {
+          "correct": 0,
+          "total": 0,
+          "percent": null,
+          "wilson95": null
+        }
+      }
+    ],
+    "transfer_first_pass": {
+      "correct": 6,
+      "total": 12,
+      "percent": 50.0,
+      "wilson95": [
+        25.38,
+        74.62
+      ]
+    },
+    "transfer_provider_available": {
+      "correct": 6,
+      "total": 8,
+      "percent": 75.0,
+      "wilson95": [
+        40.93,
+        92.85
+      ]
+    },
+    "transfer_service_restored": {
+      "correct": 10,
+      "total": 12,
+      "percent": 83.33,
+      "wilson95": [
+        55.2,
+        95.3
+      ]
+    },
+    "paired": {
+      "proposals": 60,
+      "strict_raw_correct": 49,
+      "strict_raw_errors": 11,
+      "guard_rejected": 6,
+      "strict_errors_rejected": 5,
+      "strict_errors_remaining": 6,
+      "strict_good_rejected": 1,
+      "money_parameter_error_proposals": 4,
+      "money_parameter_errors_rejected": 4,
+      "schema_rejections": 1,
+      "scope": "Same HTTP output replayed through real source/schema/typed compiler; baseline emits raw proposal without those guards. Neither arm calls bank tools; no unsafe payment baseline. Wrong intent labels are separate from wrong money parameter evidence."
+    }
+  },
+  "guard_matrix": {
+    "raw_correct_pass": 48,
+    "raw_correct_reject": 1,
+    "raw_wrong_pass": 6,
+    "raw_wrong_reject": 5,
+    "raw_strict_match_percent": 81.66666666666667,
+    "accepted_strict_match_percent": 88.88888888888889,
+    "guard_acceptance_percent": 90.0
+  },
+  "repair": {
+    "date": "2026-10-26",
+    "targeted_payments_passed": 2,
+    "targeted_payments_count": 2,
+    "new_full_dataset_run": false
+  },
+  "laya": {
+    "metrics": {
+      "ALL_PRO": {
+        "frozen_denominator": 20,
+        "observed": 20,
+        "not_run": 0,
+        "ready": 19,
+        "strict_label_matches": 18,
+        "guarded_compiled_label_matches": 16,
+        "strict_labels_and_fields_matches": 12,
+        "latency": {
+          "n": 20,
+          "mean_ms": 2874.18015,
+          "p50_ms": 2437.9795,
+          "p95_ms": 6168.701,
+          "p95_method": "NEAREST_RANK"
+        },
+        "independent_http_observations": true
+      },
+      "ALL_FLASH": {
+        "frozen_denominator": 20,
+        "observed": 20,
+        "not_run": 0,
+        "ready": 17,
+        "strict_label_matches": 16,
+        "guarded_compiled_label_matches": 14,
+        "strict_labels_and_fields_matches": 11,
+        "latency": {
+          "n": 20,
+          "mean_ms": 1707.0995,
+          "p50_ms": 1536.9305,
+          "p95_ms": 2698.393,
+          "p95_method": "NEAREST_RANK"
+        },
+        "independent_http_observations": true
+      },
+      "LAYA_MIXED": {
+        "frozen_denominator": 20,
+        "observed": 20,
+        "not_run": 0,
+        "ready": 19,
+        "strict_label_matches": 18,
+        "guarded_compiled_label_matches": 16,
+        "strict_labels_and_fields_matches": 12,
+        "latency": {
+          "n": 20,
+          "mean_ms": 3337.1231000000002,
+          "p50_ms": 2902.4205,
+          "p95_ms": 6682.763,
+          "p95_method": "NEAREST_RANK"
+        },
+        "independent_http_observations": true
+      },
+      "NO_LAYA_CONSERVATIVE": {
+        "frozen_denominator": 20,
+        "observed": 20,
+        "not_run": 0,
+        "ready": 19,
+        "strict_label_matches": 18,
+        "guarded_compiled_label_matches": 16,
+        "strict_labels_and_fields_matches": 12,
+        "latency": {
+          "n": 20,
+          "mean_ms": 2874.18015,
+          "p50_ms": 2437.9795,
+          "p95_ms": 6168.701,
+          "p95_method": "NEAREST_RANK"
+        },
+        "independent_http_observations": false
+      },
+      "mixed_minus_pro_ms": {
+        "n": 20,
+        "mean_ms": 462.94295000000005,
+        "p50_ms": 432.341,
+        "p95_ms": 997.7530000000002,
+        "p95_method": "NEAREST_RANK"
+      },
+      "laya": {
+        "denominator": 20,
+        "flash_suggestions": 0,
+        "unsafe_simple_suggestions": 0,
+        "scene_matches": 12,
+        "difficulty_matches": 9,
+        "sdk_failures_or_abstentions": 0
+      }
+    },
+    "sdk_mean_ms": 404.73765,
+    "sdk_p50_ms": 384.6345,
+    "sdk_p95_ms": 492.611,
+    "reasons": {
+      "NOT_SIMPLE_READ": 3,
+      "LOW_CONFIDENCE": 14,
+      "OTHER_SCENE": 3
+    },
+    "threshold_replay": [
+      {
+        "threshold": 0.5,
+        "selected": 10,
+        "outside_predeclared_simple_slice": 6
+      },
+      {
+        "threshold": 0.7,
+        "selected": 5,
+        "outside_predeclared_simple_slice": 4
+      },
+      {
+        "threshold": 0.8,
+        "selected": 2,
+        "outside_predeclared_simple_slice": 2
+      },
+      {
+        "threshold": 0.9,
+        "selected": 0,
+        "outside_predeclared_simple_slice": 0
+      },
+      {
+        "threshold": 0.95,
+        "selected": 0,
+        "outside_predeclared_simple_slice": 0
+      }
+    ],
+    "cloud_attempts": 60,
+    "independent_arms": 3,
+    "cases_per_arm": 20,
+    "cold_load_included": false,
+    "production_adoption": false
+  },
+  "earlier_laya": {
+    "started_at": "2026-10-19T00:33:55.470249+00:00",
+    "actual_cloud_http_attempts": 40,
+    "cold_load_ms": 6033.244,
+    "metrics": {
+      "ALL_PRO": {
+        "n": 20,
+        "mean_ms": 3818.8192,
+        "p50_ms": 3650.755,
+        "p95_ms": 5062.645,
+        "p95_method": "NEAREST_RANK",
+        "min_ms": 2627.347,
+        "max_ms": 8328.469,
+        "denominator": 20,
+        "correct_mode_and_action_set": 19,
+        "ready_count": 20,
+        "http_errors_or_unavailable": 0
+      },
+      "LAYA_ONLINE": {
+        "n": 20,
+        "mean_ms": 3921.1312,
+        "p50_ms": 3877.1145,
+        "p95_ms": 4741.313,
+        "p95_method": "NEAREST_RANK",
+        "min_ms": 3086.272,
+        "max_ms": 5038.712,
+        "denominator": 20,
+        "correct_mode_and_action_set": 18,
+        "ready_count": 19,
+        "http_errors_or_unavailable": 0
+      },
+      "paired": {
+        "n": 20,
+        "mean_ms": 102.312,
+        "p50_ms": 480.80899999999997,
+        "p95_ms": 971.623,
+        "p95_method": "NEAREST_RANK",
+        "min_ms": -4409.116,
+        "max_ms": 1314.925,
+        "hybrid_faster_pairs": 7,
+        "same_input_pairs": 20
+      },
+      "laya": {
+        "label_correct": 13,
+        "label_denominator": 20,
+        "flash_selections": 1,
+        "unsafe_simple_selections": 0,
+        "errors": 0,
+        "latency": {
+          "n": 20,
+          "mean_ms": 123.796,
+          "p50_ms": 122.7375,
+          "p95_ms": 133.604,
+          "p95_method": "NEAREST_RANK",
+          "min_ms": 116.339,
+          "max_ms": 134.255
+        }
+      }
+    },
+    "threshold_predeclared": 0.95,
+    "measurement": "Sequential actual wall time from warm arm entry, through Laya prediction if selected, model choice, full cloud semantic HTTP response and semantic validation; SDK cold load reported separately."
+  },
+  "future_latency_sensitivity": {
+    "kind": "ILLUSTRATIVE_MODEL_NOT_OBSERVED_ROUTING_GAIN",
+    "assumptions": "Overall sample model means, equal target-slice latency, no upgrade retries, fixed router cost.",
+    "pro_minus_flash_ms": 1167.08065,
+    "sdk_cost_breakeven_fraction": 0.3467949280111875,
+    "minimum_routed_fraction": [
+      {
+        "router_ms": 50,
+        "fraction": 0.04284194070049915
+      },
+      {
+        "router_ms": 100,
+        "fraction": 0.0856838814009983
+      },
+      {
+        "router_ms": 200,
+        "fraction": 0.1713677628019966
+      },
+      {
+        "router_ms": 404.73765,
+        "fraction": 0.3467949280111875
+      },
+      {
+        "router_ms": 500,
+        "fraction": 0.4284194070049914
+      }
+    ]
+  },
+  "checks_passed": true,
+  "quality_observations": [
+    {
+      "case_id": "transfer-01",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 4,
+      "correct_fields": 4
+    },
+    {
+      "case_id": "transfer-02",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 4,
+      "correct_fields": 4
+    },
+    {
+      "case_id": "transfer-03",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 2,
+      "correct_fields": 2
+    },
+    {
+      "case_id": "transfer-04",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "transfer-05",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "transfer-06",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 3,
+      "correct_fields": 3
+    },
+    {
+      "case_id": "transfer-07",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "transfer-08",
+      "scene": "transfer",
+      "challenge": false,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "bills-01",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "bills-02",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "bills-03",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "bills-04",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "bills-05",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "bills-06",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "bills-07",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "bills-08",
+      "scene": "bills",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-01",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-02",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-03",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 3,
+      "correct_fields": 3
+    },
+    {
+      "case_id": "wealth-04",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 2,
+      "correct_fields": 2
+    },
+    {
+      "case_id": "wealth-05",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-06",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-07",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "wealth-08",
+      "scene": "wealth",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "cards-01",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "cards-02",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "cards-03",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "cards-04",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "cards-05",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "cards-06",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "cards-07",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 3,
+      "correct_fields": 3
+    },
+    {
+      "case_id": "cards-08",
+      "scene": "cards",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "subscriptions-01",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "subscriptions-02",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "subscriptions-03",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "subscriptions-04",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 4,
+      "correct_fields": 4
+    },
+    {
+      "case_id": "subscriptions-05",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 3,
+      "correct_fields": 3
+    },
+    {
+      "case_id": "subscriptions-06",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "subscriptions-07",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 1,
+      "correct_fields": 1
+    },
+    {
+      "case_id": "subscriptions-08",
+      "scene": "subscriptions",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-01",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-02",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-03",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-04",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-05",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-06",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-07",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "composition-08",
+      "scene": "composition",
+      "challenge": false,
+      "intent_correct": false,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-01",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-02",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": true,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-03",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-04",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-05",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-06",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-07",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": false,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-08",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-09",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": false,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-10",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-11",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    },
+    {
+      "case_id": "challenge-12",
+      "scene": "challenge",
+      "challenge": true,
+      "intent_correct": true,
+      "guard_accepted": true,
+      "scored_fields": 0,
+      "correct_fields": 0
+    }
+  ],
+  "laya_observations": [
+    {
+      "case_id": "TR-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 3664.309,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1843.678,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3859.582,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 418.605,
+        "reason": "NOT_SIMPLE_READ",
+        "heads": {
+          "scene": {
+            "label": "A",
+            "answer_confidence": 0.9567,
+            "entropy_confidence": 0.8692,
+            "probabilities": {
+              "A": 0.9567,
+              "B": 0.0111,
+              "C": 0.0065,
+              "D": 0.0075,
+              "E": 0.0061,
+              "F": 0.0059,
+              "G": 0.0062
+            }
+          },
+          "difficulty": {
+            "label": "B",
+            "answer_confidence": 0.6241,
+            "entropy_confidence": 0.19,
+            "probabilities": {
+              "A": 0.2652,
+              "B": 0.6241,
+              "C": 0.1107
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "TR-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 3664.309,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1880.498,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "TR-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 5088.511,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 397.485,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "A",
+            "answer_confidence": 0.3833,
+            "entropy_confidence": 0.4024,
+            "probabilities": {
+              "A": 0.3833,
+              "B": 0.0064,
+              "C": 0.0031,
+              "D": 0.366,
+              "E": 0.0036,
+              "F": 0.0028,
+              "G": 0.2347
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.9058,
+            "entropy_confidence": 0.6661,
+            "probabilities": {
+              "A": 0.9058,
+              "B": 0.0689,
+              "C": 0.0253
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "TR-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 4352.033,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "TR-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 4352.033,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "TR-03",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3273.648,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 396.907,
+        "reason": "NOT_SIMPLE_READ",
+        "heads": {
+          "scene": {
+            "label": "A",
+            "answer_confidence": 0.8362,
+            "entropy_confidence": 0.6329,
+            "probabilities": {
+              "A": 0.8362,
+              "B": 0.0195,
+              "C": 0.0218,
+              "D": 0.0189,
+              "E": 0.0147,
+              "F": 0.0245,
+              "G": 0.0645
+            }
+          },
+          "difficulty": {
+            "label": "B",
+            "answer_confidence": 0.7848,
+            "entropy_confidence": 0.494,
+            "probabilities": {
+              "A": 0.2069,
+              "B": 0.7848,
+              "C": 0.0083
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "TR-03",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2804.415,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "TR-03",
+      "arm": "ALL_FLASH",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 1879.074,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2804.415,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2422.412,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 386.405,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "B",
+            "answer_confidence": 0.8498,
+            "entropy_confidence": 0.7519,
+            "probabilities": {
+              "A": 0.0011,
+              "B": 0.8498,
+              "C": 0.0015,
+              "D": 0.1378,
+              "E": 0.0019,
+              "F": 0.0015,
+              "G": 0.0063
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.699,
+            "entropy_confidence": 0.3019,
+            "probabilities": {
+              "A": 0.699,
+              "B": 0.2374,
+              "C": 0.0636
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "BI-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1443.916,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2319.489,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2319.489,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1506.221,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1856.453,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2854.206,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 392.914,
+        "reason": "OTHER_SCENE",
+        "heads": {
+          "scene": {
+            "label": "G",
+            "answer_confidence": 0.2357,
+            "entropy_confidence": 0.0316,
+            "probabilities": {
+              "A": 0.1495,
+              "B": 0.2035,
+              "C": 0.1048,
+              "D": 0.1024,
+              "E": 0.102,
+              "F": 0.1021,
+              "G": 0.2357
+            }
+          },
+          "difficulty": {
+            "label": "C",
+            "answer_confidence": 0.7876,
+            "entropy_confidence": 0.4446,
+            "probabilities": {
+              "A": 0.1786,
+              "B": 0.0338,
+              "C": 0.7876
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "BI-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1856.453,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "BI-03",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2809.991,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "BI-03",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2908.784,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 395.105,
+        "reason": "OTHER_SCENE",
+        "heads": {
+          "scene": {
+            "label": "G",
+            "answer_confidence": 0.3736,
+            "entropy_confidence": 0.1592,
+            "probabilities": {
+              "A": 0.2456,
+              "B": 0.1631,
+              "C": 0.0603,
+              "D": 0.0725,
+              "E": 0.0431,
+              "F": 0.0418,
+              "G": 0.3736
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.8737,
+            "entropy_confidence": 0.5771,
+            "probabilities": {
+              "A": 0.8737,
+              "B": 0.0513,
+              "C": 0.075
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "BI-03",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 2010.404,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "BI-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2809.991,
+      "raw_label_match": true,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "WE-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1915.574,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1452.038,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2371.902,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 382.15,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "C",
+            "answer_confidence": 0.5894,
+            "entropy_confidence": 0.3491,
+            "probabilities": {
+              "A": 0.0205,
+              "B": 0.0999,
+              "C": 0.5894,
+              "D": 0.0228,
+              "E": 0.0732,
+              "F": 0.0135,
+              "G": 0.1806
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.7804,
+            "entropy_confidence": 0.3917,
+            "probabilities": {
+              "A": 0.7804,
+              "B": 0.0765,
+              "C": 0.1431
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "WE-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1915.574,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1404.282,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2339.111,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 377.098,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "C",
+            "answer_confidence": 0.8079,
+            "entropy_confidence": 0.6846,
+            "probabilities": {
+              "A": 0.0033,
+              "B": 0.0054,
+              "C": 0.8079,
+              "D": 0.0027,
+              "E": 0.1615,
+              "F": 0.0029,
+              "G": 0.0163
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.7491,
+            "entropy_confidence": 0.3303,
+            "probabilities": {
+              "A": 0.7491,
+              "B": 0.112,
+              "C": 0.1389
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "WE-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1952.166,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1952.166,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-03",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2679.714,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 358.161,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "E",
+            "answer_confidence": 0.588,
+            "entropy_confidence": 0.3739,
+            "probabilities": {
+              "A": 0.0561,
+              "B": 0.028,
+              "C": 0.2306,
+              "D": 0.014,
+              "E": 0.588,
+              "F": 0.0149,
+              "G": 0.0685
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.6172,
+            "entropy_confidence": 0.1602,
+            "probabilities": {
+              "A": 0.6172,
+              "B": 0.1522,
+              "C": 0.2306
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "WE-03",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1891.665,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-03",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1540.716,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "WE-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1891.665,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CA-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3059.971,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 378.787,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "B",
+            "answer_confidence": 0.574,
+            "entropy_confidence": 0.511,
+            "probabilities": {
+              "A": 0.0105,
+              "B": 0.574,
+              "C": 0.0107,
+              "D": 0.3656,
+              "E": 0.0153,
+              "F": 0.0088,
+              "G": 0.0151
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.902,
+            "entropy_confidence": 0.6465,
+            "probabilities": {
+              "A": 0.902,
+              "B": 0.0461,
+              "C": 0.0519
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CA-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1624.195,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CA-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2429.176,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CA-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2429.176,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CA-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 2655.767,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CA-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1830.717,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CA-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2148.148,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 381.581,
+        "reason": "OTHER_SCENE",
+        "heads": {
+          "scene": {
+            "label": "G",
+            "answer_confidence": 0.5293,
+            "entropy_confidence": 0.3763,
+            "probabilities": {
+              "A": 0.0127,
+              "B": 0.1059,
+              "C": 0.0085,
+              "D": 0.2938,
+              "E": 0.0277,
+              "F": 0.022,
+              "G": 0.5293
+            }
+          },
+          "difficulty": {
+            "label": "B",
+            "answer_confidence": 0.433,
+            "entropy_confidence": 0.0864,
+            "probabilities": {
+              "A": 0.4246,
+              "B": 0.433,
+              "C": 0.1424
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CA-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1830.717,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CA-03",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2260.814,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CA-03",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2670.547,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 391.825,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "B",
+            "answer_confidence": 0.2846,
+            "entropy_confidence": 0.154,
+            "probabilities": {
+              "A": 0.2519,
+              "B": 0.2846,
+              "C": 0.038,
+              "D": 0.0439,
+              "E": 0.0838,
+              "F": 0.0367,
+              "G": 0.2611
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.4391,
+            "entropy_confidence": 0.0648,
+            "probabilities": {
+              "A": 0.4391,
+              "B": 0.1672,
+              "C": 0.3937
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CA-03",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1838.037,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CA-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2260.814,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "SU-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2476.124,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1396.745,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3078.334,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 372.822,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "E",
+            "answer_confidence": 0.9756,
+            "entropy_confidence": 0.9201,
+            "probabilities": {
+              "A": 0.0033,
+              "B": 0.0089,
+              "C": 0.0028,
+              "D": 0.0037,
+              "E": 0.9756,
+              "F": 0.0027,
+              "G": 0.0029
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.8273,
+            "entropy_confidence": 0.4732,
+            "probabilities": {
+              "A": 0.8273,
+              "B": 0.0764,
+              "C": 0.0963
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "SU-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2476.124,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 798.824,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 1771.039,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 382.864,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "E",
+            "answer_confidence": 0.9318,
+            "entropy_confidence": 0.8229,
+            "probabilities": {
+              "A": 0.0081,
+              "B": 0.0257,
+              "C": 0.0037,
+              "D": 0.0249,
+              "E": 0.9318,
+              "F": 0.0016,
+              "G": 0.0042
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.6445,
+            "entropy_confidence": 0.2119,
+            "probabilities": {
+              "A": 0.6445,
+              "B": 0.2512,
+              "C": 0.1042
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "SU-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1462.333,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1462.333,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-03",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3641.504,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 375.016,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "E",
+            "answer_confidence": 0.9173,
+            "entropy_confidence": 0.7796,
+            "probabilities": {
+              "A": 0.0215,
+              "B": 0.017,
+              "C": 0.0124,
+              "D": 0.0093,
+              "E": 0.9173,
+              "F": 0.0144,
+              "G": 0.0079
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.7786,
+            "entropy_confidence": 0.4141,
+            "probabilities": {
+              "A": 0.7786,
+              "B": 0.174,
+              "C": 0.0474
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "SU-03",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 3585.828,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-03",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1187.723,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "SU-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 3585.828,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CO-01",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 2392.445,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true,
+      "laya": {
+        "latency_ms": 375.616,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "F",
+            "answer_confidence": 0.7511,
+            "entropy_confidence": 0.5516,
+            "probabilities": {
+              "A": 0.0208,
+              "B": 0.0189,
+              "C": 0.0183,
+              "D": 0.0163,
+              "E": 0.0175,
+              "F": 0.7511,
+              "G": 0.1571
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.8785,
+            "entropy_confidence": 0.5868,
+            "probabilities": {
+              "A": 0.8785,
+              "B": 0.0643,
+              "C": 0.0572
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CO-01",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1533.145,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CO-01",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 1977.037,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CO-01",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 1977.037,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": true
+    },
+    {
+      "case_id": "CO-02",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 1480.533,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-02",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 2960.91,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-02",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 3033.684,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 378.14,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "F",
+            "answer_confidence": 0.4305,
+            "entropy_confidence": 0.203,
+            "probabilities": {
+              "A": 0.0406,
+              "B": 0.1858,
+              "C": 0.0484,
+              "D": 0.0411,
+              "E": 0.0456,
+              "F": 0.4305,
+              "G": 0.208
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.9197,
+            "entropy_confidence": 0.6956,
+            "probabilities": {
+              "A": 0.9197,
+              "B": 0.0348,
+              "C": 0.0455
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CO-02",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 2960.91,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-03",
+      "arm": "ALL_PRO",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 2446.783,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-03",
+      "arm": "LAYA_MIXED",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 2896.057,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 390.218,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "E",
+            "answer_confidence": 0.4498,
+            "entropy_confidence": 0.3739,
+            "probabilities": {
+              "A": 0.0083,
+              "B": 0.023,
+              "C": 0.1623,
+              "D": 0.0082,
+              "E": 0.4498,
+              "F": 0.006,
+              "G": 0.3423
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.7708,
+            "entropy_confidence": 0.3876,
+            "probabilities": {
+              "A": 0.7708,
+              "B": 0.0627,
+              "C": 0.1665
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CO-03",
+      "arm": "ALL_FLASH",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 1056.449,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-03",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 2446.783,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-07",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 6168.701,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-07",
+      "arm": "ALL_FLASH",
+      "status": "MODEL_INVALID",
+      "total_wall_ms": 2698.393,
+      "raw_label_match": false,
+      "compiled_label_match": false,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "TR-07",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 6682.763,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 492.611,
+        "reason": "LOW_CONFIDENCE",
+        "heads": {
+          "scene": {
+            "label": "A",
+            "answer_confidence": 0.9172,
+            "entropy_confidence": 0.7908,
+            "probabilities": {
+              "A": 0.9172,
+              "B": 0.0074,
+              "C": 0.0039,
+              "D": 0.0037,
+              "E": 0.0109,
+              "F": 0.0373,
+              "G": 0.0196
+            }
+          },
+          "difficulty": {
+            "label": "A",
+            "answer_confidence": 0.8902,
+            "entropy_confidence": 0.6158,
+            "probabilities": {
+              "A": 0.8902,
+              "B": 0.0583,
+              "C": 0.0515
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "TR-07",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 6168.701,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-05",
+      "arm": "ALL_FLASH",
+      "status": "READY",
+      "total_wall_ms": 2911.352,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-05",
+      "arm": "LAYA_MIXED",
+      "status": "READY",
+      "total_wall_ms": 7570.1,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false,
+      "laya": {
+        "latency_ms": 670.443,
+        "reason": "NOT_SIMPLE_READ",
+        "heads": {
+          "scene": {
+            "label": "A",
+            "answer_confidence": 0.64,
+            "entropy_confidence": 0.4379,
+            "probabilities": {
+              "A": 0.64,
+              "B": 0.0151,
+              "C": 0.0257,
+              "D": 0.0068,
+              "E": 0.1274,
+              "F": 0.0112,
+              "G": 0.1738
+            }
+          },
+          "difficulty": {
+            "label": "B",
+            "answer_confidence": 0.4167,
+            "entropy_confidence": 0.0419,
+            "probabilities": {
+              "A": 0.3859,
+              "B": 0.4167,
+              "C": 0.1975
+            }
+          }
+        },
+        "selected_model": "deepseek-v4-pro"
+      }
+    },
+    {
+      "case_id": "CO-05",
+      "arm": "ALL_PRO",
+      "status": "READY",
+      "total_wall_ms": 6319.085,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    },
+    {
+      "case_id": "CO-05",
+      "arm": "NO_LAYA_CONSERVATIVE",
+      "status": "READY",
+      "total_wall_ms": 6319.085,
+      "raw_label_match": true,
+      "compiled_label_match": true,
+      "labels_and_fields_match": false
+    }
+  ],
+  "laya_runtime": {
+    "cold_load_ms": 6346.476,
+    "torch": {
+      "version": "2.10.0+cpu",
+      "device": "cpu",
+      "num_threads": 4,
+      "interop_threads": 1
+    },
+    "temperature_effective": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "calibration_performed_this_run": false,
+    "identity": {
+      "sdk_version": "0.3.22",
+      "sdk_revision": "6d942c92081fbc139e736bbd9ac0023223c29b7f",
+      "model_id": "convaiinnovations/laya-multilingual",
+      "model_revision": "e4e9ddf21a7b1903b7acffd8814ad4307bf63a67",
+      "device": "cpu",
+      "weights_sha256": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204"
+    }
+  }
+}

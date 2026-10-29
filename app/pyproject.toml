@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zhenxing-agent"
+version = "0.21.0"
+description = "圳行Agent persistent banking agent and reproducible simulation bank"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.141.1",
+  "uvicorn==0.53.0",
+  "pydantic==2.13.5",
+  "sqlalchemy==2.0.54",
+  "psycopg[binary]==3.3.6",
+  "httpx==0.28.1",
+  "Pillow==12.3.0",
+  "python-multipart==0.0.32",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==9.1.1",
+  "pytest-xdist==3.8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+zhenxing = ["static/*", "static/ui/*", "static/ui/assets/*", "eval_cases.json", "decision_benchmark_public.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_consultation_security.py", "test_consultation_source_trust.py", "test_semantic_proposal.py", "test_continuity_security_integration.py", "test_runtime_security.py", "test_family_context_runtime_security.py", "test_recipient_choices_security.py", "test_recipient_credit_privacy.py", "test_attachments.py", "test_request_idempotency.py", "test_idempotency_report_evidence.py", "test_transfer_daily_risk.py", "test_internal_banking.py", "test_account_api.py", "test_billing_anomaly_policy.py", "test_reports.py", "test_credit_payment_domain.py", "test_credit_repayment_closure.py", "test_wealth.py", "test_subscriptions.py", "test_subscription_purchase_root_flows.py", "test_life_plan_runtime.py", "test_birthday_safety_journey.py", "test_quality_amount_memo_repairs.py", "test_conversation_recipient_choices.py", "test_transfer_receipt_consultation.py", "test_schedule_amendments.py", "test_schedule_amendment_conversation.py", "test_transfer_recurrence.py", "test_customer_read_history.py", "test_semantic_literal_span_wire.py", "test_knowledge_index_runner.py", "test_memo_edit_operator.py", "test_monthly_rent_purpose.py", "test_banking_workflow_confirmation_asgi.py", "test_release_delivery.py", "test_release_seed.py"]
+pythonpath = ["src"]
+markers = ["release_credentials: exercises generated deployment credentials without fixture overrides","local_history: optional retained live-run evidence, unavailable in a clean checkout; never substitutes for behavioral tests"]

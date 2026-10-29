@@ -1,0 +1,20 @@
+.bank-card .bank-card-number-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;margin-top:20px;position:relative;z-index:1}
+.bank-card .bank-card-number-row .card-number{margin:0;min-width:0;letter-spacing:1.5px}
+.bank-card .bank-card-number-row .card-number.card-number-revealed{display:flex;gap:6px;flex-wrap:wrap;letter-spacing:0;user-select:text}
+.bank-card .card-number-revealed code{font:16px/1.5 ui-monospace,monospace;color:inherit;white-space:nowrap}
+.bank-card .bank-card-number-actions{display:flex;align-items:center;gap:6px}
+.bank-card .bank-card-number-actions button{height:34px;margin:0;border:1px solid #ffffff38;border-radius:7px;background:#ffffff0c;color:inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.bank-card .card-number-visibility{width:34px;padding:0}
+.bank-card .bank-card-number-actions .simulation-card-copy{min-width:62px;padding:5px 10px;font-size:13px;white-space:nowrap}
+.bank-card .bank-card-number-actions button:hover{background:#ffffff20}
+.bank-card .bank-card-number-actions button:focus-visible{outline:2px solid #f5e8b5;outline-offset:3px}
+.bank-card .bank-card-bottom .bank-card-limit{margin-left:auto;text-align:right}
+.bank-card .bank-card-bottom .bank-card-limit small{font-size:13px;line-height:1.5;margin-bottom:5px;color:#c7dce5}
+.bank-card.bank-card-dual .bank-card-bottom .bank-card-limit small{color:#f1dfb7}
+.bank-card .bank-card-bottom .bank-card-limit strong{font-size:21px;line-height:1.5;font-weight:600;font-variant-numeric:tabular-nums;color:#eef8fc}
+.bank-card.bank-card-dual .bank-card-bottom .bank-card-limit strong{color:#fff1d3}
+.bank-card .card-restriction .state-badge{font-size:13px;padding:4px 9px;line-height:1.5}
+.bank-card .card-restriction .state-badge.warning{color:#ffe4a8;background:#ffcf5629}
+.bank-card .card-restriction .state-badge.danger{color:#ffd2d2;background:#ff666629}
+.bank-card .card-copy-error{display:block;margin-top:8px;font-size:12px;line-height:1.5;color:#ffe7bc}
+@media(max-width:420px){.bank-card .bank-card-number-row{gap:7px}.bank-card .bank-card-number-actions{gap:4px}.bank-card .bank-card-number-actions .simulation-card-copy{min-width:54px;padding:5px 7px}.bank-card .card-number-revealed code{font-size:14px}}

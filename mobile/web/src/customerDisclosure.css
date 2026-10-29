@@ -1,0 +1,15 @@
+.customer-disclosure > .customer-disclosure-body {
+  display: flow-root;
+  overflow: clip;
+}
+.customer-disclosure:not([open]) > .customer-disclosure-body { display: none; }
+.customer-disclosure > summary { cursor: pointer; }
+.customer-disclosure[data-disclosure-closing="true"] > .customer-disclosure-body { pointer-events: none; }
+.customer-resource-reveal { animation: customer-resource-soft-in 180ms cubic-bezier(.2,.65,.3,1); }
+@keyframes customer-resource-soft-in { from { opacity: .98; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .customer-resource-reveal { animation: none !important; }
+}
+@media (forced-colors: active) { .customer-resource-reveal { animation: none !important; } }
+[hidden] .customer-resource-reveal, [inert] .customer-resource-reveal,
+.customer-resource-reveal[hidden], .customer-resource-reveal[inert] { animation: none !important; }

@@ -1,0 +1,32 @@
+.life-confirmation-review { min-width: 0; }
+.life-confirmation-context { margin-block: 4px 14px; }
+.life-confirmation-block { margin-block: 14px; padding: 14px 0; border-top: 1px solid #dce7e5; }
+.life-confirmation-block > h4 { margin: 0 0 10px; color: var(--zx-reading-ink, #294258); font-size: var(--zx-reading-body, 16px); }
+.life-confirmation-items, .life-plan-items { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; gap: 10px; }
+.life-confirmation-items > li, .life-plan-items > li { display: grid; gap: 3px; min-width: 0; }
+.life-confirmation-items > li > span, .life-plan-items > li > span { color: var(--zx-reading-secondary, #52697a); overflow-wrap: anywhere; }
+.life-confirmation-block > dl, .life-plan-arrangement { display: grid; gap: 8px; margin: 8px 0 0; }
+.life-confirmation-block > dl > div, .life-plan-arrangement > div { display: grid; grid-template-columns: minmax(120px, .35fr) minmax(0, 1fr); gap: 12px; }
+.life-confirmation-block dt, .life-plan-arrangement dt { color: var(--zx-reading-secondary, #52697a); }
+.life-confirmation-block dd, .life-plan-arrangement dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.life-confirmation-boundary, .life-confirmation-delivery { margin-block: 10px 0; color: var(--zx-reading-secondary, #52697a); }
+.life-plan-cards { display: grid; gap: 12px; min-width: 0; }
+.life-plan-card { border: 1px solid #dce7e5; border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.life-plan-card > header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.life-plan-card > header > h3, .life-plan-card > header > p { margin: 0 0 10px; }
+.life-plan-card > header > p { color: var(--zx-reading-secondary, #52697a); }
+.life-plan-amounts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px 14px; margin: 8px 0 14px; }
+.life-plan-amounts dt { color: var(--zx-reading-secondary, #52697a); }
+.life-plan-amounts dd { margin: 3px 0 0; color: var(--zx-reading-ink, #294258); font-variant-numeric: tabular-nums; }
+.life-plan-card > details { margin-block: 8px; }
+.life-plan-card > details > summary { cursor: pointer; color: var(--zx-reading-accent, #087d70); min-height: 44px; display: list-item; align-content: center; }
+.life-plan-orders { padding-top: 12px; }
+.life-plan-status-note { margin: 10px 0; color: var(--zx-reading-secondary, #52697a); }
+.life-plan-execution-review { border-left: 3px solid #a36b1e; padding-left: 12px; margin-block: 12px; }
+.life-plan-execution-review p { margin-block: 6px; line-height: 1.65; overflow-wrap: anywhere; }
+.life-plan-card button { margin-inline-end: 8px; margin-block: 4px; }
+@media(max-width: 600px) {
+  .life-plan-card { padding: 12px; }
+  .life-confirmation-block > dl > div, .life-plan-arrangement > div { grid-template-columns: minmax(104px, .35fr) minmax(0, 1fr); gap: 8px; }
+}
+@media(forced-colors: active) { .life-plan-card, .life-confirmation-block { border-color: CanvasText; } }

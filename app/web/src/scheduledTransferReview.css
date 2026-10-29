@@ -1,0 +1,28 @@
+.schedule-confirmation-review{--schedule-ink:#163f38;--schedule-muted:#688078;--schedule-border:#dce9e3;margin:12px 0 4px;color:var(--schedule-ink);font-size:16px}
+.schedule-review-amount{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:5px 0 18px}
+.schedule-review-amount>div{display:grid;gap:3px}.schedule-review-amount>div>span{font-size:14px;color:var(--schedule-muted)}
+.schedule-review-amount strong{font-size:clamp(28px,3vw,36px);font-weight:650;line-height:1.25;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.schedule-review-frequency{border:1px solid #d4e9dd;background:#edf6ef;padding:5px 13px;border-radius:999px;color:#35785f;font-size:14px;white-space:nowrap}
+.schedule-review-accounts{display:grid;grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);align-items:stretch;gap:10px}
+.schedule-review-account{display:flex;gap:12px;align-items:center;min-width:0;padding:15px;border:1px solid var(--schedule-border);border-radius:14px;background:#f9fbfa}
+.schedule-review-recipient{background:#f1f7f4;border-color:#cce2d5}
+.schedule-review-account-icon{display:grid;place-items:center;flex:0 0 37px;height:40px;border-radius:11px;background:#e8f0ec;color:#4a7a69}
+.schedule-review-recipient .schedule-review-account-icon{background:#dcefe3;color:#217258}
+.schedule-review-account>div{display:grid;gap:4px;min-width:0}.schedule-review-account strong{font-size:17px;line-height:1.4;font-weight:600;overflow-wrap:anywhere}
+.schedule-review-label{font-size:13px;color:var(--schedule-muted)}.schedule-review-card{color:#526d63;font-size:14px;line-height:1.5}.schedule-review-card b{font-weight:600;letter-spacing:.07em;font-variant-numeric:tabular-nums;color:#244d40}
+.schedule-review-username{font-size:13px;line-height:1.4;color:var(--schedule-muted);overflow-wrap:anywhere}
+.schedule-review-arrow{display:grid;place-items:center;color:#7d9b8e}
+.schedule-review-facts{padding:16px 0 12px}.schedule-review-facts dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 25px;margin:0}
+.schedule-review-facts dt{font-size:13px;color:var(--schedule-muted);margin-bottom:4px}.schedule-review-facts dd{font-size:16px;font-weight:550;margin:0;line-height:1.5;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.schedule-review-timezone{font-size:12px;color:var(--schedule-muted);margin-top:5px}
+.schedule-review-total{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 15px;padding:10px 0;border-top:1px solid var(--schedule-border);font-size:14px;color:#547365}.schedule-review-total strong{color:var(--schedule-ink);font-weight:600;font-variant-numeric:tabular-nums}
+.schedule-review-memo{display:flex;gap:17px;padding:7px 0 10px;font-size:14px}.schedule-review-memo>span{color:var(--schedule-muted);flex:none}.schedule-review-memo p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6}
+.schedule-review-footer{border-top:1px solid var(--schedule-border);padding-top:11px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 18px;font-size:13px;color:var(--schedule-muted)}
+.schedule-review-footer>p{margin:0}.schedule-review-footer details{flex:0 0 auto;max-width:100%}.schedule-review-footer details[open]{flex-basis:100%}
+.schedule-review-footer summary{cursor:pointer;color:#3e7862;border-radius:4px;line-height:1.8}.schedule-review-footer summary:focus-visible{outline:2px solid #248b76;outline-offset:3px}
+.schedule-review-footer details>div{padding:8px 12px;background:#f5f8f6;border-radius:8px;margin-top:8px}.schedule-review-footer details p{margin:3px 0;line-height:1.7}
+.schedule-review-explicit{padding:10px 0;font-size:14px}.schedule-review-explicit>span{color:var(--schedule-muted)}.schedule-review-explicit ol{margin:6px 0;padding-left:22px}.schedule-review-explicit li{margin:4px 0}
+.schedule-review-warning{margin:8px 0;padding:8px 11px;border-left:3px solid #c29b5c;background:#fcf8f0;color:#795b32;font-size:14px}
+.large-text .schedule-confirmation-review{font-size:18px}.large-text .schedule-review-account strong,.large-text .schedule-review-facts dd{font-size:19px}.large-text .schedule-review-card,.large-text .schedule-review-footer{font-size:16px}
+@media(max-width:600px){.schedule-review-accounts{grid-template-columns:minmax(0,1fr);gap:7px}.schedule-review-arrow{display:none}.schedule-review-account{padding:11px 13px}.schedule-review-account>div{grid-template-columns:minmax(0,1fr);flex:1}.schedule-review-label,.schedule-review-username{grid-column:auto;grid-row:auto}.schedule-review-card{align-self:center}.schedule-review-facts dl{gap:8px 15px}.schedule-review-facts dd{font-size:14px}.schedule-review-amount{padding-bottom:13px}.schedule-review-footer{font-size:13px}}
+@media(forced-colors:active){.schedule-review-account,.schedule-review-frequency{border-color:ButtonText}.schedule-confirmation-review,.schedule-review-card b,.schedule-review-total strong{color:CanvasText}}

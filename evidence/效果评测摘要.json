@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-26",
+  "model": "deepseek-v4-pro",
+  "ordinary_intent": {
+    "correct": 44,
+    "total": 48,
+    "percent": 91.67,
+    "wilson95": [
+      80.45,
+      96.71
+    ]
+  },
+  "ordinary_key_parameters": {
+    "correct": 37,
+    "total": 37,
+    "percent": 100.0,
+    "wilson95": [
+      90.59,
+      100.0
+    ]
+  },
+  "ordinary_parameter_case_count": 18,
+  "semantic_http_calls": 60,
+  "scope": "48 fixed independent developer-labelled ordinary requests plus 12 separately reported boundary probes. Strict intent=mode and action multiset, not semantic equivalence or population accuracy.",
+  "paired": {
+    "proposals": 60,
+    "strict_raw_correct": 49,
+    "strict_raw_errors": 11,
+    "guard_rejected": 6,
+    "strict_errors_rejected": 5,
+    "strict_errors_remaining": 6,
+    "strict_good_rejected": 1,
+    "money_parameter_error_proposals": 4,
+    "money_parameter_errors_rejected": 4,
+    "schema_rejections": 1,
+    "scope": "Same HTTP output replayed through real source/schema/typed compiler; baseline emits raw proposal without those guards. Neither arm calls bank tools; no unsafe payment baseline. Wrong intent labels are separate from wrong money parameter evidence."
+  },
+  "transfer_first_pass": {
+    "correct": 6,
+    "total": 12,
+    "percent": 50.0,
+    "wilson95": [
+      25.38,
+      74.62
+    ]
+  },
+  "transfer_provider_available": {
+    "correct": 6,
+    "total": 8,
+    "percent": 75.0,
+    "wilson95": [
+      40.93,
+      92.85
+    ]
+  },
+  "transfer_provider_402_cases": [
+    "T09",
+    "T10",
+    "T11",
+    "T12"
+  ],
+  "transfer_scope": "12 instantaneous domestic CNY journeys; 2 fixed multi-turn sequences. Scheduled, AA and FX completion not included. First-pass denominator includes outages; service-available subset shown separately.",
+  "transfer_service_restored": {
+    "correct": 10,
+    "total": 12,
+    "percent": 83.33,
+    "wilson95": [
+      55.2,
+      95.3
+    ]
+  },
+  "dataset_sha256": "5d260e69ec0559d6a1109b7b77de77937bd6d31488ce711a77d20e05a9f4cf75",
+  "source_sha256": "c2d123c0a787aedd1ce54b3b0b40233fc403c157ce5828d55291ca4c89c43f65",
+  "parameter_boundary": "18条普通样本中37个预标注字段；未覆盖所有输出字段及额外字段错误。"
+}

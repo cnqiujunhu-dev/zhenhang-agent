@@ -1,0 +1,5 @@
+var/
+dist/*.idsig
+node_modules/
+*.p12
+*.jks

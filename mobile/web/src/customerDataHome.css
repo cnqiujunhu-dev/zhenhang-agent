@@ -1,0 +1,26 @@
+.agent-first-workspace .customer-data-surface{grid-area:reading;min-height:0;min-width:0;overflow:auto;overscroll-behavior:contain;padding:22px 28px;scrollbar-gutter:stable;background:#f7faf9}
+.agent-first-workspace .conversation-panel:has(>.customer-data-surface){grid-template-rows:auto auto minmax(220px,1fr)}
+.customer-data-home{max-width:1180px;margin:auto;font-size:18px;line-height:1.65}
+.data-home-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:22px}
+.data-home-heading p{margin:0;color:#537e78;font-size:16px}.data-home-heading h2{font-size:28px;margin:3px 0}.data-home-heading span{color:#71848a}
+.data-home-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}.data-home-tabs button{padding:9px 15px;border:1px solid #d9e6e2;background:white;color:#375d63;border-radius:10px;font:inherit;cursor:pointer}
+.data-home-tabs button[aria-pressed=true]{background:#dff1e9;border-color:#8cbead;color:#116e5b}.data-home-tabs button:focus-visible{outline:3px solid #48a693;outline-offset:3px}
+.data-home-section{padding:22px;margin:0 0 20px;border:1px solid #dce7e3;border-radius:15px;background:white}
+.data-home-section>header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.data-home-section>header h3{margin:0;font-size:22px}
+.data-home-card-grid,.data-home-record-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}
+/* Both debit variants share one card row; balances are already rendered below. */
+.customer-data-home .data-home-card-grid>div{display:grid;grid-template-rows:subgrid;grid-row:span 2;gap:16px;min-width:0;align-items:start}
+.customer-data-home .data-home-card-grid .bank-card{margin:0;min-height:248px;padding:20px;display:flex;flex-direction:column;align-self:stretch;box-sizing:border-box}
+.customer-data-home .data-home-card-grid .bank-card .bank-card-number-row{margin-top:18px}
+.customer-data-home .data-home-card-grid .bank-card .bank-card-bottom{margin-top:auto;padding-top:18px}
+.customer-data-home .data-home-card-grid .dual-card-balances,.customer-data-home .data-home-card-grid .dual-card-balance-note{display:none}
+.customer-data-home .data-home-card-grid .card-currency-badges{flex-wrap:wrap}
+.customer-data-home .data-home-card-grid .data-home-metrics{margin:0;align-self:start}
+.data-home-record-grid>article,.data-home-plan{border:1px solid #e0eae6;border-radius:12px;padding:18px;min-width:0}.data-home-record-grid h4,.data-home-plan h4{font-size:19px;margin:0 0 13px;display:flex;justify-content:space-between;gap:10px}
+.data-home-record-grid h4>span,.data-home-plan h4>span{font-size:14px;font-weight:500;white-space:nowrap;color:#477866}
+.data-home-metrics{margin:0;display:grid;gap:12px}.data-home-metrics>div{display:flex;justify-content:space-between;gap:16px}.data-home-metrics dt{color:#6d8187}.data-home-metrics dd{margin:0;text-align:right;font-weight:500;overflow-wrap:anywhere}
+.data-home-empty{color:#6e8285;padding:12px 0}.data-home-body .personal-service-results>h3,.data-home-body .credit-results>h3{display:none}
+.data-home-body{animation:data-home-enter 180ms ease-out}.assistant-message .result-heading:empty{display:none}
+@keyframes data-home-enter{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.agent-first-workspace .customer-data-surface{padding:16px 12px}.data-home-section{padding:16px}.data-home-heading{align-items:flex-start}.data-home-heading h2{font-size:24px}.data-home-tabs{gap:6px}.data-home-tabs button{font-size:16px;padding:8px 11px}.data-home-metrics>div{flex-wrap:wrap;gap:5px 12px}}
+@media(prefers-reduced-motion:reduce){.data-home-body{animation:none}}

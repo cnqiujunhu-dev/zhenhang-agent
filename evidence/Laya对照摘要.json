@@ -1,0 +1,91 @@
+{
+  "metrics": {
+    "ALL_PRO": {
+      "frozen_denominator": 20,
+      "observed": 20,
+      "not_run": 0,
+      "ready": 19,
+      "strict_label_matches": 18,
+      "guarded_compiled_label_matches": 16,
+      "strict_labels_and_fields_matches": 12,
+      "latency": {
+        "n": 20,
+        "mean_ms": 2874.18015,
+        "p50_ms": 2437.9795,
+        "p95_ms": 6168.701,
+        "p95_method": "NEAREST_RANK"
+      },
+      "independent_http_observations": true
+    },
+    "ALL_FLASH": {
+      "frozen_denominator": 20,
+      "observed": 20,
+      "not_run": 0,
+      "ready": 17,
+      "strict_label_matches": 16,
+      "guarded_compiled_label_matches": 14,
+      "strict_labels_and_fields_matches": 11,
+      "latency": {
+        "n": 20,
+        "mean_ms": 1707.0995,
+        "p50_ms": 1536.9305,
+        "p95_ms": 2698.393,
+        "p95_method": "NEAREST_RANK"
+      },
+      "independent_http_observations": true
+    },
+    "LAYA_MIXED": {
+      "frozen_denominator": 20,
+      "observed": 20,
+      "not_run": 0,
+      "ready": 19,
+      "strict_label_matches": 18,
+      "guarded_compiled_label_matches": 16,
+      "strict_labels_and_fields_matches": 12,
+      "latency": {
+        "n": 20,
+        "mean_ms": 3337.1231000000002,
+        "p50_ms": 2902.4205,
+        "p95_ms": 6682.763,
+        "p95_method": "NEAREST_RANK"
+      },
+      "independent_http_observations": true
+    },
+    "NO_LAYA_CONSERVATIVE": {
+      "frozen_denominator": 20,
+      "observed": 20,
+      "not_run": 0,
+      "ready": 19,
+      "strict_label_matches": 18,
+      "guarded_compiled_label_matches": 16,
+      "strict_labels_and_fields_matches": 12,
+      "latency": {
+        "n": 20,
+        "mean_ms": 2874.18015,
+        "p50_ms": 2437.9795,
+        "p95_ms": 6168.701,
+        "p95_method": "NEAREST_RANK"
+      },
+      "independent_http_observations": false
+    },
+    "mixed_minus_pro_ms": {
+      "n": 20,
+      "mean_ms": 462.94295000000005,
+      "p50_ms": 432.341,
+      "p95_ms": 997.7530000000002,
+      "p95_method": "NEAREST_RANK"
+    },
+    "laya": {
+      "denominator": 20,
+      "flash_suggestions": 0,
+      "unsafe_simple_suggestions": 0,
+      "scene_matches": 12,
+      "difficulty_matches": 9,
+      "sdk_failures_or_abstentions": 0
+    }
+  },
+  "source_sha256": "024ed8cfc9b5bf61deb956dad50c0f60d84804c48e81d6fc0918f8a688035fc4",
+  "scope": "20条开发样本；只有语义选择，不是全业务端到端耗时。NO_LAYA_CONSERVATIVE复用ALL_PRO，非独立第四组。",
+  "production_adoption": false,
+  "production_default": "deepseek-v4-pro"
+}
