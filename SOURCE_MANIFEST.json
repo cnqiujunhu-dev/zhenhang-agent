@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
   "release": "submission-2026-10-30-r2",
-  "source_tree_sha256": "cb92433e6db604b5e6cad9298d1ac4cbc030cdd497ec027cdbf37e9473c042c1",
+  "source_tree_sha256": "5aea3cd57c7f5b6d27c4e8000d132aaa7712626de10427348f80936688177299",
   "files": [
     {
       "path": ".gitattributes",
@@ -4553,6 +4553,11 @@
       "origin_sha256": "f6e7d34801e0f6852a87753c7b041d274fa5c9a21d19b4aca2783c4be6c6f1a1"
     },
     {
+      "path": "docs/assets/readme-overview.svg",
+      "bytes": 2991,
+      "sha256": "83ed6528525ce2862c3a9117b0a4a3adc70cf9f7b6f971adf8c4ed201a0cc489"
+    },
+    {
       "path": "docs/已知限制.md",
       "bytes": 1240,
       "sha256": "9534411ebc578e1144a59bec4dfc27e1553f3716dce36208ee147f1c844e5fae",
@@ -6515,8 +6520,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3558,
-      "sha256": "69717b70f50f7e4625f7bcc995b1c8f2bd83722e7de31056c4039778287907ae"
+      "bytes": 24510,
+      "sha256": "438f43c600c51e72380220715cf025714e397a63b80ebaf83cca490920b8e6c9"
     },
     {
       "path": "SECURITY.md",
@@ -6542,7 +6547,8 @@
     "Explicit same-screen operation-verification wording",
     "Portable mobile scripts and Windows PowerShell BOM",
     "Publication wording in text only; identifiers preserved",
-    "Documented explicit test selection, fixtures and updated catalog contract test"
+    "Documented explicit test selection, fixtures and updated catalog contract test",
+    "Public README expanded with sourced scenario map, flow diagrams, Android, evaluation and deployment guidance"
   ],
   "exclusions": [
     ".env and local credentials",
