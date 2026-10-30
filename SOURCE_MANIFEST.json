@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
-  "release": "submission-2026-10-30-r1",
-  "source_tree_sha256": "95512f7fab65838c6e36d20a16a215d9f587756199eed972ee2ff396375c07a0",
+  "release": "submission-2026-10-30-r2",
+  "source_tree_sha256": "7263567cf9dc1f2b68651fc00ba458819a31ea6f35b92d8c51e06050a4ac90d2",
   "files": [
     {
       "path": ".gitattributes",
@@ -4561,7 +4561,7 @@
     {
       "path": "docs/手机连接.md",
       "bytes": 3104,
-      "sha256": "b8a4bd18300c22a6edc80f170b2d243c87db96f830a9642b0ff32d4e238d8906"
+      "sha256": "132ce42731d3289e737f8cbdbeb8a837d35743a83dd3271c0740e7481e8bda62"
     },
     {
       "path": "docs/排错.md",
@@ -4600,7 +4600,7 @@
     {
       "path": "docs/部署说明.md",
       "bytes": 9774,
-      "sha256": "66f8b33f3e5f38ed356626c23fd098a866e2f5c9a59760b616b85e1def538aa6",
+      "sha256": "d82f17cc74e5e9dc70843f2bc52cc4a320198accfeb4098aadb629ec67ab7c8b",
       "origin_sha256": "4ffe7cecb54ced4bbbb90f2add8bdcd1e3162eb4bde882027176ffef673883e7"
     },
     {
@@ -6515,8 +6515,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3540,
-      "sha256": "c6c92cabfd7f130539660eae1ec89b54bcaae126c81facdf710aa18b87cdc9c0"
+      "bytes": 3558,
+      "sha256": "69717b70f50f7e4625f7bcc995b1c8f2bd83722e7de31056c4039778287907ae"
     },
     {
       "path": "SECURITY.md",

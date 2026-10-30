@@ -1,4 +1,4 @@
-# 圳行Agent
+# 圳行Agent · Zhenhang Agent
 
 通过连续对话查询账户、分析账单、准备转账和信用卡业务，并在用户核对后执行。网页与 Android 应用共用同一套后端，结果来自业务查询和账务记录。
 
@@ -45,7 +45,7 @@
 ## 工程结构
 
 ```text
-zhenxing-agent/
+zhenhang-agent/
   README.md
   app/                 API、Worker、业务模型、网页、部署与测试
   mobile/              Android入口、内置网页、APK、网关与构建脚本
