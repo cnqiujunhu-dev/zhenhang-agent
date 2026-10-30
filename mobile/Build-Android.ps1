@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 $projectRoot = [IO.Path]::GetFullPath($PSScriptRoot)
 if ($projectRoot -match '[^\x00-\x7f]') {
-    throw '请使用英文构建路径，例如 D:\ZhenxingSubmission\mobile。'
+    throw '请使用英文构建路径，例如 D:\ZhenhangSubmission\mobile。'
 }
 $tempPath = Join-Path $projectRoot 'var\temp'
 $cachePath = Join-Path $projectRoot 'var\npm-cache'

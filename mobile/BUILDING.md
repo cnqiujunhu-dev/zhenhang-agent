@@ -2,7 +2,7 @@
 
 ## 环境
 
-Windows、Python 3.11及以上、Node.js 24、JDK 21。首次构建需联网下载锁定的npm依赖和Android官方构建组件。建议在非系统盘的英文路径中解压，例如D:\ZhenxingSubmission。
+Windows、Python 3.11及以上、Node.js 24、JDK 21。首次构建需联网下载锁定的npm依赖和Android官方构建组件。建议在非系统盘的英文路径中解压，例如D:\ZhenhangSubmission。
 
 在mobile目录运行：
 

@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
   "release": "submission-2026-10-30-r2",
-  "source_tree_sha256": "7263567cf9dc1f2b68651fc00ba458819a31ea6f35b92d8c51e06050a4ac90d2",
+  "source_tree_sha256": "cb92433e6db604b5e6cad9298d1ac4cbc030cdd497ec027cdbf37e9473c042c1",
   "files": [
     {
       "path": ".gitattributes",
@@ -4909,13 +4909,13 @@
     {
       "path": "mobile/Build-Android.ps1",
       "bytes": 5851,
-      "sha256": "0a3a80d7482ab92b8b4cece28a96102c7c19d74bd1698ece7ee478060785d6c7",
+      "sha256": "3c9c9c8ae10f897e353bf6b98fed7eeab0ae58a6de3eade910a260eeba260447",
       "origin_sha256": "0a3a80d7482ab92b8b4cece28a96102c7c19d74bd1698ece7ee478060785d6c7"
     },
     {
       "path": "mobile/BUILDING.md",
       "bytes": 1470,
-      "sha256": "4d1a69c665ac3c6862f3493a7bdd3f91926433fee6b78e4308f803121cef605a",
+      "sha256": "73f5f94864af605a6a8d93f34108984dc4a35f3ae5846c9af03b05d552fdbc2e",
       "origin_sha256": "4d1a69c665ac3c6862f3493a7bdd3f91926433fee6b78e4308f803121cef605a"
     },
     {
