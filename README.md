@@ -10,6 +10,7 @@
 
 ## 目录
 
+- [界面实录](#界面实录)
 - [六场景覆盖](#六场景覆盖)
 - [一轮对话如何处理](#一轮对话如何处理)
 - [连续对话与结果追问](#连续对话与结果追问)
@@ -23,6 +24,22 @@
 - [初始化数据](#初始化数据)
 - [工程目录与开发验证](#工程目录与开发验证)
 - [适用范围与待接入能力](#适用范围与待接入能力)
+
+## 界面实录
+
+以下画面来自2026-10-24至29的实际运行与录制。点击图片可查看原图，页面中的金额和卡片状态为采集当时的业务结果。
+
+**连续补充与转账结果**：从“给林悦转一笔钱”继续补充付款卡，完成后显示收款人、收款卡、备注与转账状态。
+
+[![连续对话补充付款卡后的转账成功结果](docs/screenshots/transfer-dialogue.jpg)](docs/screenshots/transfer-dialogue.jpg)
+
+| 月度账单与待核对扣款 | 申购后追问当前持仓 |
+| --- | --- |
+| [![月度账单与异常扣款核对线索](docs/screenshots/bill-analysis.jpg)](docs/screenshots/bill-analysis.jpg) | [![申购后追问该产品当前份额与持仓价值](docs/screenshots/wealth-holdings.jpg)](docs/screenshots/wealth-holdings.jpg) |
+| **订阅价格与续费规则咨询** | **每月交房租预约登记** |
+| [![订阅价格、权益与自动续费规则咨询](docs/screenshots/subscription-consultation.jpg)](docs/screenshots/subscription-consultation.jpg) | [![连续修改备注后显示已登记的房租预约](docs/screenshots/rent-schedule.jpg)](docs/screenshots/rent-schedule.jpg) |
+
+Android运行界面、知识索引后台和实际信用卡DAG见下文对应章节。
 
 ## 六场景覆盖
 
@@ -123,6 +140,10 @@ DAG只描述步骤和依赖，查询、还款由各自业务工具执行。两�
 
 对应实现：[信用卡运行时](app/src/zhenxing/credit_runtime.py) · [还款闭环](app/src/zhenxing/credit_repayment_closure.py) · [信用卡业务测试](app/tests/test_credit_payment_domain.py)
 
+**实际任务依赖图 · 2026-10-25。** 后台展示已完成的查账、还款、欠款复查和额度复查四个节点：
+
+[![后台展示信用卡查账、还款与两项复查的实际DAG](docs/screenshots/admin-credit-dag.png)](docs/screenshots/admin-credit-dag.png)
+
 生日计划进一步涉及跨时间执行：先确认预算、付款卡、商品、地址和授权期限，再按计划预留、下单及查询履约；变更超出授权范围时重新确认。发生局部失败时按已经形成的业务事实处理补偿或查单，不把所有外部动作都视作可直接回滚。
 
 ## 风控、确认与幂等
@@ -155,6 +176,10 @@ DAG只描述步骤和依赖，查询、还款由各自业务工具执行。两�
 
 2026-10-30新环境部署验证中，54篇文档、342个片段完成索引，实际检索返回 `READY / HYBRID`。这些数字属于该版语料和部署快照，见[发布验证摘要](evidence/发布验证摘要.json)。
 
+**知识与索引后台 · 2026-10-25。** 页面展示文档与向量覆盖、模型指纹、服务探活和实际检索模式：
+
+[![知识后台展示54篇文档、342片段、384维向量及HYBRID检索](docs/screenshots/admin-knowledge.png)](docs/screenshots/admin-knowledge.png)
+
 ### Pro、Flash与Laya
 
 当前主要对话链路默认使用 `deepseek-v4-pro`。原先尝试让Laya先判断细分场景与难度，简单查询分给Flash，复杂请求交给Pro；实测未形成有效分流，因此未默认启用前置Laya路由。
@@ -180,6 +205,12 @@ DAG只描述步骤和依赖，查询、还款由各自业务工具执行。两�
 | 管理后台 | 账号及申请管理、信用账务状态与策略审计（管理员私有）、知识文档与索引、模型配置、任务运行状态与审计查看；具体权限由服务端检查 |
 
 Android默认86%布局缩放，支持双指缩放；系统文件选择器最多接收5张图片，每张不超过5MiB。客户端限制服务来源，切换来源时清理旧存储，模型密钥留在电脑服务端。
+
+**Android 0.1.1实际运行 · 2026-10-29。** 用户从银行卡余额继续追问信用卡可用额度：
+
+<p align="center">
+  <a href="docs/screenshots/android-credit.png"><img src="docs/screenshots/android-credit.png" alt="Android连续追问信用卡可用额度的实际界面" width="300"></a>
+</p>
 
 网页与APK共用业务服务，APK内置界面是独立快照，修改网页不会自动更新已安装应用。安装包、校验值和构建方法见[Android发布文件](mobile/dist)、[移动端构建](mobile/BUILDING.md)、[手机连接](docs/手机连接.md)及[移动端验证](docs/移动端验证说明.md)。
 

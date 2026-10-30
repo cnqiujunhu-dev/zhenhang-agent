@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
   "release": "submission-2026-10-30-r2",
-  "source_tree_sha256": "5aea3cd57c7f5b6d27c4e8000d132aaa7712626de10427348f80936688177299",
+  "source_tree_sha256": "ce767460d94dc873570d7ed951247488550de34233b0e7b8b3b03b0ccef33a39",
   "files": [
     {
       "path": ".gitattributes",
@@ -4558,6 +4558,46 @@
       "sha256": "83ed6528525ce2862c3a9117b0a4a3adc70cf9f7b6f971adf8c4ed201a0cc489"
     },
     {
+      "path": "docs/screenshots/admin-credit-dag.png",
+      "bytes": 442156,
+      "sha256": "1c73c65afa76b0196d053ab3acd902b7a3b868adb7990cdb47ccadb81475391c"
+    },
+    {
+      "path": "docs/screenshots/admin-knowledge.png",
+      "bytes": 706709,
+      "sha256": "3842313b31e7da8e3a8f1482dbcdd3b81ea4dd578e9def86e0678a753f2db2dc"
+    },
+    {
+      "path": "docs/screenshots/android-credit.png",
+      "bytes": 167379,
+      "sha256": "9de38023c86fe279c46c40d2a3558e8ec71d782357d151697028f0dda6bec972"
+    },
+    {
+      "path": "docs/screenshots/bill-analysis.jpg",
+      "bytes": 134049,
+      "sha256": "c2147ba3ebf1c3d9e3561479ae5931488fc0ddc930b010c6f5d0a133c297a112"
+    },
+    {
+      "path": "docs/screenshots/rent-schedule.jpg",
+      "bytes": 167523,
+      "sha256": "0df325bbd638e1c92abe2580ff6fec02be548f2d2a6af908b4167bc72036a413"
+    },
+    {
+      "path": "docs/screenshots/subscription-consultation.jpg",
+      "bytes": 187537,
+      "sha256": "0d0c9ca52414bcd479c0aba1323455cf65822ae3437711ab939c6ce8089d3cf2"
+    },
+    {
+      "path": "docs/screenshots/transfer-dialogue.jpg",
+      "bytes": 138143,
+      "sha256": "5caedde8cf67a9ecd8e7e97cd82e0ffaf27ad5b2ae078f9cc2bc479bc758efb2"
+    },
+    {
+      "path": "docs/screenshots/wealth-holdings.jpg",
+      "bytes": 123816,
+      "sha256": "50075b405df593482eec75adbc76d053d6b3fb62d87ed924c0987997dddab2cf"
+    },
+    {
       "path": "docs/已知限制.md",
       "bytes": 1240,
       "sha256": "9534411ebc578e1144a59bec4dfc27e1553f3716dce36208ee147f1c844e5fae",
@@ -6520,8 +6560,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 24510,
-      "sha256": "438f43c600c51e72380220715cf025714e397a63b80ebaf83cca490920b8e6c9"
+      "bytes": 26663,
+      "sha256": "7579d552ed0209810d4aca40c80c61fcabb9c0730026ed5c3d22ae118fe603f1"
     },
     {
       "path": "SECURITY.md",
@@ -6548,7 +6588,8 @@
     "Portable mobile scripts and Windows PowerShell BOM",
     "Publication wording in text only; identifiers preserved",
     "Documented explicit test selection, fixtures and updated catalog contract test",
-    "Public README expanded with sourced scenario map, flow diagrams, Android, evaluation and deployment guidance"
+    "Public README expanded with sourced scenario map, flow diagrams, Android, evaluation and deployment guidance",
+    "Readme screenshots selected from actual desktop, Android and admin runs; original image bytes preserved"
   ],
   "exclusions": [
     ".env and local credentials",
