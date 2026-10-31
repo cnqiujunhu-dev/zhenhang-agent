@@ -11,6 +11,8 @@
 ## 目录
 
 - [界面实录](#界面实录)
+- [用户资料主页](#用户资料主页)
+- [场景对话与办理](#场景对话与办理)
 - [六场景覆盖](#六场景覆盖)
 - [一轮对话如何处理](#一轮对话如何处理)
 - [连续对话与结果追问](#连续对话与结果追问)
@@ -29,6 +31,18 @@
 
 以下画面来自2026-10-24至29的实际运行与录制。点击图片可查看原图，页面中的金额和卡片状态为采集当时的业务结果。
 
+### 用户资料主页
+
+在同一入口查看账户、持仓、订阅和家庭资料，再返回对话发起查询或办理。下面展示2026-10-25运行时的资料页；卡片状态、持仓和已开通服务会随业务变化。
+
+| 账户与借记卡：独立余额、币种和卡片状态 | 资产持仓：理财、股票与贵金属 |
+| --- | --- |
+| [![用户资料主页展示两张借记卡各自的余额和状态](docs/screenshots/profile-accounts.png)](docs/screenshots/profile-accounts.png) | [![用户资料主页展示黄金、股票、现金管理和纯债持仓](docs/screenshots/profile-assets.png)](docs/screenshots/profile-assets.png) |
+| **订阅服务：费用、权益和自动续费设置** | **家庭与生日：成员关系和生日安排** |
+| [![用户资料主页展示订阅费用、权益到期和续费开关](docs/screenshots/profile-subscriptions.png)](docs/screenshots/profile-subscriptions.png) | [![用户资料主页展示配偶与子女的关系和生日](docs/screenshots/profile-family.png)](docs/screenshots/profile-family.png) |
+
+### 场景对话与办理
+
 **连续补充与转账结果**：从“给林悦转一笔钱”继续补充付款卡，完成后显示收款人、收款卡、备注与转账状态。
 
 [![连续对话补充付款卡后的转账成功结果](docs/screenshots/transfer-dialogue.jpg)](docs/screenshots/transfer-dialogue.jpg)
@@ -38,6 +52,19 @@
 | [![月度账单与异常扣款核对线索](docs/screenshots/bill-analysis.jpg)](docs/screenshots/bill-analysis.jpg) | [![申购后追问该产品当前份额与持仓价值](docs/screenshots/wealth-holdings.jpg)](docs/screenshots/wealth-holdings.jpg) |
 | **订阅价格与续费规则咨询** | **每月交房租预约登记** |
 | [![订阅价格、权益与自动续费规则咨询](docs/screenshots/subscription-consultation.jpg)](docs/screenshots/subscription-consultation.jpg) | [![连续修改备注后显示已登记的房租预约](docs/screenshots/rent-schedule.jpg)](docs/screenshots/rent-schedule.jpg) |
+| **AA收款：查询谁已付款、是否收齐** | **信用卡：还清后复查欠款和可用额度** |
+| [![AA账单显示参与人付款进度、收款备注和已收齐状态](docs/screenshots/aa-collection.jpg)](docs/screenshots/aa-collection.jpg) | [![信用卡还款后复查显示零欠款与可用额度](docs/screenshots/credit-requery.png)](docs/screenshots/credit-requery.png) |
+
+这几组对话分别展示“这只产品”“这张信用卡”“这笔AA”等对象引用：后续查询沿用已选业务对象，并读取相应结果。转账和还款仍以页面核对与确认流程为执行边界。
+
+<details>
+<summary>展开查看房租预约的8期执行安排</summary>
+
+“从下个月开始，每月5号转3000元房租”，再补充结束月份后，系统列出2026年11月至2027年6月共8期待执行安排。登记与待执行状态分别展示，不能当作已经付款。
+
+[![房租预约展开显示连续8个月的待执行日期](docs/screenshots/rent-occurrences.jpg)](docs/screenshots/rent-occurrences.jpg)
+
+</details>
 
 Android运行界面、知识索引后台和实际信用卡DAG见下文对应章节。
 

@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
   "release": "submission-2026-10-30-r2",
-  "source_tree_sha256": "ce767460d94dc873570d7ed951247488550de34233b0e7b8b3b03b0ccef33a39",
+  "source_tree_sha256": "cdee24a0b6d7e5ec770879dc5af997351d818c12ce557d3d5c9c98284c4b2942",
   "files": [
     {
       "path": ".gitattributes",
@@ -4558,6 +4558,11 @@
       "sha256": "83ed6528525ce2862c3a9117b0a4a3adc70cf9f7b6f971adf8c4ed201a0cc489"
     },
     {
+      "path": "docs/screenshots/aa-collection.jpg",
+      "bytes": 122140,
+      "sha256": "bc83d48911985908e1b0f3880cc08dd963ceff5754024bb519a96e738a8142f5"
+    },
+    {
       "path": "docs/screenshots/admin-credit-dag.png",
       "bytes": 442156,
       "sha256": "1c73c65afa76b0196d053ab3acd902b7a3b868adb7990cdb47ccadb81475391c"
@@ -4576,6 +4581,36 @@
       "path": "docs/screenshots/bill-analysis.jpg",
       "bytes": 134049,
       "sha256": "c2147ba3ebf1c3d9e3561479ae5931488fc0ddc930b010c6f5d0a133c297a112"
+    },
+    {
+      "path": "docs/screenshots/credit-requery.png",
+      "bytes": 78753,
+      "sha256": "657cbd7ee330105a140f18a9b9a3ec1af27484b98280aea0f985fc42d532d925"
+    },
+    {
+      "path": "docs/screenshots/profile-accounts.png",
+      "bytes": 456318,
+      "sha256": "546a28e66098dd07a5a3be6442a7b6c29572a22849383da8f549662c2e34c785"
+    },
+    {
+      "path": "docs/screenshots/profile-assets.png",
+      "bytes": 361646,
+      "sha256": "7bdbea3055c248808697e4e2aed1633c4dd02f7d7bdea97f23c56af963772d72"
+    },
+    {
+      "path": "docs/screenshots/profile-family.png",
+      "bytes": 346153,
+      "sha256": "85cf7a4d61d0e53524d03f1e38e39e8359845bbbde50ee75b6ed3314dacc2228"
+    },
+    {
+      "path": "docs/screenshots/profile-subscriptions.png",
+      "bytes": 404018,
+      "sha256": "c1ab9eab73784c3d778f4e0ad250e674ec5343ea9ff8a509601a526556de0d31"
+    },
+    {
+      "path": "docs/screenshots/rent-occurrences.jpg",
+      "bytes": 180509,
+      "sha256": "cf0380d9d873ef573374c359720f5c53293294b1401bd98009fa0da6b49d1016"
     },
     {
       "path": "docs/screenshots/rent-schedule.jpg",
@@ -6560,8 +6595,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26663,
-      "sha256": "7579d552ed0209810d4aca40c80c61fcabb9c0730026ed5c3d22ae118fe603f1"
+      "bytes": 28920,
+      "sha256": "bb07884140674b1397e3c434fc369c1a7b457aaa93ccee5cd064867add7bdb48"
     },
     {
       "path": "SECURITY.md",
@@ -6589,7 +6624,8 @@
     "Publication wording in text only; identifiers preserved",
     "Documented explicit test selection, fixtures and updated catalog contract test",
     "Public README expanded with sourced scenario map, flow diagrams, Android, evaluation and deployment guidance",
-    "Readme screenshots selected from actual desktop, Android and admin runs; original image bytes preserved"
+    "Readme screenshots selected from actual desktop, Android and admin runs; original image bytes preserved",
+    "User-profile pages and additional recorded AA, credit and scheduled-rent screens added to public README"
   ],
   "exclusions": [
     ".env and local credentials",
