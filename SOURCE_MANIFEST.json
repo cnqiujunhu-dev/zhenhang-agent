@@ -1,7 +1,7 @@
 {
   "project": "圳行Agent",
   "release": "submission-2026-10-30-r2",
-  "source_tree_sha256": "cdee24a0b6d7e5ec770879dc5af997351d818c12ce557d3d5c9c98284c4b2942",
+  "source_tree_sha256": "fcfd6ba50e83a343a20a0a32f1c1237b8f17194faa71632e83989586292a1c43",
   "files": [
     {
       "path": ".gitattributes",
@@ -6595,8 +6595,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 28920,
-      "sha256": "bb07884140674b1397e3c434fc369c1a7b457aaa93ccee5cd064867add7bdb48"
+      "bytes": 29945,
+      "sha256": "7b8eb8f59b6c1f1c9cd38f31980f5f382567100d160a72d1ff0b9fc5c3c233f4"
     },
     {
       "path": "SECURITY.md",
